@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1782716292328,
+    "timestamp": "2026-06-29T06:58:12.328Z",
+    "category": "DELETE",
+    "actor": "Admin",
+    "description": "Removed employee profile and salary configuration for Shanth Kumar (shantha)",
+    "ip": "—",
+    "meta": {
+      "username": "shantha"
+    }
+  },
+  {
+    "id": 1782374810517,
+    "timestamp": "2026-06-25T08:06:50.517Z",
+    "category": "CREATE",
+    "actor": "Admin",
+    "description": "Added new employee profile for Shanth Kumar (shantha)",
+    "ip": "—",
+    "meta": {
+      "username": "shantha",
+      "id": 37
+    }
+  },
+  {
+    "id": 1782121368739,
+    "timestamp": "2026-06-22T09:42:48.739Z",
+    "category": "UPDATE",
+    "actor": "Admin",
+    "description": "Added/Updated performance report for employee ID 17 (2026-05)",
+    "ip": "—",
+    "meta": {
+      "employeeId": "17",
+      "period": "2026-05"
+    }
+  },
+  {
+    "id": 1782118863830,
+    "timestamp": "2026-06-22T09:01:03.830Z",
+    "category": "UPDATE",
+    "actor": "Admin",
+    "description": "Added/Updated performance report for employee ID 17 (2026-06)",
+    "ip": "—",
+    "meta": {
+      "employeeId": 17,
+      "period": "2026-06"
+    }
+  },
+  {
+    "id": 1782116349294,
+    "timestamp": "2026-06-22T08:19:09.294Z",
+    "category": "UPDATE",
+    "actor": "Admin",
+    "description": "Added/Updated performance report for employee ID 14 (2026-06)",
+    "ip": "—",
+    "meta": {
+      "employeeId": "14",
+      "period": "2026-06"
+    }
+  },
+  {
+    "id": 1782114223232,
+    "timestamp": "2026-06-22T07:43:43.232Z",
+    "category": "UPDATE",
+    "actor": "Admin",
+    "description": "Updated employee profile for Sowmya Payas (sowmya)",
+    "ip": "—",
+    "meta": {
+      "username": "sowmya"
+    }
+  }
+]

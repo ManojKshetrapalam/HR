@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variety Vintage - HR Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- SheetJS for client-side Excel Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="brand-section" style="margin-bottom: 35px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="logo_square.jpg" alt="Variety Vintage Icon" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15); object-fit: cover;">
+        <div>
+          <h1 class="brand-logo" style="font-size: 20px; font-weight: 800; line-height: 1.1; display: block; background: none; -webkit-text-fill-color: white; color: white;">
+            Variety Vintage
+          </h1>
+          <span class="brand-subtitle" style="font-size: 9px; letter-spacing: 0.08em; display: block; margin-top: 2px;">Payroll & HR Ledger</span>
+        </div>
+      </div>
+    </div>
+
+    <nav>
+      <ul class="nav-menu">
+        <li class="nav-item active" id="nav-dashboard">
+          <a onclick="switchTab('dashboard')">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" id="nav-employees">
+          <a onclick="switchTab('employees')">
+            <i data-lucide="users"></i>
+            <span>Employees</span>
+          </a>
+        </li>
+        <li class="nav-item" id="nav-attendance">
+          <a onclick="switchTab('attendance')">
+            <i data-lucide="clock"></i>
+            <span>Attendance Logs</span>
+          </a>
+        </li>
+        <li class="nav-item" id="nav-leaves">
+          <a onclick="switchTab('leaves')">
+            <i data-lucide="calendar"></i>
+            <span>Leave Requests</span>
+          </a>
+        </li>
+        <li class="nav-item" id="nav-salaries">
+          <a onclick="switchTab('salaries')">
+            <i data-lucide="upload-cloud"></i>
+            <span>Upload Salaries</span>
+          </a>
+        </li>
+        <li class="nav-item" id="nav-payslips">
+          <a onclick="switchTab('payslips')">
+            <i data-lucide="credit-card"></i>
+            <span>Generate Payslips</span>
+          </a>
+        </li>
+        <li class="nav-item" id="nav-holidays">
+          <a onclick="switchTab('holidays')">
+            <i data-lucide="sun"></i>
+            <span>Holidays</span>
+          </a>
+        </li>
+        <li class="nav-item" id="nav-logs">
+          <a onclick="switchTab('logs')">
+            <i data-lucide="shield-check"></i>
+            <span>Activity Logs</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="nav-footer">
+      <p>Variety Vintage HR</p>
+      <p>+91 94038 90373</p>
+      <p>hello@varietyvintage.com</p>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-content">
+    
+    <!-- Top Header -->
+    <header class="top-header">
+      <h2 class="page-title" id="page-title-text">Dashboard</h2>
+      
+      <div class="sync-button-container">
+        <span class="sync-time" id="sync-status-time">Checking status...</span>
+        <button class="btn btn-secondary" onclick="openSyncModal()">
+          <i data-lucide="refresh-cw"></i>
+          <span>Sync Employee Portal</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 1. DASHBOARD TAB -->
+    <section class="tab-content active" id="dashboard">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <i data-lucide="users"></i>
+          </div>
+          <div>
+            <p class="stat-label">Total Employees</p>
+            <p class="stat-value" id="stat-total-employees">0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange">
+            <i data-lucide="calendar"></i>
+          </div>
+          <div>
+            <p class="stat-label">Approved Leaves</p>
+            <p class="stat-value" id="stat-approved-leaves">0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon rose">
+            <i data-lucide="alert-triangle"></i>
+          </div>
+          <div>
+            <p class="stat-label">Total LOP Days</p>
+            <p class="stat-value" id="stat-lop-days">0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon emerald">
+            <i data-lucide="clock"></i>
+          </div>
+          <div>
+            <p class="stat-label">Late Marks</p>
+            <p class="stat-value" id="stat-late-marks">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <h3 class="glass-card-title">
+          <i data-lucide="activity"></i>
+          <span>System Synchronization Overview</span>
+        </h3>
+        <p style="margin-bottom: 20px; line-height: 1.6; color: var(--slate-600);">
+          This system connects to the Variety Vintage Performance Intelligence Portal (<code>https://varietyvintage.com/employee</code>) to pull live attendance, leave approvals, and employee credentials. Monthly salary structures can be loaded below using CSV or Excel formats to prepare payslip disbursements.
+        </p>
+        <div style="display: flex; gap: 15px;">
+          <button class="btn btn-primary" onclick="openSyncModal()">
+            <i data-lucide="refresh-cw"></i> Sync Data Now
+          </button>
+          <button class="btn btn-secondary" onclick="switchTab('salaries')">
+            <i data-lucide="upload-cloud"></i> Upload Salary Sheet
+          </button>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <h3 class="glass-card-title">
+          <i data-lucide="shield-check"></i>
+          <span>Salary Spreadsheet Instructions</span>
+        </h3>
+        <div style="line-height: 1.6; color: var(--slate-600); font-size: 14px;">
+          <p style="margin-bottom: 10px;">To ensure proper payslip generation, format your spreadsheet with the following columns:</p>
+          <ul style="margin-left: 20px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 6px;">
+            <li><code>username</code> or <code>employee_name</code> - Matches synced employee profiles (e.g., <i>ksheera</i>, <i>gani</i> or <i>Santhosh B</i>).</li>
+            <li><code>base_salary</code> or <code>salary</code> - The monthly base pay (e.g., <i>42000</i>).</li>
+            <li><code>allowance</code> (Optional) - Special allowances or bonuses.</li>
+            <li><code>pf</code> (Optional) - Provident Fund deductions.</li>
+            <li><code>tds</code> (Optional) - Tax deductions.</li>
+          </ul>
+          <p>The system will automatically link base salaries, deduct ₹250 for each logged late arrival, and calculate Loss of Pay (LOP) days proportionally based on calendar days in the selected month.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. EMPLOYEES TAB -->
+    <section class="tab-content" id="employees">
+      <div class="controls-row">
+        <div class="input-group" style="max-width: 400px;">
+          <span class="input-label">Search Employees</span>
+          <input type="text" id="employee-search" class="form-control" placeholder="Search by name, role or designation..." onkeyup="filterEmployees()">
+        </div>
+      </div>
+
+      <div class="employee-grid" id="employee-card-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- 3. ATTENDANCE TAB -->
+    <section class="tab-content" id="attendance">
+      <!-- Sync Biometric Attendance Control Card -->
+      <div class="glass-card" style="margin-bottom: 25px;">
+        <h3 class="glass-card-title">
+          <i data-lucide="refresh-cw"></i>
+          <span>Biometric Attendance Sync</span>
+        </h3>
+        <p style="font-size: 14px; color: var(--slate-600); margin-bottom: 20px; line-height: 1.6;">
+          Synchronize punch logs directly from the local biometric machine (<code>192.168.0.233</code>) for a specific month. This will recalculate late-arrival records and present/absent logs for that month without affecting other months' data.
+        </p>
+        
+        <div style="display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
+          <div class="input-group" style="margin-bottom: 0; min-width: 200px;">
+            <span class="input-label">Select Month to Sync</span>
+            <select id="sync-attendance-month" class="form-control" style="background-color: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 8px;">
+              <option value="2026-06">June 2026</option>
+              <option value="2026-05">May 2026</option>
+              <option value="2026-04">April 2026</option>
+              <option value="2026-03">March 2026</option>
+            </select>
+          </div>
+          
+          <button class="btn btn-primary" id="sync-attendance-btn" onclick="triggerBiometricSync()">
+            <i data-lucide="refresh-cw" id="biometric-sync-spinner"></i>
+            <span id="biometric-sync-btn-text">Sync Attendance</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <h3 class="glass-card-title">
+          <i data-lucide="clock"></i>
+          <span>Attendance Adjustments and Deductions</span>
+        </h3>
+        <div class="table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Type</th>
+                <th>Target Date</th>
+                <th>Deduction Amount</th>
+                <th>Details</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody id="attendance-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LEAVES TAB -->
+    <section class="tab-content" id="leaves">
+      <div class="glass-card">
+        <h3 class="glass-card-title">
+          <i data-lucide="calendar"></i>
+          <span>Employee Leave Logs</span>
+        </h3>
+        <div class="table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Leave Period</th>
+                <th>Category</th>
+                <th>Duration</th>
+                <th>Reason</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="leaves-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. UPLOAD SALARIES TAB -->
+    <section class="tab-content" id="salaries">
+      <div class="glass-card">
+        <h3 class="glass-card-title">
+          <i data-lucide="upload-cloud"></i>
+          <span>Upload Base Salary Details</span>
+        </h3>
+        
+        <!-- Drag & Drop Zone -->
+        <div class="upload-zone" id="drop-zone" onclick="document.getElementById('excel-file-input').click()">
+          <div class="upload-icon">
+            <i data-lucide="file-text"></i>
+          </div>
+          <p class="upload-title">Drag & drop your Excel or CSV salary sheet here</p>
+          <p class="upload-text">or click to browse local files (accepts .xlsx, .xls, .csv)</p>
+          <input type="file" id="excel-file-input" accept=".xlsx,.xls,.csv" class="sr-only" onchange="handleFileSelect(event)">
+        </div>
+      </div>
+
+      <!-- Preview of parsed salary entries -->
+      <div class="glass-card" id="salary-preview-card" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 class="glass-card-title" style="margin-bottom: 0;">
+            <i data-lucide="eye"></i>
+            <span>Uploaded Salaries Preview</span>
+          </h3>
+          <button class="btn btn-success" onclick="saveUploadedSalaries()">
+            <i data-lucide="save"></i> Save Uploaded Salaries
+          </button>
+        </div>
+        
+        <div class="table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Gross (₹)</th>
+                <th>Basic+DA (₹)</th>
+                <th>HRA (₹)</th>
+                <th>Other Allow (₹)</th>
+                <th>Emp PF (₹)</th>
+                <th>ESIC (₹)</th>
+                <th>PT (₹)</th>
+                <th>IT (₹)</th>
+                <th>Net Pay (₹)</th>
+              </tr>
+            </thead>
+            <tbody id="salary-preview-body">
+              <!-- Filled on upload -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Current Salaries Card -->
+      <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 class="glass-card-title" style="margin-bottom: 0;">
+            <i data-lucide="database"></i>
+            <span>Active Salary Table</span>
+          </h3>
+          <button class="btn btn-primary" onclick="openAddEmployeeModal()">
+            <i data-lucide="user-plus"></i> Add Employee
+          </button>
+        </div>
+        <div class="table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Employee Name</th>
+                <th>Username</th>
+                <th>Gross (₹)</th>
+                <th>Basic+DA (₹)</th>
+                <th>HRA (₹)</th>
+                <th>Other Allow (₹)</th>
+                <th>Emp PF (₹)</th>
+                <th>ESIC (₹)</th>
+                <th>PT (₹)</th>
+                <th>IT (₹)</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="active-salaries-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. GENERATE PAYSLIPS TAB -->
+    <section class="tab-content" id="payslips">
+      <div class="payslip-generator-container">
+        
+        <!-- Controls Column -->
+        <div class="glass-card">
+          <h3 class="glass-card-title" style="margin-bottom: 20px;">
+            <i data-lucide="sliders"></i>
+            <span>Payslip Controls</span>
+          </h3>
+          <div class="input-group" style="margin-bottom: 20px;">
+            <span class="input-label">Select Employee</span>
+            <select id="payslip-employee-select" class="form-control" onchange="generatePayslipPreview()">
+              <!-- Filled dynamically -->
+            </select>
+          </div>
+          
+          <div class="input-group" style="margin-bottom: 20px;">
+            <span class="input-label">Select Month / Year</span>
+            <select id="payslip-month-select" class="form-control" onchange="generatePayslipPreview()">
+              <!-- Populated dynamically by populatePayslipMonthDropdown() -->
+            </select>
+          </div>
+
+          <!-- Zero out options -->
+          <div style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px; background: rgba(121, 19, 176, 0.04); padding: 12px; border-radius: 8px; border: 1px dashed rgba(121, 19, 176, 0.15);">
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--slate-700); cursor: pointer; user-select: none;">
+              <input type="checkbox" id="zero-lop" onchange="generatePayslipPreview()" style="width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer;">
+              Zero out Loss of Pay (LOP)
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--slate-700); cursor: pointer; user-select: none;">
+              <input type="checkbox" id="zero-late" onchange="generatePayslipPreview()" style="width: 16px; height: 16px; accent-color: var(--primary); cursor: pointer;">
+              Zero out Late Marks
+            </label>
+          </div>
+
+          <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="window.print()">
+            <i data-lucide="printer"></i> Print / Save as PDF
+          </button>
+        </div>
+
+        <!-- Preview Column -->
+        <div class="payslip-preview-card" id="payslip-sheet">
+          <div class="payslip-header-info">
+            <img src="logo.png" alt="Variety Vintage" style="width: 100%; height: auto; display: block;">
+          </div>
+
+          <div class="payslip-body">
+            <div class="payslip-details-grid">
+              <div>
+                <p class="payslip-lbl">EMPLOYEE NAME</p>
+                <p class="payslip-val" id="ps-emp-name">—</p>
+              </div>
+              <div>
+                <p class="payslip-lbl">PAY PERIOD</p>
+                <p class="payslip-val" id="ps-period">—</p>
+              </div>
+              <div>
+                <p class="payslip-lbl">DESIGNATION</p>
+                <p class="payslip-val" id="ps-emp-designation">—</p>
+              </div>
+            </div>
+
+            <div class="payslip-columns">
+              <!-- Earnings -->
+              <div>
+                <h4 class="payslip-col-title">Earnings</h4>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">Basic+DA</span>
+                  <span class="payslip-line-val" id="ps-earn-basic">₹0</span>
+                </div>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">HRA</span>
+                  <span class="payslip-line-val" id="ps-earn-hra">₹0</span>
+                </div>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">Other Allow</span>
+                  <span class="payslip-line-val" id="ps-earn-allowance">₹0</span>
+                </div>
+                <div class="payslip-total-row">
+                  <span>Gross Earnings</span>
+                  <span id="ps-earn-gross">₹0</span>
+                </div>
+              </div>
+
+              <!-- Deductions -->
+              <div>
+                <h4 class="payslip-col-title">Deductions</h4>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">Emp PF</span>
+                  <span class="payslip-line-val deduct" id="ps-ded-pf">₹0</span>
+                </div>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">ESIC</span>
+                  <span class="payslip-line-val deduct" id="ps-ded-esic">₹0</span>
+                </div>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">PT</span>
+                  <span class="payslip-line-val deduct" id="ps-ded-pt">₹0</span>
+                </div>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">IT (Income Tax)</span>
+                  <span class="payslip-line-val deduct" id="ps-ded-tds">₹0</span>
+                </div>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">Loss of Pay (LOP) <span id="ps-lop-count-lbl">(0 days)</span></span>
+                  <span class="payslip-line-val deduct" id="ps-ded-lop">₹0</span>
+                </div>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">Late Marks <span id="ps-late-count-lbl">(0 lates)</span></span>
+                  <span class="payslip-line-val deduct" id="ps-ded-late">₹0</span>
+                </div>
+                <div class="payslip-total-row">
+                  <span>Total Deductions</span>
+                  <span id="ps-ded-total" class="deduct">₹0</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Net payable -->
+            <div class="payslip-net-card">
+              <span class="payslip-net-title">Net Payable Amount</span>
+              <span class="payslip-net-val" id="ps-net-salary">₹0</span>
+            </div>
+
+            <div class="payslip-footer-msg">
+              <p>This is a computer-generated payslip invoice for Variety Vintage Employees.</p>
+              <p>For discrepancies, contact Finance at hello@varietyvintage.com</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. HOLIDAYS TAB -->
+    <section class="tab-content" id="holidays">
+      <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 class="glass-card-title" style="margin-bottom: 0;">
+            <i data-lucide="sun"></i>
+            <span>Annual Public Holiday Ledger</span>
+          </h3>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-secondary" onclick="openUploadHolidaysModal()">
+              <i data-lucide="upload-cloud"></i> Upload Holidays Sheet
+            </button>
+            <button class="btn btn-primary" onclick="openAddHolidayModal()">
+              <i data-lucide="plus-circle"></i> Add New Holiday
+            </button>
+          </div>
+        </div>
+        <p style="margin-bottom: 20px; font-size: 14px; color: var(--slate-600); line-height: 1.6;">
+          Define and manage the annual public holidays for your team. Synced attendance details will automatically respect these dates as non-working holidays instead of counting them as unexcused absences (LOP).
+        </p>
+        
+        <div class="table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Day of Week</th>
+                <th>Holiday Name</th>
+                <th style="text-align: right; padding-right: 30px;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="holidays-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sync Credentials Modal Dialog -->
+  <div class="modal" id="sync-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeSyncModal()">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="glass-card-title" style="margin-bottom: 20px;">
+        <i data-lucide="refresh-cw"></i>
+        <span>Sync Employee Database</span>
+      </h3>
+      <p style="font-size: 13px; color: var(--slate-600); margin-bottom: 20px; line-height: 1.5;">
+        This will synchronize employees and leaves from the web portal, and automatically capture daily attendance and late marks from the local biometric machine (<code>http://192.168.0.233</code>).
+      </p>
+      
+      <div class="input-group" style="margin-bottom: 15px;">
+        <span class="input-label">Admin Username</span>
+        <input type="text" id="sync-username" class="form-control" value="admin">
+      </div>
+      
+      <div class="input-group" style="margin-bottom: 25px;">
+        <span class="input-label">Admin Password</span>
+        <input type="password" id="sync-password" class="form-control" value="admin123">
+      </div>
+
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-secondary" onclick="closeSyncModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="triggerSyncData()">
+          <i data-lucide="refresh-cw" id="sync-spinner-icon"></i>
+          <span id="sync-btn-text">Authenticate & Sync</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Salary Modal Dialog -->
+  <div class="modal" id="salary-modal">
+    <div class="modal-content" style="max-width: 600px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeSalaryModal()">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="glass-card-title" style="margin-bottom: 20px;">
+        <i data-lucide="edit"></i>
+        <span>Modify Salary Specifications</span>
+      </h3>
+      
+      <input type="hidden" id="sal-edit-username">
+      <div class="input-group" style="margin-bottom: 15px;">
+        <span class="input-label">Employee Name</span>
+        <input type="text" id="sal-edit-name" class="form-control" readonly>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+        <div class="input-group">
+          <span class="input-label">Basic+DA (₹)</span>
+          <input type="number" id="sal-edit-basicda" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group">
+          <span class="input-label">HRA (₹)</span>
+          <input type="number" id="sal-edit-hra" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group">
+          <span class="input-label">Other Allow (₹)</span>
+          <input type="number" id="sal-edit-otherallow" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group">
+          <span class="input-label">Emp PF (₹)</span>
+          <input type="number" id="sal-edit-emppf" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group">
+          <span class="input-label">ESIC (₹)</span>
+          <input type="number" id="sal-edit-esic" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group">
+          <span class="input-label">PT (₹)</span>
+          <input type="number" id="sal-edit-pt" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group" style="grid-column: 1 / span 2;">
+          <span class="input-label">IT / Income Tax (₹)</span>
+          <input type="number" id="sal-edit-it" class="form-control" placeholder="0">
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-secondary" onclick="closeSalaryModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveSingleSalary()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Employee Detail / Monthly Attendance Report Modal Dialog -->
+  <div class="modal" id="employee-report-modal">
+    <div class="modal-content" style="max-width: 750px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeEmployeeReportModal()">
+        <i data-lucide="x"></i>
+      </button>
+      
+      <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+        <div class="employee-avatar" id="rep-avatar" style="margin-bottom: 0;">E</div>
+        <div>
+          <h3 class="glass-card-title" id="rep-name" style="margin-bottom: 4px;">Employee Name</h3>
+          <p id="rep-designation" style="font-size: 13px; color: var(--slate-500); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">DESIGNATION</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; align-items: end;">
+        <div class="input-group">
+          <span class="input-label">Select Month</span>
+          <select id="report-month-select" class="form-control" onchange="updateEmployeeReport()">
+            <option value="2026-06">June 2026</option>
+            <option value="2026-05">May 2026</option>
+            <option value="2026-04">April 2026</option>
+            <option value="2026-03">March 2026</option>
+          </select>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Quick Stats Counters -->
+      <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px;">
+        <div class="stat-card" style="padding: 15px; gap: 12px; border-radius: 16px;">
+          <div class="stat-icon emerald" style="width: 40px; height: 40px; font-size: 18px; border-radius: 12px;">
+            <i data-lucide="check-circle"></i>
+          </div>
+          <div>
+            <p class="stat-label" style="font-size: 9px;">Present</p>
+            <p class="stat-value" id="rep-stat-present" style="font-size: 20px; margin-top: 2px;">0</p>
+          </div>
+        </div>
+        <div class="stat-card" style="padding: 15px; gap: 12px; border-radius: 16px;">
+          <div class="stat-icon orange" style="width: 40px; height: 40px; font-size: 18px; border-radius: 12px;">
+            <i data-lucide="clock"></i>
+          </div>
+          <div>
+            <p class="stat-label" style="font-size: 9px;">Late Arrivals</p>
+            <p class="stat-value" id="rep-stat-late" style="font-size: 20px; margin-top: 2px;">0</p>
+          </div>
+        </div>
+        <div class="stat-card" style="padding: 15px; gap: 12px; border-radius: 16px;">
+          <div class="stat-icon rose" style="width: 40px; height: 40px; font-size: 18px; border-radius: 12px;">
+            <i data-lucide="alert-triangle"></i>
+          </div>
+          <div>
+            <p class="stat-label" style="font-size: 9px;">Absent/LOP</p>
+            <p class="stat-value" id="rep-stat-absent" style="font-size: 20px; margin-top: 2px;">0</p>
+          </div>
+        </div>
+        <div class="stat-card" style="padding: 15px; gap: 12px; border-radius: 16px;">
+          <div class="stat-icon purple" style="width: 40px; height: 40px; font-size: 18px; border-radius: 12px;">
+            <i data-lucide="percent"></i>
+          </div>
+          <div>
+            <p class="stat-label" style="font-size: 9px;">Attendance %</p>
+            <p class="stat-value" id="rep-stat-percent" style="font-size: 20px; margin-top: 2px;">0%</p>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="payslip-col-title" style="margin-bottom: 15px;">Daily Attendance Logs</h4>
+      <div class="table-container" style="max-height: 300px; overflow-y: auto;">
+        <table class="custom-table" style="font-size: 13px;">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Day</th>
+              <th>First Punch</th>
+              <th>Status</th>
+              <th>Deduction / Details</th>
+            </tr>
+          </thead>
+          <tbody id="report-table-body">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Holidays Modal Dialog -->
+  <div class="modal" id="upload-holidays-modal">
+    <div class="modal-content" style="max-width: 500px;">
+      <button class="modal-close" onclick="closeUploadHolidaysModal()">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="glass-card-title" style="margin-bottom: 20px;">
+        <i data-lucide="upload-cloud"></i>
+        <span>Upload Holidays Sheet</span>
+      </h3>
+      
+      <div class="input-group" style="margin-bottom: 20px;">
+        <span class="input-label">Select Year</span>
+        <select id="hol-upload-year" class="form-control">
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="2027">2027</option>
+        </select>
+      </div>
+
+      <!-- Drag & Drop Zone for Holiday File -->
+      <div class="upload-zone" id="hol-drop-zone" onclick="document.getElementById('hol-file-input').click()" style="padding: 25px; margin-bottom: 25px;">
+        <div class="upload-icon" style="width: 48px; height: 48px; font-size: 20px;">
+          <i data-lucide="file-text"></i>
+        </div>
+        <p class="upload-title" style="font-size: 14px;">Select Holiday sheet (.csv, .xlsx)</p>
+        <p class="upload-text" style="font-size: 11px;">Accepts Holiday, Date, Day columns format</p>
+        <input type="file" id="hol-file-input" accept=".xlsx,.xls,.csv" class="sr-only" onchange="handleHolidayFileSelect(event)">
+      </div>
+
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-secondary" onclick="closeUploadHolidaysModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Holiday Modal Dialog -->
+  <div class="modal" id="add-holiday-modal">
+    <div class="modal-content" style="max-width: 450px;">
+      <button class="modal-close" onclick="closeAddHolidayModal()">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="glass-card-title" style="margin-bottom: 20px;">
+        <i data-lucide="sun"></i>
+        <span>Register New Holiday</span>
+      </h3>
+      
+      <div class="input-group" style="margin-bottom: 15px;">
+        <span class="input-label">Holiday Date</span>
+        <input type="date" id="hol-add-date" class="form-control" required>
+      </div>
+      
+      <div class="input-group" style="margin-bottom: 25px;">
+        <span class="input-label">Holiday Description / Name</span>
+        <input type="text" id="hol-add-name" class="form-control" placeholder="e.g. Independence Day" required>
+      </div>
+
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-secondary" onclick="closeAddHolidayModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveHoliday()">
+          <i data-lucide="save"></i> Save Holiday
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Employee Modal Dialog -->
+  <div class="modal" id="add-employee-modal">
+    <div class="modal-content" style="max-width: 640px; max-height: 92vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeAddEmployeeModal()">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="glass-card-title" style="margin-bottom: 28px;">
+        <i data-lucide="user-plus"></i>
+        <span>Add New Employee Profile & Salary</span>
+      </h3>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Full Name <span style="color:var(--danger)">*</span></span>
+          <input type="text" id="add-emp-name" class="form-control" placeholder="e.g. John Doe" required>
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Username (Unique Slug) <span style="color:var(--danger)">*</span></span>
+          <input type="text" id="add-emp-username" class="form-control" placeholder="e.g. john" required>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Designation <span style="color:var(--danger)">*</span></span>
+          <input type="text" id="add-emp-designation" class="form-control" placeholder="e.g. Sales Executive" required>
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Password <span style="color:var(--danger)">*</span></span>
+          <input type="text" id="add-emp-password" class="form-control" placeholder="Password" required>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 24px;">
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">System Access Role <span style="color:var(--danger)">*</span></span>
+          <select id="add-emp-role" class="form-control">
+            <option value="employee">Employee</option>
+            <option value="team_lead">Team Lead (TL)</option>
+            <option value="manager">Manager</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Employee Type <span style="color:var(--danger)">*</span></span>
+          <select id="add-emp-type" class="form-control">
+            <option value="combined">Combined</option>
+            <option value="sales">Sales</option>
+            <option value="non_sales">Non-Sales</option>
+          </select>
+        </div>
+      </div>
+
+      <h4 style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: var(--primary); border-bottom: 2px solid var(--primary-light); padding-bottom: 8px; margin-bottom: 18px;">
+        Base Salary Configuration
+      </h4>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Basic+DA (₹)</span>
+          <input type="number" id="add-sal-basicda" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">HRA (₹)</span>
+          <input type="number" id="add-sal-hra" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Other Allow (₹)</span>
+          <input type="number" id="add-sal-otherallow" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Emp PF (₹)</span>
+          <input type="number" id="add-sal-emppf" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">ESIC (₹)</span>
+          <input type="number" id="add-sal-esic" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">PT (₹)</span>
+          <input type="number" id="add-sal-pt" class="form-control" placeholder="0">
+        </div>
+        <div class="input-group" style="grid-column: 1 / span 2; margin-bottom: 0;">
+          <span class="input-label">IT / Income Tax (₹)</span>
+          <input type="number" id="add-sal-it" class="form-control" placeholder="0">
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-secondary" onclick="closeAddEmployeeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveNewEmployee()">
+          <i data-lucide="user-plus"></i> Add Employee
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       EDIT EMPLOYEE PROFILE MODAL
+       ════════════════════════════════════════════ -->
+  <div class="modal" id="edit-employee-modal">
+    <div class="modal-content" style="max-width: 640px; max-height: 92vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeEditEmployeeModal()">
+        <i data-lucide="x"></i>
+      </button>
+      <h3 class="glass-card-title" style="margin-bottom: 28px;">
+        <i data-lucide="user-pen"></i>
+        <span>Edit Employee Profile</span>
+      </h3>
+
+      <input type="hidden" id="edit-emp-username">
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Full Name <span style="color:var(--danger)">*</span></span>
+          <input type="text" id="edit-emp-name" class="form-control" placeholder="Full name">
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">System Access Role <span style="color:var(--danger)">*</span></span>
+          <select id="edit-emp-role" class="form-control">
+            <option value="employee">Employee</option>
+            <option value="team_lead">Team Lead (TL)</option>
+            <option value="manager">Manager</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group" style="margin-bottom: 18px;">
+        <span class="input-label">KPI Type <span style="color:var(--danger)">*</span></span>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 6px;" id="kpi-type-selector">
+          <div class="kpi-card" data-type="sales" onclick="selectKpiType('sales')">
+            <div class="kpi-card-icon" style="background: #ede9fe; color: #7c3aed;"><i data-lucide="trending-up" style="width:20px;height:20px;"></i></div>
+            <div class="kpi-card-label">Sales KPI</div>
+            <div class="kpi-card-sub">Assigned revenue targets &amp; leads</div>
+          </div>
+          <div class="kpi-card" data-type="non-sales" onclick="selectKpiType('non-sales')">
+            <div class="kpi-card-icon" style="background: #e0f2fe; color: #0284c7;"><i data-lucide="check-square" style="width:20px;height:20px;"></i></div>
+            <div class="kpi-card-label">Non-Sales KPI</div>
+            <div class="kpi-card-sub">Assigned tasks &amp; checklists</div>
+          </div>
+          <div class="kpi-card" data-type="combined" onclick="selectKpiType('combined')">
+            <div class="kpi-card-icon" style="background: #f3e8ff; color: #9333ea;"><i data-lucide="layers" style="width:20px;height:20px;"></i></div>
+            <div class="kpi-card-label">Combined</div>
+            <div class="kpi-card-sub">Mix targets &amp; tasks</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px;">
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Username <span style="font-weight:400; text-transform:none; color:var(--slate-400);">(optional — auto-generated if blank)</span></span>
+          <div style="position:relative;">
+            <span style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--slate-400); font-size:14px;">@</span>
+            <input type="text" id="edit-emp-username-field" class="form-control" placeholder="username" style="padding-left: 32px;">
+          </div>
+          <span style="font-size:11px; color:var(--slate-400); margin-top: 4px;">Only letters, numbers and underscores.</span>
+        </div>
+        <div class="input-group" style="margin-bottom: 0;">
+          <span class="input-label">Designation Role <span style="color:var(--danger)">*</span></span>
+          <select id="edit-emp-designation" class="form-control">
+            <option value="Sales Executive">Sales Executive</option>
+            <option value="Sales Manager">Sales Manager</option>
+            <option value="Manager">Manager</option>
+            <option value="Team Lead">Team Lead</option>
+            <option value="HR Executive">HR Executive</option>
+            <option value="Accountant">Accountant</option>
+            <option value="Designer">Designer</option>
+            <option value="Operations Executive">Operations Executive</option>
+            <option value="Tailor">Tailor</option>
+            <option value="Helper">Helper</option>
+            <option value="Admin">Admin</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group" style="margin-bottom: 24px;">
+        <span class="input-label">Password <span style="color:var(--danger)">*</span></span>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:13px; color:var(--slate-500); font-weight:500;">
+          EXISTING: 
+          <span id="edit-emp-existing-pwd" style="-webkit-text-security: disc; font-family: monospace; font-size:14px; color:var(--slate-700); letter-spacing:2px;">—</span>
+          <button onclick="toggleExistingPwdVisibility()" style="background:none; border:none; cursor:pointer; color:var(--slate-400); display:flex;">
+            <i data-lucide="eye" id="edit-emp-eye-icon" style="width:15px;height:15px;"></i>
+          </button>
+        </div>
+        <input type="password" id="edit-emp-password" class="form-control" placeholder="Enter new password...">
+        <div style="display:flex; align-items:center; gap:8px; margin-top:8px; font-size:12px; color:#3b82f6; background:#eff6ff; border-radius:10px; padding:10px 14px;">
+          <i data-lucide="info" style="width:14px;height:14px; flex-shrink:0;"></i>
+          Leave blank to maintain current secure credentials.
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: flex-end;">
+        <button class="btn btn-secondary" onclick="closeEditEmployeeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveEditEmployee()">
+          <i data-lucide="save"></i> Update Profile
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PERFORMANCE HISTORY MODAL
+  ════════════════════════════════════════════ -->
+  <div class="modal" id="perf-history-modal">
+    <div class="modal-content" style="max-width: 700px; max-height: 92vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closePerfHistoryModal()">
+        <i data-lucide="x"></i>
+      </button>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; gap: 16px; flex-wrap: wrap;">
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div style="width:52px; height:52px; border-radius:16px; background:linear-gradient(135deg,#7c3aed,#a855f7); display:flex; align-items:center; justify-content:center;">
+            <i data-lucide="history" style="width:24px;height:24px; color:white;"></i>
+          </div>
+          <div>
+            <h3 class="glass-card-title" style="margin-bottom:2px;" id="perf-modal-title">Performance History</h3>
+            <p style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--slate-400); text-transform:uppercase;">Strategic Audit Logs</p>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="add-perf-btn" onclick="toggleAddPerfForm()" style="margin-right:24px; padding: 10px 16px; font-size: 13px;">
+          <i data-lucide="plus-circle" style="width:16px; height:16px; margin-right:4px; vertical-align:middle;"></i> Add Report
+        </button>
+      </div>
+
+      <!-- Add Performance Form (Hidden by default) -->
+      <div id="add-perf-form" style="display: none; background: #fafafa; border: 2px solid var(--slate-200); border-radius: 20px; padding: 20px; margin-bottom: 24px;">
+        <h4 style="font-family:'Outfit',sans-serif; font-size:15px; font-weight:800; color:var(--slate-800); margin-bottom:16px; display:flex; align-items:center; gap:8px;">
+          <i data-lucide="plus-circle" style="width:18px; height:18px; color:var(--primary);"></i>
+          <span>Add Performance Report</span>
+        </h4>
+        
+        <input type="hidden" id="perf-add-emp-id">
+        <input type="hidden" id="perf-add-username">
+        <input type="hidden" id="perf-add-emp-name">
+
+        <!-- Fields Grid -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;">
+          <div class="input-group" style="min-width: 0;">
+            <span class="input-label">Select Month *</span>
+            <input type="month" id="perf-add-period" class="form-control" onchange="autoFillAttendanceScore()" required>
+          </div>
+          <div class="input-group" style="min-width: 0;">
+            <span class="input-label">Audit Date *</span>
+            <input type="date" id="perf-add-audit-date" class="form-control" required>
+          </div>
+          <div class="input-group" style="min-width: 0; justify-content: center; align-items: flex-start; padding-top: 20px;">
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--slate-700); cursor:pointer;">
+              <input type="checkbox" id="perf-add-verified" style="width:18px; height:18px; accent-color:var(--primary);">
+              Verified Report
+            </label>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px;">
+          <div class="input-group" style="min-width: 0;">
+            <span class="input-label">Overall *</span>
+            <input type="number" id="perf-add-overall" class="form-control" min="0" max="100" placeholder="0-100" required>
+          </div>
+          <div class="input-group" style="min-width: 0;">
+            <span class="input-label">Attendance *</span>
+            <input type="number" id="perf-add-att-score" class="form-control" min="0" max="100" value="100" oninput="calculateFormOverall()" required>
+          </div>
+          <div class="input-group" style="min-width: 0;">
+            <span class="input-label">Teamwork *</span>
+            <input type="number" id="perf-add-team-score" class="form-control" min="0" max="100" value="100" oninput="calculateFormOverall()" required>
+          </div>
+          <div class="input-group" style="min-width: 0;">
+            <span class="input-label">Initiative *</span>
+            <input type="number" id="perf-add-init-score" class="form-control" min="0" max="100" value="100" oninput="calculateFormOverall()" required>
+          </div>
+        </div>
+
+        <!-- Targets KPI Section -->
+        <div id="perf-kpi-targets-section" style="border-top: 1px dashed var(--slate-200); padding-top: 16px; margin-bottom: 16px; display: none;">
+          <h5 style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; color:var(--slate-500); text-transform:uppercase; margin-bottom:12px; letter-spacing:0.05em; display:flex; align-items:center; gap:6px;">
+            <i data-lucide="trending-up" style="width:14px; height:14px;"></i>
+            <span>KPI Targets (Buy Lead & IPM)</span>
+          </h5>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 4px;">
+            <div class="input-group" style="min-width: 0;">
+              <span class="input-label">Buy Lead Target</span>
+              <input type="number" id="perf-add-bl-target" class="form-control" placeholder="e.g. 100" oninput="calculateFormOverall()">
+            </div>
+            <div class="input-group" style="min-width: 0;">
+              <span class="input-label">Buy Lead Achieved</span>
+              <input type="number" id="perf-add-bl-achieved" class="form-control" placeholder="e.g. 95" oninput="calculateFormOverall()">
+            </div>
+            <div class="input-group" style="min-width: 0;">
+              <span class="input-label">Weight (%)</span>
+              <input type="number" id="perf-add-bl-weight" class="form-control" placeholder="80" oninput="calculateFormOverall()">
+            </div>
+          </div>
+          <div id="perf-add-bl-calc-info" style="display: none; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--slate-500); margin-bottom: 12px; padding: 0 4px;">
+            <span>Achievement: <span id="perf-bl-achv-pct">0%</span></span>
+            <span>Contribution to Overall: <span id="perf-bl-contrib">0%</span></span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 4px;">
+            <div class="input-group" style="min-width: 0;">
+              <span class="input-label">IPM Target</span>
+              <input type="number" id="perf-add-ipm-target" class="form-control" placeholder="e.g. 15" oninput="calculateFormOverall()">
+            </div>
+            <div class="input-group" style="min-width: 0;">
+              <span class="input-label">IPM Achieved</span>
+              <input type="number" id="perf-add-ipm-achieved" class="form-control" placeholder="e.g. 14" oninput="calculateFormOverall()">
+            </div>
+            <div class="input-group" style="min-width: 0;">
+              <span class="input-label">Weight (%)</span>
+              <input type="number" id="perf-add-ipm-weight" class="form-control" placeholder="10" oninput="calculateFormOverall()">
+            </div>
+          </div>
+          <div id="perf-add-ipm-calc-info" style="display: none; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--slate-500); margin-bottom: 12px; padding: 0 4px;">
+            <span>Achievement: <span id="perf-ipm-achv-pct">0%</span></span>
+            <span>Contribution to Overall: <span id="perf-ipm-contrib">0%</span></span>
+          </div>
+        </div>
+
+        <!-- Combined Info Section -->
+        <div id="perf-kpi-combined-info" style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:12px; padding:12px 16px; margin-bottom:16px; display:none; justify-content:space-between; align-items:center; font-size:13px; font-weight:600; color:#1e40af;">
+          <span>Total Weightage Assigned (Must be exactly 90%):</span>
+          <span id="perf-combined-weightage-lbl">0% / 90%</span>
+        </div>
+
+        <!-- Tasks/Deliverables KPI Section -->
+        <div id="perf-kpi-tasks-section" style="border-top: 1px dashed var(--slate-200); padding-top: 16px; margin-bottom: 16px; display: none;">
+          <h5 style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:800; color:var(--slate-500); text-transform:uppercase; margin-bottom:12px; letter-spacing:0.05em; display:flex; align-items:center; gap:6px;">
+            <i data-lucide="check-square" style="width:14px; height:14px;"></i>
+            <span>KPI: Tasks / Deliverables</span>
+          </h5>
+          <div class="input-group" style="min-width: 0;">
+            <textarea id="perf-add-tasks" class="form-control" rows="4" placeholder="List deliverables here...&#10;One per line for maximum clarity"></textarea>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: flex-end; border-top: 1px solid var(--slate-200); padding-top: 16px;">
+          <button class="btn btn-secondary" type="button" onclick="toggleAddPerfForm()">Cancel</button>
+          <button class="btn btn-primary" type="button" onclick="savePerfReport()">
+            <i data-lucide="save" style="width:14px; height:14px; margin-right:4px; vertical-align:middle;"></i> Save Report
+          </button>
+        </div>
+      </div>
+
+      <div id="perf-history-body">
+        <div style="text-align:center; padding:60px 0; color:var(--slate-400);">
+          <i data-lucide="loader" style="width:32px;height:32px; animation:spin 1s linear infinite;"></i>
+          <p style="margin-top:12px; font-weight:600;">Loading performance data...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ACTIVITY LOGS TAB
+  ════════════════════════════════════════════ -->
+  <section class="tab-content" id="logs" style="padding: 40px;">
+    <!-- Stats Row -->
+    <div class="stats-grid" style="margin-bottom: 30px;">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#eff6ff; color:#2563eb;">
+          <i data-lucide="database"></i>
+        </div>
+        <div>
+          <p class="stat-label">Total Logged Activities</p>
+          <p class="stat-value" id="log-stat-total">0</p>
+          <p style="font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--slate-400); font-weight:700; margin-top:2px;">All Time</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#ecfdf5; color:#059669;">
+          <i data-lucide="shield-check"></i>
+        </div>
+        <div>
+          <p class="stat-label">Successful Syncs</p>
+          <p class="stat-value" id="log-stat-logins">0</p>
+          <p style="font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--slate-400); font-weight:700; margin-top:2px;">Total</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#fff1f2; color:#e11d48;">
+          <i data-lucide="alert-triangle"></i>
+        </div>
+        <div>
+          <p class="stat-label">Employee Updates</p>
+          <p class="stat-value" id="log-stat-updates">0</p>
+          <p style="font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--slate-400); font-weight:700; margin-top:2px;">Updates</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#fffbeb; color:#d97706;">
+          <i data-lucide="edit-3"></i>
+        </div>
+        <div>
+          <p class="stat-label">Data Modifications</p>
+          <p class="stat-value" id="log-stat-mods">0</p>
+          <p style="font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--slate-400); font-weight:700; margin-top:2px;">Changes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="glass-card" style="margin-bottom: 24px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr auto; gap: 14px; align-items: flex-end;">
+        <div class="input-group" style="margin-bottom:0;">
+          <span class="input-label">Action Category</span>
+          <select id="log-filter-category" class="form-control">
+            <option value="ALL">All Categories</option>
+            <option value="SYNC">Sync</option>
+            <option value="UPDATE">Update</option>
+            <option value="DELETE">Delete</option>
+            <option value="INFO">Info</option>
+          </select>
+        </div>
+        <div class="input-group" style="margin-bottom:0;">
+          <span class="input-label">Actor</span>
+          <input type="text" id="log-filter-actor" class="form-control" placeholder="Filter by actor...">
+        </div>
+        <div class="input-group" style="margin-bottom:0;">
+          <span class="input-label">From Date</span>
+          <input type="date" id="log-filter-from" class="form-control">
+        </div>
+        <div class="input-group" style="margin-bottom:0;">
+          <span class="input-label">To Date</span>
+          <input type="date" id="log-filter-to" class="form-control">
+        </div>
+        <div class="input-group" style="margin-bottom:0;">
+          <span class="input-label">Description / ID</span>
+          <input type="text" id="log-filter-q" class="form-control" placeholder="Search description keywords...">
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn btn-secondary" onclick="clearLogFilters()" style="padding:12px 16px; white-space:nowrap;">
+            <i data-lucide="x"></i>
+          </button>
+          <button class="btn btn-primary" onclick="filterLogs()" style="white-space:nowrap;">
+            <i data-lucide="filter"></i> Filter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Log Table -->
+    <div class="glass-card" style="padding:0; overflow:hidden;">
+      <div class="table-container">
+        <table class="custom-table" style="font-size:13px;">
+          <thead>
+            <tr>
+              <th style="width:170px;">Time</th>
+              <th style="width:130px;">Action Category</th>
+              <th style="width:160px;">Actor</th>
+              <th>Description</th>
+              <th style="width:60px;">IP</th>
+            </tr>
+          </thead>
+          <tbody id="logs-table-body">
+            <tr><td colspan="5" style="text-align:center; padding:40px; color:var(--slate-400);">No activity logs yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
