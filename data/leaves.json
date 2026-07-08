@@ -1,5 +1,65 @@
 [
   {
+    "employeeName": "Yashas Pawar",
+    "designation": "Sales Executive",
+    "userId": 38,
+    "leavePeriod": "08 Jul 2026",
+    "category": "Personal Leave No Loss of Pay",
+    "duration": "1 Day",
+    "reason": "Hi sir, I&amp;#039;m applying leave for today second half and tomorrow,\r\nsince I&amp;#039;m shifting and have to move in to a new house,\r\nDay after tomorrow i shall report to the event coordinating with roles for the event.\r\nThanks",
+    "status": "Approved"
+  },
+  {
+    "employeeName": "Vignesh Kumaresan",
+    "designation": "UI/UX Designer",
+    "userId": 37,
+    "leavePeriod": "25 Jul 2026",
+    "category": "Personal Leave No Loss of Pay",
+    "duration": "1 Day",
+    "reason": "I&amp;#039;d like to request leave on Saturday, July 25, to travel to my hometown of Chennai for a personal visit. (Permission to leave the office 2 hours early on Friday evening)\r\n\r\nI will ensure all my current tasks are up to date before I leave.",
+    "status": "Approved"
+  },
+  {
+    "employeeName": "Pushpa Priya",
+    "designation": "Sales Executive",
+    "userId": 36,
+    "leavePeriod": "03 Jul 2026",
+    "category": "Personal Leave Loss of Pay",
+    "duration": "1 Day",
+    "reason": "House shifting",
+    "status": "Approved"
+  },
+  {
+    "employeeName": "Pushpa Priya",
+    "designation": "Sales Executive",
+    "userId": 34,
+    "leavePeriod": "02 Jul 2026",
+    "category": "Personal Leave No Loss of Pay",
+    "duration": "1 Day",
+    "reason": "House shifting",
+    "status": "Approved"
+  },
+  {
+    "employeeName": "Esha",
+    "designation": "Sales Executive",
+    "userId": 33,
+    "leavePeriod": "01 Jul 2026",
+    "category": "Personal Leave No Loss of Pay",
+    "duration": "1 Day",
+    "reason": "Going to Tirupati",
+    "status": "Approved"
+  },
+  {
+    "employeeName": "Arun Mahadev",
+    "designation": "Sales Executive",
+    "userId": 32,
+    "leavePeriod": "10 Jul 2026 11 Jul 2026",
+    "category": "Personal Leave No Loss of Pay",
+    "duration": "2 Days",
+    "reason": "Hi Sir,\r\n\r\nI would like to humbly request leave on Friday and Saturday as I need to be in my hometown for an important family function. I would truly appreciate your approval. \r\n\r\nThank you for your understanding.",
+    "status": "Approved"
+  },
+  {
     "employeeName": "Arpitha",
     "designation": "Sales Executive",
     "userId": 31,
@@ -87,66 +147,6 @@
     "category": "Personal Leave No Loss of Pay",
     "duration": "1 Day",
     "reason": "Throat pain and leg cramps",
-    "status": "Approved"
-  },
-  {
-    "employeeName": "Kavitha",
-    "designation": "Sales Executive",
-    "userId": 22,
-    "leavePeriod": "22 Jun 2026 23 Jun 2026",
-    "category": "Personal Leave No Loss of Pay",
-    "duration": "2 Days",
-    "reason": "Leave request,\r\nSir i would like to request leave on 22-06-2026 and 23-06-2026 as i need to attend my sister&amp;#039;s wedding and assist with my famiy arrangements. I kindly request you to approve my leave for the mentioned period.",
-    "status": "Approved"
-  },
-  {
-    "employeeName": "Pushpa Priya",
-    "designation": "Sales Executive",
-    "userId": 20,
-    "leavePeriod": "10 Jun 2026",
-    "category": "Sick Leave (Medical) No Loss of Pay",
-    "duration": "1 Day",
-    "reason": "Food poisoning",
-    "status": "Approved"
-  },
-  {
-    "employeeName": "Shiva Prasad",
-    "designation": "Social Media Executive",
-    "userId": 18,
-    "leavePeriod": "09 Jun 2026",
-    "category": "Sick Leave (Medical) Loss of Pay",
-    "duration": "1 Day",
-    "reason": "Hi sir, \r\n\r\nI am requesting to extend my leave one more day. \r\nAs per scheduled timing I reached but they changed the timing at 9pm today. \r\nTomorrow I’ll finish my treatment and I’ll return back. \r\nApology for the inconvenience sir.",
-    "status": "Approved"
-  },
-  {
-    "employeeName": "Afsana",
-    "designation": "Sales Executive",
-    "userId": 17,
-    "leavePeriod": "10 Jun 2026 12 Jun 2026",
-    "category": "Personal Leave No Loss of Pay",
-    "duration": "3 Days",
-    "reason": "Hi Sir I would like to request leave on 10th and 11th June to attend my brother’s wedding (my mother’s own sister’s son), which will be taking place in Anantapur.\r\n\r\nAdditionally, I would like to inform you in advance that I may require leave on 12th June as my parents have invited a prospective alliance to visit our home. At this moment, I am not sure sir  whether the visit will take place on that day, but I wanted to keep you informed beforehand. If they do visit, I may need an additional day of leave.\r\n\r\nI kindly request you to approve my leave. I assure you that this absence will not impact my performance or targets. I will make every effort to compensate for the time away by putting in extra work and compensate by being available on other days and ensuring that I achieve the targets assigned to me.\r\nKindly accept this leave sir, Il never disappoint you this time for sure sir",
-    "status": "Approved"
-  },
-  {
-    "employeeName": "Jinesh Joshi",
-    "designation": "Manager",
-    "userId": 16,
-    "leavePeriod": "24 Jun 2026 26 Jun 2026",
-    "category": "Personal Leave No Loss of Pay",
-    "duration": "3 Days",
-    "reason": "Brothers wedding [First Circle]\r\n24th Full Day Leave.\r\n25th 2 Hours early logout permission.\r\n26th Leave required.\r\n\r\nRequesting you to please grant permission as this wedding is mandatory to attend.",
-    "status": "Approved"
-  },
-  {
-    "employeeName": "Shiva Prasad",
-    "designation": "Social Media Executive",
-    "userId": 15,
-    "leavePeriod": "08 Jun 2026",
-    "category": "Sick Leave (Medical) No Loss of Pay",
-    "duration": "1 Day",
-    "reason": "Hi Team,\r\n\r\nI request a day leave on 8th June, as I need to undergo my annual asthma medication. I will be back and report to the office on 9th June.\r\n\r\nKindly approve my leave request.\r\n\r\nThank you.",
     "status": "Approved"
   }
 ]

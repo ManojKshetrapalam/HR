@@ -277,12 +277,12 @@
         "initiative": 50,
         "revenue_target": null,
         "revenue_achieved": null,
-        "total_score": 38,
+        "total_score": 44,
         "notes": null,
-        "tasks": "[{\"type\":\"target\",\"label\":\"Buy Lead\",\"weight\":60,\"target\":360,\"achieved\":192},{\"type\":\"target\",\"label\":\"IPM\",\"weight\":30,\"target\":25,\"achieved\":2}]",
+        "tasks": "[{\"type\":\"target\",\"label\":\"Buy Lead\",\"weight\":60,\"target\":360,\"achieved\":237},{\"type\":\"target\",\"label\":\"IPM\",\"weight\":30,\"target\":25,\"achieved\":2}]",
         "tasks_completed": 0,
         "created_at": "2026-06-22T05:51:36.000000Z",
-        "updated_at": "2026-06-24T06:28:59.000000Z"
+        "updated_at": "2026-06-29T09:25:57.000000Z"
       }
     ],
     "leaves": [
@@ -372,18 +372,6 @@
         "reason": null,
         "created_at": "2026-06-22T04:37:08.000000Z",
         "updated_at": "2026-06-22T04:37:08.000000Z"
-      },
-      {
-        "id": 156,
-        "user_id": 17,
-        "type": "late",
-        "date": "2026-06-24",
-        "minutes_late": 55,
-        "lop_days": null,
-        "deduction_amount": 250,
-        "reason": null,
-        "created_at": "2026-06-25T04:30:57.000000Z",
-        "updated_at": "2026-06-25T04:30:57.000000Z"
       }
     ],
     "team_lead": {
@@ -471,13 +459,13 @@
         "teamwork": 100,
         "initiative": 100,
         "revenue_target": 350000,
-        "revenue_achieved": 61430,
-        "total_score": 26,
+        "revenue_achieved": 87490,
+        "total_score": 32,
         "notes": null,
         "tasks": null,
         "tasks_completed": 0,
         "created_at": "2026-06-08T09:47:28.000000Z",
-        "updated_at": "2026-06-22T04:42:48.000000Z"
+        "updated_at": "2026-07-01T04:32:21.000000Z"
       }
     ],
     "leaves": [
@@ -692,15 +680,29 @@
         "initiative": 30,
         "revenue_target": null,
         "revenue_achieved": null,
-        "total_score": 52,
+        "total_score": 63,
         "notes": null,
-        "tasks": "[{\"type\":\"target\",\"label\":\"Buy Leads\",\"weight\":60,\"target\":360,\"achieved\":234},{\"type\":\"target\",\"label\":\"IPM\",\"weight\":30,\"target\":25,\"achieved\":10}]",
+        "tasks": "[{\"type\":\"target\",\"label\":\"Buy Leads\",\"weight\":60,\"target\":360,\"achieved\":285},{\"type\":\"target\",\"label\":\"IPM\",\"weight\":30,\"target\":25,\"achieved\":13}]",
         "tasks_completed": 0,
         "created_at": "2026-06-16T05:30:57.000000Z",
-        "updated_at": "2026-06-22T05:52:30.000000Z"
+        "updated_at": "2026-06-29T09:25:25.000000Z"
       }
     ],
-    "leaves": [],
+    "leaves": [
+      {
+        "id": 33,
+        "user_id": 19,
+        "leave_type": "Personal Leave",
+        "leave_date": "2026-07-01",
+        "end_date": "2026-07-01",
+        "reason": "Going to Tirupati",
+        "status": "approved",
+        "is_lop": 0,
+        "created_at": "2026-06-29T09:06:56.000000Z",
+        "updated_at": "2026-06-29T10:43:46.000000Z",
+        "admin_remarks": null
+      }
+    ],
     "attendance_records": [
       {
         "id": 69,
@@ -801,12 +803,12 @@
         "initiative": 40,
         "revenue_target": null,
         "revenue_achieved": null,
-        "total_score": 33,
+        "total_score": 36,
         "notes": null,
-        "tasks": "[{\"type\":\"target\",\"label\":\"Buy Leads\",\"weight\":60,\"target\":360,\"achieved\":155},{\"type\":\"target\",\"label\":\"IPM\",\"weight\":30,\"target\":25,\"achieved\":3}]",
+        "tasks": "[{\"type\":\"target\",\"label\":\"Buy Leads\",\"weight\":60,\"target\":360,\"achieved\":171},{\"type\":\"target\",\"label\":\"IPM\",\"weight\":30,\"target\":25,\"achieved\":3}]",
         "tasks_completed": 0,
         "created_at": "2026-06-16T05:33:13.000000Z",
-        "updated_at": "2026-06-22T04:41:19.000000Z"
+        "updated_at": "2026-06-29T09:26:32.000000Z"
       }
     ],
     "leaves": [
@@ -947,13 +949,13 @@
         "teamwork": 100,
         "initiative": 100,
         "revenue_target": 350000,
-        "revenue_achieved": 61430,
-        "total_score": 26,
+        "revenue_achieved": 87490,
+        "total_score": 32,
         "notes": null,
         "tasks": null,
         "tasks_completed": 0,
         "created_at": "2026-06-08T09:46:58.000000Z",
-        "updated_at": "2026-06-22T04:43:33.000000Z"
+        "updated_at": "2026-07-01T04:32:36.000000Z"
       }
     ],
     "leaves": [],
@@ -1423,6 +1425,24 @@
         "month": "Jun",
         "year": 2026,
         "quality": 0,
+        "attendance": 96,
+        "teamwork": 40,
+        "initiative": 50,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 75,
+        "notes": null,
+        "tasks": "[{\"t\":\"🎓 mLAC Degree\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Published 19 Instagram posts during June 2026.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Reached 7,297 accounts and generated 78,770 views.\",\"c\":true,\"r\":\"\"},{\"t\":\"❤️ Achieved 2K+ Likes and 1.6K+ Interactions.\",\"c\":true,\"r\":\"\"},{\"t\":\"⭐ Proud Moment for mLAC, New Leadership Team, and Faculty Achievement posts emerged as the top-performing content.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎯 Continued strengthening institutional branding through admissions, achievements, awareness campaigns, and campus engagement.\",\"c\":true,\"r\":\"\"},{\"t\":\"🏫 mLAC PU\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Published 8 Instagram posts during June 2026.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Reached 1,450 accounts and generated 10,521 views.\",\"c\":true,\"r\":\"\"},{\"t\":\"❤️ Achieved 272 Likes and 310 Interactions.\",\"c\":true,\"r\":\"\"},{\"t\":\"⭐ Prathibhanveshane 2026, World Environment Day, and Congratulations Poster delivered the highest engagement.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎯 Continued building engagement among students, parents, and prospective admissions.\",\"c\":true,\"r\":\"\"},{\"t\":\"📘 mLAC Facebook\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Published 25 content pieces during June 2026.\",\"c\":true,\"r\":\"\"},{\"t\":\"👀 Generated 16.2K Views and 493 Engagements.\",\"c\":true,\"r\":\"\"},{\"t\":\"⭐ Proud Moment for mLAC and New Leadership Team posts emerged as the highest-performing content.\",\"c\":true,\"r\":\"\"},{\"t\":\"📢 Continued strengthening the college&#039;s digital presence through institutional updates, admissions, and achievements.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Finatoniq (Shared Responsibility with Shiva)\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Contributed to planning, publishing, and execution across Instagram, Facebook, and LinkedIn.\",\"c\":true,\"r\":\"\"},{\"t\":\"🚀 Supported strong month-over-month growth in reach, engagement, and impressions.\",\"c\":true,\"r\":\"\"},{\"t\":\"💡 Assisted in delivering educational finance and investment awareness content.\",\"c\":true,\"r\":\"\"},{\"t\":\"📢 Ensured timely publishing and coordinated content execution with the team.\",\"c\":true,\"r\":\"\"},{\"t\":\"🔍 Planawedding SEO\",\"c\":true,\"r\":\"\"},{\"t\":\"🌐 Continued improving website SEO performance and organic visibility.\",\"c\":true,\"r\":\"\"},{\"t\":\"🔎 Worked on on-page SEO optimization and AI Search Optimization (AEO).\",\"c\":true,\"r\":\"\"},{\"t\":\"📑 Continued Quora submissions, indexing improvements, and organic search enhancement.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Focused on improving keyword rankings, crawlability, and website performance.\",\"c\":false,\"r\":\"\"},{\"t\":\"🚀 Continued efforts to improve search visibility and organic traffic acquisition.\",\"c\":true,\"r\":\"\"},{\"t\":\"📊 Client Reports Generation\",\"c\":true,\"r\":\"\"},{\"t\":\"📄 Prepared and shared monthly Social Media and SEO performance reports.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Compiled platform-wise analytics, engagement insights, and performance summaries.\",\"c\":true,\"r\":\"\"},{\"t\":\"Coordination with Clients\",\"c\":true,\"r\":\"\"},{\"t\":\"💬 Coordinated with clients for content approvals SEO updates, and publishing schedules.\",\"c\":true,\"r\":\"\"},{\"t\":\"Social Media Post Planning & Execution\",\"c\":true,\"r\":\"\"},{\"t\":\"📲 Planned and executed content across mLAC Degree, mLAC PU, and mLAC Facebook.\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Contributed to Finatoniq content planning and execution along with Shiva.\",\"c\":true,\"r\":\"\"},{\"t\":\"🔍 Managed ongoing Planawedding SEO activities and optimization initiatives.\",\"c\":true,\"r\":\"\"},{\"t\":\"⏰ Ensured timely publishing across all assigned brands.\",\"c\":true,\"r\":\"\"},{\"t\":\"Content Calendar Management\",\"c\":true,\"r\":\"\"},{\"t\":\"📅 Maintained monthly content calendars for assigned brands.\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Coordinated publishing timelines and ensured consistent execution of planned content.\",\"c\":true,\"r\":\"\"},{\"t\":\"Creative Coordination & Posting Timeliness\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Coordinated with the design and content teams for creative execution.\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Ensured timely publishing of approved creatives and campaign deliverables.\",\"c\":true,\"r\":\"\"},{\"t\":\"💡 Independently designed and delivered a Planawedding promotional creative based on her own initiative and creativity.\",\"c\":true,\"r\":\"\"},{\"t\":\"📢 Continued supporting creative quality across assigned brands.\",\"c\":true,\"r\":\"\"},{\"t\":\"Audience Growth, Reach & Engagement Performance\",\"c\":true,\"r\":\"\"},{\"t\":\"🎓 mLAC Degree Instagram\",\"c\":true,\"r\":\"\"},{\"t\":\"👥 Followers: 2,660 (⬆️ +26 Followers)\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Reach: 7,297 (⬇️ -25,077)\",\"c\":false,\"r\":\"\"},{\"t\":\"👀 Views: 78,770 (⬇️ -59,820)\",\"c\":false,\"r\":\"\"},{\"t\":\"📝 Content Shared: 19 (⬆️ +2 Posts)\",\"c\":false,\"r\":\"\"},{\"t\":\"❤️ Total Likes: 2K+\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Interactions: 1.6K+\",\"c\":true,\"r\":\"\"},{\"t\":\"👤 Profile Activity: 2,369 (⬇️ -2,858)\",\"c\":false,\"r\":\"\"},{\"t\":\"🏫 mLAC PU Instagram\",\"c\":true,\"r\":\"\"},{\"t\":\"👥 Followers: 254 (⬆️ +13 Followers)\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Reach: 1,450 (⬇️ -984)\",\"c\":false,\"r\":\"\"},{\"t\":\"👀 Views: 10,521 (⬆️ +2,960)\",\"c\":false,\"r\":\"\"},{\"t\":\"📝 Content Shared: 8 (⬆️ +2 Posts)\",\"c\":false,\"r\":\"\"},{\"t\":\"❤️ Total Likes: 272 (⬇️ -156)\",\"c\":false,\"r\":\"\"},{\"t\":\"🤝 Interactions: 310 (⬆️ +153)\",\"c\":true,\"r\":\"\"},{\"t\":\"👤 Profile Activity: 553 (⬇️ -6)\",\"c\":false,\"r\":\"\"},{\"t\":\"📘 mLAC Facebook\",\"c\":true,\"r\":\"\"},{\"t\":\"👥 Followers: 1,309 (⬆️ +109 Followers)\",\"c\":true,\"r\":\"\"},{\"t\":\"👀 Views: 16.2K (⬇️ -5.1K)\",\"c\":false,\"r\":\"\"},{\"t\":\"🌐 Visits: 289 (⬇️ -54)\",\"c\":false,\"r\":\"\"},{\"t\":\"📝 Content Shared: 25 (⬆️ +2 Posts)\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Engagements: 493 (⬆️ +310)\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Finatoniq (Shared Responsibility with Shiva)\",\"c\":true,\"r\":\"\"},{\"t\":\"📸 Instagram: Views 930 (⬆️ +723%), Likes 56 (⬆️ +1020%), Interactions 98 (⬆️ +791%), Profile Activity 18 (⬆️ +64%), Profile Visits 17 (⬆️ +70%), Content Shared 39 (⬆️ +680%)\",\"c\":true,\"r\":\"\"},{\"t\":\"💼 LinkedIn: Followers 639 (⬆️ +80 Followers), Impressions 8,602 (⬆️ +790.5%), Reactions 243 (⬆️ +2330%)\",\"c\":true,\"r\":\"\"},{\"t\":\"📘 Facebook: Views 300, Content Shared 39.\",\"c\":true,\"r\":\"\"},{\"t\":\"Adhoc Activities\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Successfully designed and delivered a Planawedding promotional creative based on her own initiative and creativity.\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Contributed to Finatoniq social media execution and publishing as part of the shared responsibility with Shiva.\",\"c\":true,\"r\":\"\"},{\"t\":\"🌐 Continued supporting SEO optimization, content execution, and additional digital marketing activities.\",\"c\":true,\"r\":\"\"},{\"t\":\"Planawedding SEO – Areas for Improvement & Recommendations\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Increase organic search contribution through targeted SEO content and optimized landing pages.\",\"c\":true,\"r\":\"\"},{\"t\":\"✍️ Publish more SEO-focused blogs covering wedding planning, budgeting, destination weddings, vendors, and wedding checklists.\",\"c\":false,\"r\":\"\"},{\"t\":\"🤖 Continue strengthening AI Search Optimization (AEO) through FAQ-based and AI-friendly content.\",\"c\":false,\"r\":\"\"},{\"t\":\"🌍 Expand off-page SEO through Quora, guest blogging, wedding directories, and quality backlinks.\",\"c\":false,\"r\":\"\"},{\"t\":\"🔗 Improve internal linking, structured data (Schema Markup), and technical SEO.\",\"c\":true,\"r\":\"\"},{\"t\":\"📱 Continue enhancing App Store Optimization (ASO) and keyword rankings to improve organic visibility and website traffic.\",\"c\":false,\"r\":\"\"}]",
+        "tasks_completed": 68,
+        "created_at": "2026-05-31T16:22:06.000000Z",
+        "updated_at": "2026-07-02T03:46:19.000000Z"
+      },
+      {
+        "id": 81,
+        "user_id": 26,
+        "month": "Jul",
+        "year": 2026,
+        "quality": 0,
         "attendance": 0,
         "teamwork": 0,
         "initiative": 0,
@@ -1432,8 +1452,8 @@
         "notes": null,
         "tasks": "[{\"t\":\"Social Media Brand Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Management of assigned brands across social media platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Consistent publishing and maintenance of brand presence.\",\"c\":false,\"r\":\"\"},{\"t\":\"Platform-wise content execution and audience engagement.\",\"c\":false,\"r\":\"\"},{\"t\":\"Social Media Post Planning & Execution\",\"c\":false,\"r\":\"\"},{\"t\":\"Planning and execution of social media content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely publishing of approved content across platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination of platform-specific content requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content Calendar Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Preparation and maintenance of monthly content calendars.\",\"c\":false,\"r\":\"\"},{\"t\":\"Scheduling and tracking of content deliverables.\",\"c\":false,\"r\":\"\"},{\"t\":\"Ensuring consistency in content flow and publishing.\",\"c\":false,\"r\":\"\"},{\"t\":\"Creative Coordination & Posting Timeliness\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with design and content teams.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely execution of approved creatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Follow-up and management of content publishing schedules.\",\"c\":false,\"r\":\"\"},{\"t\":\"Audience Growth, Reach & Engagement Performance\",\"c\":false,\"r\":\"\"},{\"t\":\"Follower growth across assigned platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Reach, impressions, views, interactions, and engagement tracking.\",\"c\":false,\"r\":\"\"},{\"t\":\"Performance analysis of top-performing content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Client Reports Generation\",\"c\":false,\"r\":\"\"},{\"t\":\"Preparation and sharing of monthly performance reports.\",\"c\":false,\"r\":\"\"},{\"t\":\"Compilation of analytics, insights, and platform performance data.\",\"c\":false,\"r\":\"\"},{\"t\":\"Reporting of audience growth and campaign performance.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with Clients\",\"c\":false,\"r\":\"\"},{\"t\":\"Client communication and follow-up.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content approval coordination.\",\"c\":false,\"r\":\"\"},{\"t\":\"Campaign planning and execution discussions.\",\"c\":false,\"r\":\"\"},{\"t\":\"Campaign & Promotional Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for special campaigns, events, launches, and promotional initiatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination and execution of campaign-specific content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Brand Visibility & Community Engagement\",\"c\":false,\"r\":\"\"},{\"t\":\"Activities focused on increasing brand awareness.\",\"c\":false,\"r\":\"\"},{\"t\":\"Audience interaction and community-building initiatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for engagement-driven content strategies.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adhoc Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Additional creative, campaign, video, branding, or marketing support activities undertaken during the month.\",\"c\":false,\"r\":\"\"},{\"t\":\"Areas of Improvement\",\"c\":false,\"r\":\"\"},{\"t\":\"Availability and responsiveness.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely completion of assigned deliverables.\",\"c\":false,\"r\":\"\"},{\"t\":\"Proactive communication and follow-up.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content quality, engagement, or growth-related improvements as applicable\",\"c\":false,\"r\":\"\"}]",
         "tasks_completed": 0,
-        "created_at": "2026-05-31T16:22:06.000000Z",
-        "updated_at": "2026-05-31T16:22:06.000000Z"
+        "created_at": "2026-07-02T03:37:28.000000Z",
+        "updated_at": "2026-07-02T03:37:28.000000Z"
       }
     ],
     "leaves": [
@@ -1558,17 +1578,17 @@
         "month": "Jun",
         "year": 2026,
         "quality": 0,
-        "attendance": 0,
+        "attendance": 27,
         "teamwork": 0,
         "initiative": 0,
         "revenue_target": null,
         "revenue_achieved": null,
-        "total_score": 0,
+        "total_score": 34,
         "notes": null,
-        "tasks": "[{\"t\":\"Social Media Brand Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Management of assigned brands across social media platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Consistent publishing and maintenance of brand presence.\",\"c\":false,\"r\":\"\"},{\"t\":\"Platform-wise content execution and audience engagement.\",\"c\":false,\"r\":\"\"},{\"t\":\"Social Media Post Planning & Execution\",\"c\":false,\"r\":\"\"},{\"t\":\"Planning and execution of social media content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely publishing of approved content across platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination of platform-specific content requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content Calendar Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Preparation and maintenance of monthly content calendars.\",\"c\":false,\"r\":\"\"},{\"t\":\"Scheduling and tracking of content deliverables.\",\"c\":false,\"r\":\"\"},{\"t\":\"Ensuring consistency in content flow and publishing.\",\"c\":false,\"r\":\"\"},{\"t\":\"Creative Coordination & Posting Timeliness\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with design and content teams.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely execution of approved creatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Follow-up and management of content publishing schedules.\",\"c\":false,\"r\":\"\"},{\"t\":\"Audience Growth, Reach & Engagement Performance\",\"c\":false,\"r\":\"\"},{\"t\":\"Follower growth across assigned platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Reach, impressions, views, interactions, and engagement tracking.\",\"c\":false,\"r\":\"\"},{\"t\":\"Performance analysis of top-performing content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Client Reports Generation\",\"c\":false,\"r\":\"\"},{\"t\":\"Preparation and sharing of monthly performance reports.\",\"c\":false,\"r\":\"\"},{\"t\":\"Compilation of analytics, insights, and platform performance data.\",\"c\":false,\"r\":\"\"},{\"t\":\"Reporting of audience growth and campaign performance.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with Clients\",\"c\":false,\"r\":\"\"},{\"t\":\"Client communication and follow-up.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content approval coordination.\",\"c\":false,\"r\":\"\"},{\"t\":\"Campaign planning and execution discussions.\",\"c\":false,\"r\":\"\"},{\"t\":\"Campaign & Promotional Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for special campaigns, events, launches, and promotional initiatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination and execution of campaign-specific content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Brand Visibility & Community Engagement\",\"c\":false,\"r\":\"\"},{\"t\":\"Activities focused on increasing brand awareness.\",\"c\":false,\"r\":\"\"},{\"t\":\"Audience interaction and community-building initiatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for engagement-driven content strategies.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adhoc Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Additional creative, campaign, video, branding, or marketing support activities undertaken during the month.\",\"c\":false,\"r\":\"\"},{\"t\":\"Areas of Improvement\",\"c\":false,\"r\":\"\"},{\"t\":\"Availability and responsiveness.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely completion of assigned deliverables.\",\"c\":false,\"r\":\"\"},{\"t\":\"Proactive communication and follow-up.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content quality, engagement, or growth-related improvements as applicable\",\"c\":false,\"r\":\"\"}]",
-        "tasks_completed": 0,
+        "tasks": "[{\"t\":\"Planawedding (PAW) – Creative Design\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Created social media creatives for Planawedding.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎯 Designed creatives aligned with the brand&#039;s visual identity and campaign requirements.\",\"c\":true,\"r\":\"\"},{\"t\":\"📅 Delivered creatives within the assigned timelines during the initial phase of June.\",\"c\":true,\"r\":\"\"},{\"t\":\"Finatoniq – Videos & Creative Support\",\"c\":false,\"r\":\"\"},{\"t\":\"🎬 Assisted in creating promotional videos for Finatoniq.\",\"c\":false,\"r\":\"\"},{\"t\":\"🎨 Designed supporting creatives for social media campaigns.\",\"c\":false,\"r\":\"\"},{\"t\":\"Working Days - June 1 to June 8 2026\",\"c\":false,\"r\":\"\"}]",
+        "tasks_completed": 4,
         "created_at": "2026-05-31T16:22:25.000000Z",
-        "updated_at": "2026-05-31T16:22:25.000000Z"
+        "updated_at": "2026-07-02T03:48:53.000000Z"
       }
     ],
     "leaves": [
@@ -1741,6 +1761,24 @@
         "month": "Jun",
         "year": 2026,
         "quality": 0,
+        "attendance": 92,
+        "teamwork": 50,
+        "initiative": 20,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 72,
+        "notes": null,
+        "tasks": "[{\"t\":\"💼 Phundo\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Published 14 content pieces across Instagram, Facebook, LinkedIn & X (Twitter).\",\"c\":true,\"r\":\"\"},{\"t\":\"📸 Instagram generated 455 Views, 37 Likes & 41 Interactions.\",\"c\":true,\"r\":\"\"},{\"t\":\"⭐ Top-performing posts:\",\"c\":true,\"r\":\"\"},{\"t\":\"Build Wealth\",\"c\":true,\"r\":\"\"},{\"t\":\"Think Long Term\",\"c\":true,\"r\":\"\"},{\"t\":\"Small SIPs\",\"c\":true,\"r\":\"\"},{\"t\":\"💼 LinkedIn generated 577 Impressions & 42 Reactions.\",\"c\":true,\"r\":\"\"},{\"t\":\"🐦 X (Twitter) generated 201 Views.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Continued strengthening awareness around financial planning, wealth creation and SIP investing.\",\"c\":true,\"r\":\"\"},{\"t\":\"📊 MFDAK\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Published 16 content pieces across Instagram, Facebook, LinkedIn & X (Twitter).\",\"c\":true,\"r\":\"\"},{\"t\":\"📸 Instagram generated 446 Views, 26 Likes & 27 Interactions.\",\"c\":true,\"r\":\"\"},{\"t\":\"⭐ Top-performing posts:\",\"c\":true,\"r\":\"\"},{\"t\":\"SEBI New Proposal\",\"c\":true,\"r\":\"\"},{\"t\":\"Stress Free Retirement\",\"c\":true,\"r\":\"\"},{\"t\":\"📘 Facebook generated 264 Views & 2 Interactions.\",\"c\":true,\"r\":\"\"},{\"t\":\"💼 LinkedIn generated 506 Impressions & 71 Reactions.\",\"c\":true,\"r\":\"\"},{\"t\":\"🐦 X (Twitter) generated 142 Impressions.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Continued improving digital awareness through finance and investment-related educational content\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Finatoniq (Shared Responsibility with Sudha)\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Contributed to planning, execution and publishing of social media content across Instagram, Facebook and LinkedIn.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Supported a month that achieved significant growth in reach, engagement and content publishing across platforms.\",\"c\":true,\"r\":\"\"},{\"t\":\"⭐ Contributed to the execution of educational and investment-focused content strategy.\",\"c\":true,\"r\":\"\"},{\"t\":\"📑 Client Reports Generation\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Prepared and shared monthly social media performance reports.\",\"c\":true,\"r\":\"\"},{\"t\":\"📊 Compiled platform-wise analytics, engagement insights and performance summaries.\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Coordination with Clients\",\"c\":true,\"r\":\"\"},{\"t\":\"Coordinated with clients for content approvals, publishing schedules.\",\"c\":true,\"r\":\"\"},{\"t\":\"Participated in content planning discussions and ensured timely deliverables.\",\"c\":true,\"r\":\"\"},{\"t\":\"📅 Social Media Planning & Execution\",\"c\":true,\"r\":\"\"},{\"t\":\"Planned and executed social media content for Phundo and MFDAK.\",\"c\":true,\"r\":\"\"},{\"t\":\"Contributed to Finatoniq content planning as part of the shared ownership.\",\"c\":true,\"r\":\"\"},{\"t\":\"Maintained timely publishing across multiple platforms.\",\"c\":true,\"r\":\"\"},{\"t\":\"🗓️ Content Calendar Management\",\"c\":true,\"r\":\"\"},{\"t\":\"Maintained monthly content calendars.\",\"c\":true,\"r\":\"\"},{\"t\":\"Coordinated publishing timelines and ensured scheduled content was delivered on time.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Creative Coordination & Posting Timeliness\",\"c\":true,\"r\":\"\"},{\"t\":\"Coordinated with content and design teams for creatives.\",\"c\":true,\"r\":\"\"},{\"t\":\"Ensured timely publishing across assigned brands.\",\"c\":true,\"r\":\"\"},{\"t\":\"Supported Evibe Solutions with initial video creation and creative requirements.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Audience Growth, Reach & Engagement Performance\",\"c\":true,\"r\":\"\"},{\"t\":\"📌 Phundo\",\"c\":true,\"r\":\"\"},{\"t\":\"📸 Instagram: Followers 102 (➖ No Change) | Reach 41 | Views 455 | Content 14 | Likes 37 | Interactions 41 | Profile Activity 25\",\"c\":false,\"r\":\"\"},{\"t\":\"📘 Facebook: Followers 990 (➖ No Change) | Views 34 | Visits 4 | Interactions 10\",\"c\":false,\"r\":\"\"},{\"t\":\"💼 LinkedIn: Followers 319 (⬆️ +7 Followers) | Impressions 577 | Reactions 42\",\"c\":true,\"r\":\"\"},{\"t\":\"🐦 X (Twitter): Followers 226 (⬇️ -3 Followers) | Views 201\",\"c\":false,\"r\":\"\"},{\"t\":\"📌 MFDAK\",\"c\":true,\"r\":\"\"},{\"t\":\"📸 Instagram: June 2026 Followers: 111 (➖ No Change), Reach: 50 (⬇️ -9), Views: 446 (⬇️ -37), Content Shared: 16 (⬆️ +1 Post), Total Likes: 26 (➖ No Change), Interactions: 27 (➖ No Change), Profile Activity: 14 (⬆️ +8).\",\"c\":false,\"r\":\"\"},{\"t\":\"📘 Facebook: June 2026 Followers: 79 (➖ No Change), Views: 264 (⬆️ +23), Visits: 12 (⬇️ -13), Interactions: 2 (⬇️ -2).\",\"c\":false,\"r\":\"\"},{\"t\":\"💼 LinkedIn: June 2026 Followers: 61 (➖ No Change), Impressions: 506 (⬇️ -162), Reactions: 71 (⬆️ +41).\",\"c\":false,\"r\":\"\"},{\"t\":\"🐦 X (Twitter): June 2026 Followers: 19 (➖ No Change), Impressions: 142 (⬇️ -105).\",\"c\":false,\"r\":\"\"},{\"t\":\"📌 Finatoniq (Shared Responsibility)\",\"c\":true,\"r\":\"\"},{\"t\":\"📸 Instagram: Views 930 (⬆️ +723%) | Likes 56 (⬆️ +1020%) | Interactions 98 (⬆️ +791%) | Profile Activity 18 (⬆️ +64%) | Profile Visits 17 (⬆️ +70%) | Content Shared 39 (⬆️ +680%)\",\"c\":true,\"r\":\"\"},{\"t\":\"💼 LinkedIn: Followers 639 (⬆️ +80 Followers) | Impressions 8,602 (⬆️ +790.5%) | Reactions 243 (⬆️ +2330%) | Content Shared 39 (⬆️ +680%)\",\"c\":true,\"r\":\"\"},{\"t\":\"📘 Facebook: Followers 12 | Views 300 | Content Shared 39\",\"c\":false,\"r\":\"\"},{\"t\":\"Adhoc Activities\",\"c\":true,\"r\":\"\"},{\"t\":\"🎥 Successfully created videos and creatives for Evibe Solutions during the initial phase of June 2026.\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Contributed to Finatoniq content execution and publishing activities as part of the shared ownership.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Supported additional creative requirements and digital marketing activities.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎯 Areas of Improvement\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Focus on improving organic follower growth across assigned brands.\",\"c\":false,\"r\":\"\"},{\"t\":\"💡 Increase engagement through interactive content such as reels, carousels and educational videos.\",\"c\":false,\"r\":\"\"},{\"t\":\"🤝 Strengthen proactive communication and follow-up during execution cycles.\",\"c\":false,\"r\":\"\"},{\"t\":\"🚀 Continue exploring innovative content formats to improve overall social media performance and brand visibility.\",\"c\":false,\"r\":\"\"}]",
+        "tasks_completed": 53,
+        "created_at": "2026-05-31T16:22:44.000000Z",
+        "updated_at": "2026-07-07T08:59:38.000000Z"
+      },
+      {
+        "id": 75,
+        "user_id": 28,
+        "month": "Jul",
+        "year": 2026,
+        "quality": 0,
         "attendance": 0,
         "teamwork": 0,
         "initiative": 0,
@@ -1750,8 +1788,8 @@
         "notes": null,
         "tasks": "[{\"t\":\"Social Media Brand Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Management of assigned brands across social media platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Consistent publishing and maintenance of brand presence.\",\"c\":false,\"r\":\"\"},{\"t\":\"Platform-wise content execution and audience engagement.\",\"c\":false,\"r\":\"\"},{\"t\":\"Social Media Post Planning & Execution\",\"c\":false,\"r\":\"\"},{\"t\":\"Planning and execution of social media content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely publishing of approved content across platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination of platform-specific content requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content Calendar Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Preparation and maintenance of monthly content calendars.\",\"c\":false,\"r\":\"\"},{\"t\":\"Scheduling and tracking of content deliverables.\",\"c\":false,\"r\":\"\"},{\"t\":\"Ensuring consistency in content flow and publishing.\",\"c\":false,\"r\":\"\"},{\"t\":\"Creative Coordination & Posting Timeliness\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with design and content teams.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely execution of approved creatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Follow-up and management of content publishing schedules.\",\"c\":false,\"r\":\"\"},{\"t\":\"Audience Growth, Reach & Engagement Performance\",\"c\":false,\"r\":\"\"},{\"t\":\"Follower growth across assigned platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Reach, impressions, views, interactions, and engagement tracking.\",\"c\":false,\"r\":\"\"},{\"t\":\"Performance analysis of top-performing content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Client Reports Generation\",\"c\":false,\"r\":\"\"},{\"t\":\"Preparation and sharing of monthly performance reports.\",\"c\":false,\"r\":\"\"},{\"t\":\"Compilation of analytics, insights, and platform performance data.\",\"c\":false,\"r\":\"\"},{\"t\":\"Reporting of audience growth and campaign performance.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with Clients\",\"c\":false,\"r\":\"\"},{\"t\":\"Client communication and follow-up.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content approval coordination.\",\"c\":false,\"r\":\"\"},{\"t\":\"Campaign planning and execution discussions.\",\"c\":false,\"r\":\"\"},{\"t\":\"Campaign & Promotional Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for special campaigns, events, launches, and promotional initiatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination and execution of campaign-specific content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Brand Visibility & Community Engagement\",\"c\":false,\"r\":\"\"},{\"t\":\"Activities focused on increasing brand awareness.\",\"c\":false,\"r\":\"\"},{\"t\":\"Audience interaction and community-building initiatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for engagement-driven content strategies.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adhoc Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Additional creative, campaign, video, branding, or marketing support activities undertaken during the month.\",\"c\":false,\"r\":\"\"},{\"t\":\"Areas of Improvement\",\"c\":false,\"r\":\"\"},{\"t\":\"Availability and responsiveness.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely completion of assigned deliverables.\",\"c\":false,\"r\":\"\"},{\"t\":\"Proactive communication and follow-up.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content quality, engagement, or growth-related improvements as applicable\",\"c\":false,\"r\":\"\"}]",
         "tasks_completed": 0,
-        "created_at": "2026-05-31T16:22:44.000000Z",
-        "updated_at": "2026-05-31T16:22:44.000000Z"
+        "created_at": "2026-07-01T06:36:42.000000Z",
+        "updated_at": "2026-07-01T06:36:42.000000Z"
       }
     ],
     "leaves": [
@@ -1913,6 +1951,24 @@
         "month": "Jun",
         "year": 2026,
         "quality": 0,
+        "attendance": 100,
+        "teamwork": 40,
+        "initiative": 70,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 76,
+        "notes": null,
+        "tasks": "[{\"t\":\"PAW B2B App - Wedding Proposal Integration\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  App Loading Optimization\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  New Subscription Plan Implementation\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  Shared IOS Build Before Live (iOS 7.6)\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  Shared APK Build Before Live (Android 5.7)\",\"c\":false,\"r\":\"\"},{\"t\":\"PAW B2B App -  Shared IOS Build Before Live (iOS 7.7)\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  Shared APK Build Before Live (Android 5.8)\",\"c\":false,\"r\":\"\"},{\"t\":\"PAW B2B App -  Wedding Leads & My Leads (View Requirement) UI\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  Shared IOS Build Before Live (iOS 7.8)\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  Shared APK Build Before Live (Android 5.9)\",\"c\":false,\"r\":\"\"},{\"t\":\"PAW B2B App -  Shared IOS Build Before Live (iOS 7.9)\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  Shared APK Build Before Live (Android 6.0)\",\"c\":false,\"r\":\"\"},{\"t\":\"PAW B2B App - Code Refactoring & Sanity\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2B App -  Verify OTP & Register OTP animations\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2C App - Verify OTP Animation\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2C App -  Wedding Packages New UI & Performance Optimization\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2C App -   Subscription API, Payment, & Animation Integration\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2C App - Shared IOS Build Before Live (iOS 3.6)\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2C App - Shared APK Build Before Live (iOS 4.0)\",\"c\":false,\"r\":\"\"},{\"t\":\"PAW B2C App -  Dependency Upgrades & iOS Lifecycle Management\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2C App -  Store Rejection Resolutions & Resubmissions\",\"c\":true,\"r\":\"\"},{\"t\":\"PAW B2C App -  Wedding SIP UI Completion\",\"c\":true,\"r\":\"\"},{\"t\":\"Payment Gateways Research & Development\",\"c\":true,\"r\":\"\"}]",
+        "tasks_completed": 18,
+        "created_at": "2026-05-31T16:23:33.000000Z",
+        "updated_at": "2026-07-01T06:15:59.000000Z"
+      },
+      {
+        "id": 74,
+        "user_id": 29,
+        "month": "Jul",
+        "year": 2026,
+        "quality": 0,
         "attendance": 0,
         "teamwork": 0,
         "initiative": 0,
@@ -1922,8 +1978,8 @@
         "notes": null,
         "tasks": "[{\"t\":\"Mobile App Development & Enhancement\",\"c\":false,\"r\":\"\"},{\"t\":\"Development and enhancement of mobile application features.\",\"c\":false,\"r\":\"\"},{\"t\":\"Implementation of new business requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Continuous improvement of application functionality and user experience.\",\"c\":false,\"r\":\"\"},{\"t\":\"Feature Development & Implementation\",\"c\":false,\"r\":\"\"},{\"t\":\"Development of new modules and functionalities.\",\"c\":false,\"r\":\"\"},{\"t\":\"Enhancement of existing features based on business requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for product improvements and feature rollouts.\",\"c\":false,\"r\":\"\"},{\"t\":\"API Integration & Connectivity\",\"c\":false,\"r\":\"\"},{\"t\":\"Integration of backend APIs with mobile applications.\",\"c\":false,\"r\":\"\"},{\"t\":\"Data synchronization and validation.\",\"c\":false,\"r\":\"\"},{\"t\":\"Error handling and API performance optimization.\",\"c\":false,\"r\":\"\"},{\"t\":\"Mobile UI Implementation\",\"c\":false,\"r\":\"\"},{\"t\":\"Implementation of approved UI/UX designs.\",\"c\":false,\"r\":\"\"},{\"t\":\"Screen development and mobile responsiveness.\",\"c\":false,\"r\":\"\"},{\"t\":\"User interface refinements and usability improvements.\",\"c\":false,\"r\":\"\"},{\"t\":\"App Performance & Stability\",\"c\":false,\"r\":\"\"},{\"t\":\"Bug fixing and issue resolution.\",\"c\":false,\"r\":\"\"},{\"t\":\"Performance optimization and stability improvements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Application testing and quality enhancement activities.\",\"c\":false,\"r\":\"\"},{\"t\":\"Localization & Language Support\",\"c\":false,\"r\":\"\"},{\"t\":\"Multi-language implementation and maintenance.\",\"c\":false,\"r\":\"\"},{\"t\":\"Regional language support and localization updates.\",\"c\":false,\"r\":\"\"},{\"t\":\"Testing & Quality Assurance Support\",\"c\":false,\"r\":\"\"},{\"t\":\"Functional testing of developed features.\",\"c\":false,\"r\":\"\"},{\"t\":\"Regression testing support.\",\"c\":false,\"r\":\"\"},{\"t\":\"Resolution of reported bugs and user issues.\",\"c\":false,\"r\":\"\"},{\"t\":\"Play Store Management & App Releases\",\"c\":false,\"r\":\"\"},{\"t\":\"Build generation and deployment activities.\",\"c\":false,\"r\":\"\"},{\"t\":\"Play Store updates and version management.\",\"c\":false,\"r\":\"\"},{\"t\":\"Release coordination and post-release support.\",\"c\":false,\"r\":\"\"},{\"t\":\"Technical Coordination & Support\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with UI/UX designers for implementation.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with backend developers for API requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Technical discussions and requirement clarification.\",\"c\":false,\"r\":\"\"},{\"t\":\"Task Completion & Delivery Timelines\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely completion of assigned development tasks.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adherence to project milestones and delivery schedules.\",\"c\":false,\"r\":\"\"},{\"t\":\"Prompt resolution of priority issues and support requests.\",\"c\":false,\"r\":\"\"},{\"t\":\"Documentation & Knowledge Sharing\",\"c\":false,\"r\":\"\"},{\"t\":\"Documentation of implemented features and changes.\",\"c\":false,\"r\":\"\"},{\"t\":\"Technical updates and deployment records.\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for internal knowledge transfer when required.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adhoc Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Additional development tasks, urgent fixes, feature requests, and support activities undertaken during the month.\",\"c\":false,\"r\":\"\"},{\"t\":\"Areas of Improvement\",\"c\":false,\"r\":\"\"},{\"t\":\"Proactive communication on task progress and blockers.\",\"c\":false,\"r\":\"\"},{\"t\":\"Better estimation and planning of development timelines.\",\"c\":false,\"r\":\"\"},{\"t\":\"Faster closure of pending issues and enhancement requests.\",\"c\":false,\"r\":\"\"},{\"t\":\"Improved documentation of completed tasks and releases.\",\"c\":false,\"r\":\"\"}]",
         "tasks_completed": 0,
-        "created_at": "2026-05-31T16:23:33.000000Z",
-        "updated_at": "2026-05-31T16:23:33.000000Z"
+        "created_at": "2026-07-01T06:06:27.000000Z",
+        "updated_at": "2026-07-01T06:06:27.000000Z"
       }
     ],
     "leaves": [
@@ -2036,6 +2092,24 @@
         "month": "Jun",
         "year": 2026,
         "quality": 0,
+        "attendance": 96,
+        "teamwork": 50,
+        "initiative": 30,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 85,
+        "notes": null,
+        "tasks": "[{\"t\":\"1) PAW B2B APP - New Subscription UI (addition of 999)\",\"c\":true,\"r\":\"\"},{\"t\":\"2) PAW B2B  APP -  New Wedding Leads and My Leads UI\",\"c\":true,\"r\":\"\"},{\"t\":\"3) PAW B2B  APP -  Additional Enhancement on Wedding Leads and My Leads UI\",\"c\":true,\"r\":\"\"},{\"t\":\"4) Brand Kit - GK Realty\",\"c\":true,\"r\":\"\"},{\"t\":\"5) LetterHead Design - Privyassets\",\"c\":true,\"r\":\"\"},{\"t\":\"6) Visiting Card - Privyassets\",\"c\":true,\"r\":\"\"},{\"t\":\"7) Logo - Privyassets\",\"c\":true,\"r\":\"\"},{\"t\":\"8) Standee - Finatoniq\",\"c\":true,\"r\":\"\"},{\"t\":\"9) Presentation Templaate for Srikanth Sir\",\"c\":true,\"r\":\"\"},{\"t\":\"10) Find Your Focus Field -  Prasad Ramani Sir - Web Application\",\"c\":true,\"r\":\"\"},{\"t\":\"11) PAW B2C  APP - Compare Your Packages UI Design\",\"c\":true,\"r\":\"\"},{\"t\":\"12) PAW Flyer Design\",\"c\":true,\"r\":\"\"},{\"t\":\"13) PAW Standee Design\",\"c\":true,\"r\":\"\"},{\"t\":\"14) PAW New Logo\",\"c\":true,\"r\":\"\"},{\"t\":\"15) PAW B2C APP - Vendor Listing UI\",\"c\":true,\"r\":\"\"},{\"t\":\"16) PAW B2B APP - List you Business UI\",\"c\":true,\"r\":\"\"},{\"t\":\"17) PAW Web - Vendor Listing UI\",\"c\":true,\"r\":\"\"},{\"t\":\"18) Gevents - Logo\",\"c\":true,\"r\":\"\"},{\"t\":\"19) PAW sangeet Sunboard Design\",\"c\":true,\"r\":\"\"},{\"t\":\"20) PAW B2C APP - Wedding SIP\",\"c\":true,\"r\":\"\"},{\"t\":\"21) PAW - Created sunboard design for engagement Manasa\",\"c\":true,\"r\":\"\"},{\"t\":\"22) Gevents Logo - Redesign of  G Events Logo\",\"c\":true,\"r\":\"\"},{\"t\":\"23) Phundo - Thank you card Design\",\"c\":true,\"r\":\"\"},{\"t\":\"24) VVT - New Logo\",\"c\":true,\"r\":\"\"}]",
+        "tasks_completed": 24,
+        "created_at": "2026-05-31T16:24:17.000000Z",
+        "updated_at": "2026-07-01T05:24:40.000000Z"
+      },
+      {
+        "id": 73,
+        "user_id": 30,
+        "month": "Jul",
+        "year": 2026,
+        "quality": 0,
         "attendance": 0,
         "teamwork": 0,
         "initiative": 0,
@@ -2045,8 +2119,8 @@
         "notes": null,
         "tasks": "[{\"t\":\"UI/UX Design & User Experience\",\"c\":false,\"r\":\"\"},{\"t\":\"Design and enhancement of mobile and web application interfaces.\",\"c\":false,\"r\":\"\"},{\"t\":\"User experience improvements across products and platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Creation of intuitive and user-friendly design solutions.\",\"c\":false,\"r\":\"\"},{\"t\":\"Product Feature Design & Prototyping\",\"c\":false,\"r\":\"\"},{\"t\":\"Design of new product features and workflows.\",\"c\":false,\"r\":\"\"},{\"t\":\"Wireframing, prototyping, and user flow creation.\",\"c\":false,\"r\":\"\"},{\"t\":\"Feature-based UI design and user journey optimization.\",\"c\":false,\"r\":\"\"},{\"t\":\"Mobile & Web Application Design\",\"c\":false,\"r\":\"\"},{\"t\":\"Mobile application screen design and enhancements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Web application interface design and improvements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Responsive design considerations across platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Design System & Brand Consistency\",\"c\":false,\"r\":\"\"},{\"t\":\"Maintenance of design standards and component libraries.\",\"c\":false,\"r\":\"\"},{\"t\":\"Ensuring visual consistency across products and platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adherence to established brand guidelines.\",\"c\":false,\"r\":\"\"},{\"t\":\"Branding & Creative Design\",\"c\":false,\"r\":\"\"},{\"t\":\"Logo design, brand identity development, and marketing collateral.\",\"c\":false,\"r\":\"\"},{\"t\":\"Design of presentation templates, brochures, banners, and promotional materials.\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for branding initiatives across business units.\",\"c\":false,\"r\":\"\"},{\"t\":\"Dashboard & Admin Panel Design\",\"c\":false,\"r\":\"\"},{\"t\":\"Dashboard UI design and enhancements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Data visualization layouts and user interaction improvements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Admin panel consistency and usability optimization.\",\"c\":false,\"r\":\"\"},{\"t\":\"User Flow & Navigation Optimization\",\"c\":false,\"r\":\"\"},{\"t\":\"Improvement of navigation structures and information architecture.\",\"c\":false,\"r\":\"\"},{\"t\":\"Optimization of user journeys for better usability and conversion.\",\"c\":false,\"r\":\"\"},{\"t\":\"Design solutions to enhance user engagement and accessibility.\",\"c\":false,\"r\":\"\"},{\"t\":\"Collaboration with Development Team\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with developers for design implementation.\",\"c\":false,\"r\":\"\"},{\"t\":\"Design handoff support and clarification.\",\"c\":false,\"r\":\"\"},{\"t\":\"Validation of implemented designs against approved concepts.\",\"c\":false,\"r\":\"\"},{\"t\":\"Design Revision & Enhancement Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Incorporation of stakeholder feedback.\",\"c\":false,\"r\":\"\"},{\"t\":\"Continuous design refinement and improvements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Management of revisions and iterative updates.\",\"c\":false,\"r\":\"\"},{\"t\":\"Design Delivery & Timeline Adherence\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely completion of assigned design tasks.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adherence to project milestones and delivery schedules.\",\"c\":false,\"r\":\"\"},{\"t\":\"Prioritization and management of multiple design requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Research & Innovation\",\"c\":false,\"r\":\"\"},{\"t\":\"UI/UX trend analysis and best-practice adoption.\",\"c\":false,\"r\":\"\"},{\"t\":\"Exploration of new design concepts and interaction patterns.\",\"c\":false,\"r\":\"\"},{\"t\":\"Contribution towards product innovation and usability improvements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adhoc Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for special projects, presentations, branding exercises, marketing campaigns, and product launches.\",\"c\":false,\"r\":\"\"},{\"t\":\"Additional design requirements assigned during the month.\",\"c\":false,\"r\":\"\"},{\"t\":\"Areas of Improvement\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely completion of design revisions and feedback incorporation.\",\"c\":false,\"r\":\"\"},{\"t\":\"Improved coordination during implementation stages.\",\"c\":false,\"r\":\"\"},{\"t\":\"Better prioritization of multiple design requests.\",\"c\":false,\"r\":\"\"},{\"t\":\"Increased proactive communication on design progress and dependencies.\",\"c\":false,\"r\":\"\"}]",
         "tasks_completed": 0,
-        "created_at": "2026-05-31T16:24:17.000000Z",
-        "updated_at": "2026-05-31T16:24:17.000000Z"
+        "created_at": "2026-07-01T04:19:15.000000Z",
+        "updated_at": "2026-07-01T04:19:15.000000Z"
       }
     ],
     "leaves": [
@@ -2061,6 +2135,19 @@
         "is_lop": 0,
         "created_at": "2026-06-16T04:14:04.000000Z",
         "updated_at": "2026-06-16T05:43:14.000000Z",
+        "admin_remarks": null
+      },
+      {
+        "id": 37,
+        "user_id": 30,
+        "leave_type": "Personal Leave",
+        "leave_date": "2026-07-25",
+        "end_date": "2026-07-25",
+        "reason": "I&#039;d like to request leave on Saturday, July 25, to travel to my hometown of Chennai for a personal visit. (Permission to leave the office 2 hours early on Friday evening)\r\n\r\nI will ensure all my current tasks are up to date before I leave.",
+        "status": "approved",
+        "is_lop": 0,
+        "created_at": "2026-07-03T04:22:17.000000Z",
+        "updated_at": "2026-07-03T06:17:30.000000Z",
         "admin_remarks": null
       }
     ],
@@ -2139,9 +2226,41 @@
         "tasks_completed": 0,
         "created_at": "2026-06-01T04:33:23.000000Z",
         "updated_at": "2026-06-01T04:33:23.000000Z"
+      },
+      {
+        "id": 76,
+        "user_id": 31,
+        "month": "Jun",
+        "year": 2026,
+        "quality": 0,
+        "attendance": 100,
+        "teamwork": 100,
+        "initiative": 50,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 43,
+        "notes": null,
+        "tasks": "[{\"type\":\"target\",\"label\":\"Sales\",\"weight\":70,\"target\":100000,\"achieved\":31300},{\"type\":\"details\",\"label\":\"Deliverables\",\"weight\":20,\"total\":25,\"completed\":21,\"taskStates\":[{\"t\":\"1.\\tIdentify and generate new business opportunities for corporate, social, and promotional events.\",\"c\":false,\"r\":\"\"},{\"t\":\"2.\\tMeet clients to understand event requirements, objectives, budgets, and expectations.\",\"c\":true,\"r\":\"\"},{\"t\":\"3.\\tPrepare event proposals, presentations, quotations, and costing sheets for clients.\",\"c\":true,\"r\":\"\"},{\"t\":\"4.\\tNegotiate pricing, close deals, and achieve monthly sales targets.\",\"c\":true,\"r\":\"\"},{\"t\":\"5.\\tBuild and maintain strong relationships with clients, vendors, venues, and partners.\",\"c\":true,\"r\":\"\"},{\"t\":\"6.\\tCoordinate with clients from the initial inquiry until successful event completion.\",\"c\":true,\"r\":\"\"},{\"t\":\"7.\\tPlan and manage all production-related activities for events.\",\"c\":true,\"r\":\"\"},{\"t\":\"8.\\tCoordinate stage setup, sound, lighting, LED walls, fabrication, branding, décor, and technical arrangements.\",\"c\":true,\"r\":\"\"},{\"t\":\"9.\\tConduct venue inspections and site recce before event execution.\",\"c\":true,\"r\":\"\"},{\"t\":\"10.\\tPrepare event production schedules, timelines, and execution plans.\",\"c\":true,\"r\":\"\"},{\"t\":\"11.\\tManage vendors, suppliers, freelancers, and technical teams during setup and execution.\",\"c\":true,\"r\":\"\"},{\"t\":\"12.\\tSupervise on-site event production and ensure smooth execution as per client expectations.\",\"c\":true,\"r\":\"\"},{\"t\":\"13.\\tHandle logistics, transportation, material movement, and inventory management.\",\"c\":false,\"r\":\"\"},{\"t\":\"14.\\tMonitor event budgets and ensure cost-effective execution without compromising quality.\",\"c\":true,\"r\":\"\"},{\"t\":\"15.\\tCoordinate with creative, operations, marketing, and client servicing teams for seamless event delivery.\",\"c\":true,\"r\":\"\"},{\"t\":\"16.\\tTroubleshoot operational and technical issues during live events.\",\"c\":true,\"r\":\"\"},{\"t\":\"17.\\tEnsure timely setup, event operations, and dismantling activities.\",\"c\":true,\"r\":\"\"},{\"t\":\"18.\\tMaintain regular follow-ups with existing clients for repeat business and referrals.\",\"c\":true,\"r\":\"\"},{\"t\":\"19.\\tPrepare sales reports, production reports, and post-event analysis for management.\",\"c\":true,\"r\":\"\"},{\"t\":\"20.\\tEnsure all contracts, payments, vendor bills, and documentation are completed on time.\",\"c\":true,\"r\":\"\"},{\"t\":\"21.\\tStay updated on market trends, competitor activities, and latest event production technologies.\",\"c\":false,\"r\":\"\"},{\"t\":\"22.\\tEnsure compliance with venue regulations and safety standards during event execution.\",\"c\":true,\"r\":\"\"},{\"t\":\"23.\\tSupport business growth by suggesting innovative event ideas and production solutions.\",\"c\":false,\"r\":\"\"},{\"t\":\"24.\\tRepresent the company professionally in meetings, client interactions, and event sites.\",\"c\":true,\"r\":\"\"},{\"t\":\"25.\\tManage multiple projects simultaneously while maintaining deadlines and quality\",\"c\":true,\"r\":\"\"}]}]",
+        "tasks_completed": 0,
+        "created_at": "2026-07-01T15:54:51.000000Z",
+        "updated_at": "2026-07-01T15:54:51.000000Z"
       }
     ],
-    "leaves": [],
+    "leaves": [
+      {
+        "id": 32,
+        "user_id": 31,
+        "leave_type": "Personal Leave",
+        "leave_date": "2026-07-10",
+        "end_date": "2026-07-11",
+        "reason": "Hi Sir,\r\n\r\nI would like to humbly request leave on Friday and Saturday as I need to be in my hometown for an important family function. I would truly appreciate your approval. \r\n\r\nThank you for your understanding.",
+        "status": "approved",
+        "is_lop": 0,
+        "created_at": "2026-06-29T05:09:16.000000Z",
+        "updated_at": "2026-06-29T08:59:48.000000Z",
+        "admin_remarks": "Ensure there are no events,if there are events keep Gani informed for alternate planning"
+      }
+    ],
     "attendance_records": [
       {
         "id": 33,
@@ -2338,6 +2457,24 @@
         "tasks_completed": 5,
         "created_at": "2026-06-01T04:46:35.000000Z",
         "updated_at": "2026-06-01T04:46:35.000000Z"
+      },
+      {
+        "id": 77,
+        "user_id": 32,
+        "month": "Jun",
+        "year": 2026,
+        "quality": 0,
+        "attendance": 100,
+        "teamwork": 75,
+        "initiative": 25,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 69,
+        "notes": null,
+        "tasks": "[{\"t\":\"1.\\tPlan and execute all production-related activities for events, ensuring smooth operations from setup to dismantling.\",\"c\":true,\"r\":\"\"},{\"t\":\"2.\\tCoordinate with vendors, suppliers, fabricators, and technical teams for event requirements.\",\"c\":true,\"r\":\"\"},{\"t\":\"3.\\tManage stage setup, sound, lighting, LED walls, trussing, branding, and other production elements.\",\"c\":true,\"r\":\"\"},{\"t\":\"4.\\tSupervise event installation and on-site execution to ensure quality and timely completion.\",\"c\":true,\"r\":\"\"},{\"t\":\"5.\\tPrepare production schedules, timelines, and work plans for each event.\",\"c\":false,\"r\":\"\"},{\"t\":\"6.\\tConduct venue inspections and site recce to understand production requirements and logistics.\",\"c\":true,\"r\":\"\"},{\"t\":\"7.\\tMonitor production budgets and control costs without compromising quality.\",\"c\":true,\"r\":\"\"},{\"t\":\"8.\\tWork closely with the creative, operations, and client servicing teams to execute event concepts effectively.\",\"c\":false,\"r\":\"\"},{\"t\":\"9.\\tTroubleshoot technical and operational issues during event setup and live execution.\",\"c\":false,\"r\":\"\"},{\"t\":\"10.\\tEnsure all production activities comply with safety standards and venue regulations.\",\"c\":true,\"r\":\"\"},{\"t\":\"11.\\tHandle vendor negotiations, quotations, and purchase orders related to production needs.\",\"c\":true,\"r\":\"\"},{\"t\":\"12.\\tSupervise fabrication and branding work to ensure accuracy and quality standards.\",\"c\":true,\"r\":\"\"},{\"t\":\"13.\\tEnsure timely setup and dismantling of event infrastructure.\",\"c\":true,\"r\":\"\"},{\"t\":\"14.\\tCoordinate with artists, performers, and technical crews for rehearsal and show flow requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"15.\\tManage backstage operations and technical coordination during live events.\",\"c\":true,\"r\":\"\"},{\"t\":\"16.\\tPrepare post-event production reports, feedback, and expense summaries.\",\"c\":true,\"r\":\"\"},{\"t\":\"17.\\tStay updated on latest event production technologies, trends, and innovative execution methods.\",\"c\":false,\"r\":\"\"},{\"t\":\"18.\\tMaintain strong relationships with production vendors and freelancers for future projects.\",\"c\":true,\"r\":\"\"},{\"t\":\"19.\\tEnsure contingency planning and backup arrangements for technical or operational failures.\",\"c\":false,\"r\":\"\"},{\"t\":\"20.\\tSupport the team in handling multiple events and tight deadlines efficiently.\",\"c\":true,\"r\":\"\"},{\"t\":\"21.\\tRepresent the company professionally while dealing with clients, venues, and vendors.\",\"c\":true,\"r\":\"\"},{\"t\":\"22.\\tOnboarding new reliable vendors\",\"c\":false,\"r\":\"This requires 100% effort to on board new reliable professional vendors\"}]",
+        "tasks_completed": 15,
+        "created_at": "2026-07-01T15:58:11.000000Z",
+        "updated_at": "2026-07-01T15:58:11.000000Z"
       }
     ],
     "leaves": [
@@ -2551,6 +2688,24 @@
         "tasks_completed": 0,
         "created_at": "2026-06-01T04:48:41.000000Z",
         "updated_at": "2026-06-01T04:48:41.000000Z"
+      },
+      {
+        "id": 78,
+        "user_id": 33,
+        "month": "Jun",
+        "year": 2026,
+        "quality": 0,
+        "attendance": 80,
+        "teamwork": 25,
+        "initiative": 0,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 7,
+        "notes": null,
+        "tasks": "[{\"type\":\"target\",\"label\":\"Sales\",\"weight\":70,\"target\":100000},{\"type\":\"details\",\"label\":\"Deliverables\",\"weight\":20,\"total\":20,\"completed\":3,\"taskStates\":[{\"t\":\"1.\\tIdentify and generate new business opportunities through networking, cold calling, referrals, and online research.\",\"c\":false,\"r\":\"\"},{\"t\":\"2.\\tMeet potential clients to understand their event requirements, objectives, budget, and expectations.\",\"c\":false,\"r\":\"\"},{\"t\":\"3.\\tPresent event concepts, company services, and customized proposals to clients.\",\"c\":false,\"r\":\"\"},{\"t\":\"4.\\tPrepare quotations, negotiate pricing, and close sales deals effectively.\",\"c\":false,\"r\":\"\"},{\"t\":\"5.\\tBuild and maintain strong relationships with corporate clients, vendors, and partners.\",\"c\":false,\"r\":\"\"},{\"t\":\"6.\\tCoordinate with the event planning and operations team to ensure smooth execution of client requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"7.\\tAchieve monthly and quarterly sales targets set by the company.\",\"c\":false,\"r\":\"\"},{\"t\":\"8.\\tMaintain an updated database of leads, clients, and follow-up activities.\",\"c\":false,\"r\":\"\"},{\"t\":\"9.\\tConduct market research to identify industry trends, competitor activities, and potential opportunities.\",\"c\":false,\"r\":\"\"},{\"t\":\"10.\\tAttend exhibitions, trade shows, networking events, and business meetings to promote company services.\",\"c\":false,\"r\":\"\"},{\"t\":\"11.\\tFollow up with existing clients for repeat business and client retention.\",\"c\":false,\"r\":\"\"},{\"t\":\"12.\\tPrepare sales reports, forecasts, and performance updates for management.\",\"c\":false,\"r\":\"\"},{\"t\":\"13.\\tEnsure high levels of customer satisfaction before, during, and after events.\",\"c\":true,\"r\":\"\"},{\"t\":\"14.\\tCollaborate with the marketing team for promotional campaigns and lead generation activities.\",\"c\":false,\"r\":\"\"},{\"t\":\"15.\\tHandle client inquiries, complaints, and negotiations professionally.\",\"c\":true,\"r\":\"\"},{\"t\":\"16.\\tPromote upselling and cross-selling of additional event services such as décor, entertainment, catering, branding, and digital promotions.\",\"c\":false,\"r\":\"\"},{\"t\":\"17.\\tEnsure all contracts, payments, and documentation are completed accurately and on time.\",\"c\":false,\"r\":\"\"},{\"t\":\"18.\\tStay updated on venue options, event technologies, and industry best practices.\",\"c\":false,\"r\":\"\"},{\"t\":\"19.\\tManage time effectively to handle multiple client accounts and event timelines simultaneously.\",\"c\":false,\"r\":\"\"},{\"t\":\"20.\\tRepresent the company professionally and maintain a positive brand image in all client interactions.\",\"c\":true,\"r\":\"\"}]}]",
+        "tasks_completed": 0,
+        "created_at": "2026-07-01T16:01:08.000000Z",
+        "updated_at": "2026-07-01T16:01:08.000000Z"
       }
     ],
     "leaves": [
@@ -2565,6 +2720,19 @@
         "is_lop": 0,
         "created_at": "2026-06-16T07:25:32.000000Z",
         "updated_at": "2026-06-16T12:07:48.000000Z",
+        "admin_remarks": null
+      },
+      {
+        "id": 38,
+        "user_id": 33,
+        "leave_type": "Personal Leave",
+        "leave_date": "2026-07-08",
+        "end_date": "2026-07-08",
+        "reason": "Hi sir, I&#039;m applying leave for today second half and tomorrow,\r\nsince I&#039;m shifting and have to move in to a new house,\r\nDay after tomorrow i shall report to the event coordinating with roles for the event.\r\nThanks",
+        "status": "approved",
+        "is_lop": 0,
+        "created_at": "2026-07-07T05:47:21.000000Z",
+        "updated_at": "2026-07-07T06:56:11.000000Z",
         "admin_remarks": null
       }
     ],
@@ -2892,6 +3060,18 @@
         "reason": null,
         "created_at": "2026-06-25T04:32:36.000000Z",
         "updated_at": "2026-06-25T04:32:36.000000Z"
+      },
+      {
+        "id": 168,
+        "user_id": 33,
+        "type": "late",
+        "date": "2026-06-29",
+        "minutes_late": 8,
+        "lop_days": null,
+        "deduction_amount": 250,
+        "reason": null,
+        "created_at": "2026-06-30T08:44:42.000000Z",
+        "updated_at": "2026-06-30T08:44:42.000000Z"
       }
     ],
     "team_lead": {
@@ -2968,6 +3148,24 @@
         "tasks_completed": 5,
         "created_at": "2026-06-01T04:52:19.000000Z",
         "updated_at": "2026-06-01T04:52:19.000000Z"
+      },
+      {
+        "id": 79,
+        "user_id": 34,
+        "month": "Jun",
+        "year": 2026,
+        "quality": 0,
+        "attendance": 100,
+        "teamwork": 50,
+        "initiative": 0,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 55,
+        "notes": null,
+        "tasks": "[{\"t\":\"1.\\tPlan and execute all production-related activities for events, ensuring smooth operations from setup to dismantling.\",\"c\":true,\"r\":\"\"},{\"t\":\"2.\\tCoordinate with vendors, suppliers, fabricators, and technical teams for event requirements.\",\"c\":true,\"r\":\"\"},{\"t\":\"3.\\tManage stage setup, sound, lighting, LED walls, trussing, branding, and other production elements.\",\"c\":true,\"r\":\"\"},{\"t\":\"4.\\tSupervise event installation and on-site execution to ensure quality and timely completion.\",\"c\":true,\"r\":\"\"},{\"t\":\"5.\\tPrepare production schedules, timelines, and work plans for each event.\",\"c\":false,\"r\":\"\"},{\"t\":\"6.\\tConduct venue inspections and site recce to understand production requirements and logistics.\",\"c\":true,\"r\":\"\"},{\"t\":\"7.\\tMonitor production budgets and control costs without compromising quality.\",\"c\":false,\"r\":\"\"},{\"t\":\"8.\\tWork closely with the creative, operations, and client servicing teams to execute event concepts effectively.\",\"c\":false,\"r\":\"\"},{\"t\":\"9.\\tTroubleshoot technical and operational issues during event setup and live execution.\",\"c\":true,\"r\":\"\"},{\"t\":\"10.\\tEnsure all production activities comply with safety standards and venue regulations.\",\"c\":true,\"r\":\"\"},{\"t\":\"11.\\tHandle vendor negotiations, quotations, and purchase orders related to production needs.\",\"c\":true,\"r\":\"\"},{\"t\":\"12.\\tSupervise fabrication and branding work to ensure accuracy and quality standards.\",\"c\":false,\"r\":\"\"},{\"t\":\"13.\\tEnsure timely setup and dismantling of event infrastructure.\",\"c\":true,\"r\":\"\"},{\"t\":\"14.\\tCoordinate with artists, performers, and technical crews for rehearsal and show flow requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"15.\\tManage backstage operations and technical coordination during live events.\",\"c\":true,\"r\":\"\"},{\"t\":\"16.\\tPrepare post-event production reports, feedback, and expense summaries.\",\"c\":false,\"r\":\"\"},{\"t\":\"17.\\tStay updated on latest event production technologies, trends, and innovative execution methods.\",\"c\":false,\"r\":\"\"},{\"t\":\"18.\\tMaintain strong relationships with production vendors and freelancers for future projects.\",\"c\":false,\"r\":\"\"},{\"t\":\"19.\\tEnsure contingency planning and backup arrangements for technical or operational failures.\",\"c\":false,\"r\":\"\"},{\"t\":\"20.\\tSupport the team in handling multiple events and tight deadlines efficiently.\",\"c\":true,\"r\":\"\"},{\"t\":\"21.\\tRepresent the company professionally while dealing with clients, venues, and vendors.\",\"c\":true,\"r\":\"\"},{\"t\":\"22.\\tOnboarding new reliable vendors\",\"c\":false,\"r\":\"This is 100% required to find reliable and professional vendors and onboard them\"}]",
+        "tasks_completed": 12,
+        "created_at": "2026-07-01T16:06:44.000000Z",
+        "updated_at": "2026-07-01T16:06:44.000000Z"
       }
     ],
     "leaves": [
@@ -3105,6 +3303,18 @@
         "reason": null,
         "created_at": "2026-06-25T04:30:39.000000Z",
         "updated_at": "2026-06-25T04:30:39.000000Z"
+      },
+      {
+        "id": 167,
+        "user_id": 34,
+        "type": "late",
+        "date": "2026-06-29",
+        "minutes_late": 20,
+        "lop_days": null,
+        "deduction_amount": 250,
+        "reason": null,
+        "created_at": "2026-06-30T08:44:07.000000Z",
+        "updated_at": "2026-06-30T08:44:07.000000Z"
       }
     ],
     "team_lead": {
@@ -3222,6 +3432,32 @@
         "created_at": "2026-06-18T03:47:27.000000Z",
         "updated_at": "2026-06-18T16:33:18.000000Z",
         "admin_remarks": null
+      },
+      {
+        "id": 34,
+        "user_id": 35,
+        "leave_type": "Personal Leave",
+        "leave_date": "2026-07-02",
+        "end_date": "2026-07-02",
+        "reason": "House shifting",
+        "status": "approved",
+        "is_lop": 0,
+        "created_at": "2026-06-30T10:47:24.000000Z",
+        "updated_at": "2026-07-03T06:17:02.000000Z",
+        "admin_remarks": null
+      },
+      {
+        "id": 36,
+        "user_id": 35,
+        "leave_type": "Personal Leave",
+        "leave_date": "2026-07-03",
+        "end_date": "2026-07-03",
+        "reason": "House shifting",
+        "status": "approved",
+        "is_lop": 1,
+        "created_at": "2026-07-02T17:16:10.000000Z",
+        "updated_at": "2026-07-03T06:18:09.000000Z",
+        "admin_remarks": "You just requested only for one day for house shifting and additional day was taken without prior discussing"
       }
     ],
     "attendance_records": [
@@ -3332,6 +3568,30 @@
         "reason": null,
         "created_at": "2026-06-25T04:33:49.000000Z",
         "updated_at": "2026-06-25T04:33:49.000000Z"
+      },
+      {
+        "id": 169,
+        "user_id": 35,
+        "type": "late",
+        "date": "2026-06-29",
+        "minutes_late": 27,
+        "lop_days": null,
+        "deduction_amount": 250,
+        "reason": null,
+        "created_at": "2026-06-30T08:45:08.000000Z",
+        "updated_at": "2026-06-30T08:45:08.000000Z"
+      },
+      {
+        "id": 170,
+        "user_id": 35,
+        "type": "lop",
+        "date": "2026-07-03",
+        "minutes_late": null,
+        "lop_days": 1,
+        "deduction_amount": 1000,
+        "reason": "Approved with LOP: House shifting",
+        "created_at": "2026-07-03T06:17:13.000000Z",
+        "updated_at": "2026-07-03T06:17:13.000000Z"
       }
     ],
     "team_lead": {
@@ -3372,7 +3632,44 @@
     "target_revenue": 0,
     "created_at": "2026-06-03T04:22:03.000000Z",
     "updated_at": "2026-06-03T04:22:03.000000Z",
-    "kpis": [],
+    "kpis": [
+      {
+        "id": 80,
+        "user_id": 36,
+        "month": "Jul",
+        "year": 2026,
+        "quality": 0,
+        "attendance": 0,
+        "teamwork": 0,
+        "initiative": 0,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 0,
+        "notes": null,
+        "tasks": "[{\"t\":\"Social Media Brand Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Management of assigned brands across social media platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Consistent publishing and maintenance of brand presence.\",\"c\":false,\"r\":\"\"},{\"t\":\"Platform-wise content execution and audience engagement.\",\"c\":false,\"r\":\"\"},{\"t\":\"Social Media Post Planning & Execution\",\"c\":false,\"r\":\"\"},{\"t\":\"Planning and execution of social media content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely publishing of approved content across platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination of platform-specific content requirements.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content Calendar Management\",\"c\":false,\"r\":\"\"},{\"t\":\"Preparation and maintenance of monthly content calendars.\",\"c\":false,\"r\":\"\"},{\"t\":\"Scheduling and tracking of content deliverables.\",\"c\":false,\"r\":\"\"},{\"t\":\"Ensuring consistency in content flow and publishing.\",\"c\":false,\"r\":\"\"},{\"t\":\"Creative Coordination & Posting Timeliness\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with design and content teams.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely execution of approved creatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Follow-up and management of content publishing schedules.\",\"c\":false,\"r\":\"\"},{\"t\":\"Audience Growth, Reach & Engagement Performance\",\"c\":false,\"r\":\"\"},{\"t\":\"Follower growth across assigned platforms.\",\"c\":false,\"r\":\"\"},{\"t\":\"Reach, impressions, views, interactions, and engagement tracking.\",\"c\":false,\"r\":\"\"},{\"t\":\"Performance analysis of top-performing content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Client Reports Generation\",\"c\":false,\"r\":\"\"},{\"t\":\"Preparation and sharing of monthly performance reports.\",\"c\":false,\"r\":\"\"},{\"t\":\"Compilation of analytics, insights, and platform performance data.\",\"c\":false,\"r\":\"\"},{\"t\":\"Reporting of audience growth and campaign performance.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination with Clients\",\"c\":false,\"r\":\"\"},{\"t\":\"Client communication and follow-up.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content approval coordination.\",\"c\":false,\"r\":\"\"},{\"t\":\"Campaign planning and execution discussions.\",\"c\":false,\"r\":\"\"},{\"t\":\"Campaign & Promotional Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for special campaigns, events, launches, and promotional initiatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Coordination and execution of campaign-specific content.\",\"c\":false,\"r\":\"\"},{\"t\":\"Brand Visibility & Community Engagement\",\"c\":false,\"r\":\"\"},{\"t\":\"Activities focused on increasing brand awareness.\",\"c\":false,\"r\":\"\"},{\"t\":\"Audience interaction and community-building initiatives.\",\"c\":false,\"r\":\"\"},{\"t\":\"Support for engagement-driven content strategies.\",\"c\":false,\"r\":\"\"},{\"t\":\"Adhoc Activities\",\"c\":false,\"r\":\"\"},{\"t\":\"Additional creative, campaign, video, branding, or marketing support activities undertaken during the month.\",\"c\":false,\"r\":\"\"},{\"t\":\"Areas of Improvement\",\"c\":false,\"r\":\"\"},{\"t\":\"Availability and responsiveness.\",\"c\":false,\"r\":\"\"},{\"t\":\"Timely completion of assigned deliverables.\",\"c\":false,\"r\":\"\"},{\"t\":\"Proactive communication and follow-up.\",\"c\":false,\"r\":\"\"},{\"t\":\"Content quality, engagement, or growth-related improvements as applicable\",\"c\":false,\"r\":\"\"}]",
+        "tasks_completed": 0,
+        "created_at": "2026-07-02T03:37:12.000000Z",
+        "updated_at": "2026-07-02T03:37:12.000000Z"
+      },
+      {
+        "id": 82,
+        "user_id": 36,
+        "month": "Jun",
+        "year": 2026,
+        "quality": 0,
+        "attendance": 81,
+        "teamwork": 95,
+        "initiative": 100,
+        "revenue_target": null,
+        "revenue_achieved": null,
+        "total_score": 93,
+        "notes": null,
+        "tasks": "[{\"t\":\"💍 Planawedding\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Planned and executed social media content across assigned platforms.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Designed refreshing and visually engaging creatives aligned with the brand identity.\",\"c\":true,\"r\":\"\"},{\"t\":\"📅 Maintained consistent publishing schedules and ensured timely content execution.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Contributed towards strengthening Planawedding&#039;s digital presence through creative and engaging content.\",\"c\":true,\"r\":\"\"},{\"t\":\"🚀 Evibe Solutions\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Managed social media content planning and execution.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Created creative assets focused on digital marketing, branding, and business awareness.\",\"c\":true,\"r\":\"\"},{\"t\":\"📢 Assisted in maintaining consistent brand communication across social media platforms.\",\"c\":true,\"r\":\"\"},{\"t\":\"📅 Ensured timely scheduling and publishing of approved content\",\"c\":true,\"r\":\"\"},{\"t\":\"🎉 Gevents Unlimited\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Planned and managed social media content for Gevents Unlimited.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Developed creative visuals highlighting events, celebrations, and brand promotions.\",\"c\":true,\"r\":\"\"},{\"t\":\"📲 Supported regular publishing and maintained consistency across social media platforms.\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Contributed to improving the brand&#039;s online presence through creative storytelling.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Creative Design & Branding\",\"c\":true,\"r\":\"\"},{\"t\":\"🌟 Designed high-quality, refreshing, and visually appealing creatives across assigned brands.\",\"c\":true,\"r\":\"\"},{\"t\":\"💡 Demonstrated strong creativity while maintaining brand consistency.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎯 Successfully adapted creative concepts based on campaign objectives and client requirements.\",\"c\":true,\"r\":\"\"},{\"t\":\"👏 Received positive feedback for innovative and aesthetically appealing creative designs.\",\"c\":true,\"r\":\"\"},{\"t\":\"📅 Content Scheduling & Publishing\",\"c\":true,\"r\":\"\"},{\"t\":\"⏰ Effectively managed content scheduling across assigned brands.\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Ensured timely publishing according to monthly content calendars.\",\"c\":true,\"r\":\"\"},{\"t\":\"📌 Maintained consistency in social media execution and publishing timelines.\",\"c\":true,\"r\":\"\"},{\"t\":\"🗂️ Content Calendar Management\",\"c\":true,\"r\":\"\"},{\"t\":\"📅 Maintained content calendars for assigned brands.\",\"c\":true,\"r\":\"\"},{\"t\":\"✅ Coordinated publishing timelines and ensured smooth content execution.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Creative Coordination & Posting Timeliness\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Delivered creatives within planned timelines.\",\"c\":true,\"r\":\"\"},{\"t\":\"📢 Maintained consistency in creative quality across assigned brands.\",\"c\":true,\"r\":\"\"},{\"t\":\"🤝 Coordination with Clients\",\"c\":true,\"r\":\"\"},{\"t\":\"📊 Client Reports Generation\",\"c\":false,\"r\":\"\"},{\"t\":\"🚀 Key Strengths\",\"c\":true,\"r\":\"\"},{\"t\":\"🎨 Excellent creative design skills with fresh and engaging visual concepts.\",\"c\":true,\"r\":\"\"},{\"t\":\"⏰ Strong content scheduling and publishing discipline.\",\"c\":true,\"r\":\"\"},{\"t\":\"✨ Consistently delivers refreshing and brand-aligned creatives.\",\"c\":true,\"r\":\"\"},{\"t\":\"🚀 Quick learner with a positive approach towards new responsibilities.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎯 Areas of Improvement\",\"c\":true,\"r\":\"\"},{\"t\":\"📈 Continue building audience engagement through innovative content formats.\",\"c\":true,\"r\":\"\"},{\"t\":\"🎥 Explore more video-first and motion-based creative designs.\",\"c\":false,\"r\":\"\"},{\"t\":\"💡 Continue strengthening brand storytelling through creative campaigns.\",\"c\":true,\"r\":\"\"}]",
+        "tasks_completed": 39,
+        "created_at": "2026-07-02T03:55:46.000000Z",
+        "updated_at": "2026-07-02T03:55:46.000000Z"
+      }
+    ],
     "leaves": [],
     "attendance_records": [],
     "team_lead": {

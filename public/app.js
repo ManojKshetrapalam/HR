@@ -34,6 +34,11 @@ async function refreshAllData() {
   await fetchData();
   await fetchSalaries();
   
+  // Populate month dropdowns dynamically
+  populateMonthDropdown("sync-attendance-month");
+  populateMonthDropdown("report-month-select");
+  populateMonthDropdown("payslip-month-select");
+  
   renderDashboard();
   renderEmployees();
   renderAttendance();
@@ -398,7 +403,13 @@ function populateEmployeeDropdown() {
 
 // Populate payslip month dropdown dynamically (from current month back to September 2021)
 function populatePayslipMonthDropdown() {
-  const select = document.getElementById("payslip-month-select");
+  populateMonthDropdown("payslip-month-select");
+}
+
+// Populate a month select dropdown dynamically (from current month back to September 2021)
+function populateMonthDropdown(selectId) {
+  const select = document.getElementById(selectId);
+  if (!select) return;
   const currentVal = select.value;
   select.innerHTML = "";
 
@@ -1092,7 +1103,7 @@ function showEmployeeReport(username) {
   if (payslipMonth && Array.from(monthSelect.options).some(opt => opt.value === payslipMonth)) {
     monthSelect.value = payslipMonth;
   } else {
-    monthSelect.value = "2026-05"; // fallback
+    monthSelect.value = monthSelect.options[0] ? monthSelect.options[0].value : "2026-05"; // fallback
   }
   
   updateEmployeeReport();

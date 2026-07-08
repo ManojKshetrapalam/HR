@@ -377,6 +377,9 @@ app.post('/api/sync', async (req, res) => {
     // Sync with ZKTeco Easy TimePro Biometric attendance system
     let biometricLateCount = 0;
     try {
+      if (process.env.BIOMETRIC_SYNC_MODE === 'push') {
+        throw new Error('Biometric direct fetch is disabled (running in push mode).');
+      }
       console.log('Sync: Fetching Biometric Attendance from http://192.168.0.233...');
       const etMainUrl = 'http://192.168.0.233/';
       const etLoginUrl = 'http://192.168.0.233/login/';
@@ -678,6 +681,9 @@ app.post('/api/sync/biometric', async (req, res) => {
   let biometricLateCount = 0;
 
   try {
+    if (process.env.BIOMETRIC_SYNC_MODE === 'push') {
+      throw new Error('Biometric direct fetch is disabled (running in push mode).');
+    }
     console.log(`Biometric Sync: Connecting to http://192.168.0.233 for month ${selectedMonth}...`);
     const etMainUrl = 'http://192.168.0.233/';
     const etLoginUrl = 'http://192.168.0.233/login/';
@@ -932,6 +938,163 @@ app.post('/api/sync/biometric', async (req, res) => {
       lateRecordsCount: biometricLateCount
     }
   });
+});
+
+
+// 2c. Biometric-PUSH attendance sync (receives biometric records from local client and syncs them)
+app.post('/api/sync/biometric-push', (req, res) => {
+  const { token, month, etEmployees, punches } = req.body;
+
+  // Validate security token
+  const expectedToken = process.env.SYNC_TOKEN;
+  if (!expectedToken || token !== expectedToken) {
+    console.warn('Biometric Push Sync: Unauthorized sync attempt or SYNC_TOKEN is not set on server.');
+    return res.status(401).json({ success: false, error: 'Unauthorized: Invalid or missing sync token.' });
+  }
+
+  const selectedMonth = month || new Date().toISOString().substring(0, 7);
+
+  // Load existing local data
+  const existingEmployees = readJSON(PATHS.employees, []);
+  const salaries = readJSON(PATHS.salaries, []);
+  const existingAttendance = readJSON(PATHS.attendance, []);
+
+  // Keep all non-biometric attendance records (LOP records from portal) intact
+  const lopAttendance = existingAttendance.filter(r => r.modalType === 'Lop');
+
+  let biometricLateCount = 0;
+
+  try {
+    console.log(`Biometric Push Sync: Processing pushed data for month ${selectedMonth}...`);
+
+    // Match ZKTeco emp_code to our system employee records
+    function matchEmpCode(sysEmp, etEmps) {
+      const sysClean = sysEmp.name.toLowerCase().replace(/[^a-z]/g, '');
+      for (const e of etEmps) {
+        const etClean = (e.first_name + ' ' + (e.last_name || '')).toLowerCase().replace(/[^a-z]/g, '');
+        if (etClean.includes(sysClean) || sysClean.includes(etClean)) return e.emp_code;
+      }
+      for (const e of etEmps) {
+        const etFirstName = e.first_name.toLowerCase().replace(/[^a-z]/g, '');
+        if (sysClean.startsWith(etFirstName) || etFirstName.startsWith(sysClean)) return e.emp_code;
+      }
+      return null;
+    }
+
+    const empCodeToUserMap = new Map();
+    existingEmployees.forEach(emp => {
+      const code = matchEmpCode(emp, etEmployees || []);
+      if (code) {
+        if (empCodeToUserMap.has(code)) {
+          const existingEmp = empCodeToUserMap.get(code);
+          const empHasSalary = salaries.some(s => s.username === emp.username);
+          const existingHasSalary = salaries.some(s => s.username === existingEmp.username);
+          if (empHasSalary && !existingHasSalary) {
+            empCodeToUserMap.set(code, emp);
+          } else if (!empHasSalary && !existingHasSalary) {
+            if (emp.id < existingEmp.id) empCodeToUserMap.set(code, emp);
+          }
+        } else {
+          empCodeToUserMap.set(code, emp);
+        }
+      }
+    });
+
+    // Filter punches to only the selected month
+    const filteredPunches = (punches || []).filter(p => p.transaction_punch_date && p.transaction_punch_date.startsWith(selectedMonth));
+    console.log(`Biometric Push Sync: Found ${filteredPunches.length} punches for ${selectedMonth}.`);
+
+    // Group punches by emp_code + date, keep only earliest punch per day
+    const groupedPunches = {};
+    filteredPunches.forEach(p => {
+      if (!p.emp_code || !p.transaction_punch_date || !p.transaction_punch_time) return;
+      const key = `${p.emp_code}_${p.transaction_punch_date}`;
+      if (!groupedPunches[key]) groupedPunches[key] = [];
+      groupedPunches[key].push(p.transaction_punch_time);
+    });
+
+    const biometricLateRecords = [];
+    let nextRecordId = 1000;
+    const dailyCheckins = [];
+
+    for (const [key, times] of Object.entries(groupedPunches)) {
+      const [empCode, date] = key.split('_');
+      const systemEmp = empCodeToUserMap.get(empCode);
+      if (!systemEmp) continue;
+
+      times.sort();
+      const earliestTime = times[0];
+
+      dailyCheckins.push({
+        username: systemEmp.username,
+        name: systemEmp.name,
+        date: date,
+        punchTime: earliestTime
+      });
+
+      if (earliestTime > "09:30:00") {
+        const [h, m] = earliestTime.split(':').map(Number);
+        const punchMinutes = h * 60 + m;
+        const limitMinutes = 9 * 60 + 30;
+        const minutesLate = Math.round(punchMinutes - limitMinutes);
+
+        biometricLateRecords.push({
+          modalType: "Late",
+          data: {
+            id: nextRecordId++,
+            user_id: systemEmp.id,
+            type: "late",
+            date: date,
+            minutes_late: minutesLate,
+            lop_days: null,
+            deduction_amount: 250,
+            reason: `Initial check-in punch at ${earliestTime} (biometric)`,
+            created_at: `${date}T${earliestTime}.000000Z`,
+            updated_at: `${date}T${earliestTime}.000000Z`,
+            user: {
+              id: systemEmp.id,
+              name: systemEmp.name,
+              username: systemEmp.username,
+              plain_password: systemEmp.plain_password,
+              role: systemEmp.role,
+              employee_type: systemEmp.employee_type,
+              designation: systemEmp.designation,
+              designation_id: systemEmp.designation_id
+            }
+          }
+        });
+      }
+    }
+
+    biometricLateCount = biometricLateRecords.length;
+    console.log(`Biometric Push Sync: Calculated ${biometricLateCount} late-arrival records for ${selectedMonth}.`);
+
+    // Merge checkins: remove old entries for this month, add new ones
+    let existingCheckins = readJSON(PATHS.checkins, []);
+    existingCheckins = existingCheckins.filter(c => !c.date.startsWith(selectedMonth));
+    writeJSON(PATHS.checkins, [...existingCheckins, ...dailyCheckins]);
+
+    // Merge attendance: keep biometric records from other months + LOP records + new biometric records
+    const existingBiometricOtherMonths = existingAttendance.filter(r =>
+      r.modalType === 'Late' &&
+      r.data.id >= 1000 &&
+      !r.data.date.startsWith(selectedMonth)
+    );
+    writeJSON(PATHS.attendance, [...lopAttendance, ...existingBiometricOtherMonths, ...biometricLateRecords]);
+
+    res.json({
+      success: true,
+      summary: {
+        month: selectedMonth,
+        lateRecordsCount: biometricLateCount,
+        checkinsAdded: dailyCheckins.length
+      }
+    });
+
+  } catch (err) {
+    console.error('Biometric push sync error:', err);
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 
