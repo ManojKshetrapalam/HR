@@ -17,7 +17,8 @@ const PATHS = {
   salaries: path.join(DATA_DIR, 'salaries.json'),
   checkins: path.join(DATA_DIR, 'checkins.json'),
   holidays: path.join(DATA_DIR, 'holidays.json'),
-  performance: path.join(DATA_DIR, 'performance.json')
+  performance: path.join(DATA_DIR, 'performance.json'),
+  settings: path.join(DATA_DIR, 'settings.json')
 };
 
 // Ensure data folder exists
@@ -105,6 +106,29 @@ function zk_encrypt(key, str) {
 function zkEncrypt(data, key) {
   const tmp = zk_encrypt(key, data);
   return Buffer.from(tmp, 'binary').toString('base64');
+}
+
+function getBiometricSettings() {
+  const defaultSettings = {
+    companyName: "Variety Vintage",
+    supportPhone: "+91 94038 90373",
+    supportEmail: "hello@varietyvintage.com",
+    gracePeriod: "09:30:00",
+    lateDeduction: 250
+  };
+  // Handle case where PATHS.settings might not be loaded yet or readJSON fails
+  try {
+    const appSettings = readJSON(PATHS.settings, defaultSettings);
+    const gracePeriodLimit = appSettings.gracePeriod || "09:30:00";
+    const lateDeductionAmount = appSettings.lateDeduction !== undefined ? parseFloat(appSettings.lateDeduction) : 250;
+    
+    const [h, m] = gracePeriodLimit.split(':').map(Number);
+    const limitMinutes = h * 60 + (m || 0);
+    
+    return { gracePeriodLimit, lateDeductionAmount, limitMinutes };
+  } catch (e) {
+    return { gracePeriodLimit: "09:30:00", lateDeductionAmount: 250, limitMinutes: 9 * 60 + 30 };
+  }
 }
 
 // Scrapers for data
@@ -549,10 +573,10 @@ app.post('/api/sync', async (req, res) => {
           punchTime: earliestTime
         });
         
-        if (earliestTime > "09:30:00") {
+        const { gracePeriodLimit, lateDeductionAmount, limitMinutes } = getBiometricSettings();
+        if (earliestTime > gracePeriodLimit) {
           const [h, m] = earliestTime.split(':').map(Number);
           const punchMinutes = h * 60 + m;
-          const limitMinutes = 9 * 60 + 30;
           const minutesLate = Math.round(punchMinutes - limitMinutes);
           
           biometricLateRecords.push({
@@ -564,7 +588,7 @@ app.post('/api/sync', async (req, res) => {
               date: date,
               minutes_late: minutesLate,
               lop_days: null,
-              deduction_amount: 250,
+              deduction_amount: lateDeductionAmount,
               reason: `Initial check-in punch at ${earliestTime} (biometric)`,
               created_at: `${date}T${earliestTime}.000000Z`,
               updated_at: `${date}T${earliestTime}.000000Z`,
@@ -639,10 +663,10 @@ app.post('/api/sync', async (req, res) => {
         times.sort();
         const earliestTime = times[0];
         
-        if (earliestTime > "09:30:00") {
+        const { gracePeriodLimit, lateDeductionAmount, limitMinutes } = getBiometricSettings();
+        if (earliestTime > gracePeriodLimit) {
           const [h, m] = earliestTime.split(':').map(Number);
           const punchMinutes = h * 60 + m;
-          const limitMinutes = 9 * 60 + 30;
           const minutesLate = Math.round(punchMinutes - limitMinutes);
           
           fallbackBiometricRecords.push({
@@ -654,7 +678,7 @@ app.post('/api/sync', async (req, res) => {
               date: date,
               minutes_late: minutesLate,
               lop_days: null,
-              deduction_amount: 250,
+              deduction_amount: lateDeductionAmount,
               reason: `Initial check-in punch at ${earliestTime} (biometric)`,
               created_at: `${date}T${earliestTime}.000000Z`,
               updated_at: `${date}T${earliestTime}.000000Z`,
@@ -869,10 +893,10 @@ app.post('/api/sync/biometric', async (req, res) => {
         punchTime: earliestTime
       });
 
-      if (earliestTime > "09:30:00") {
+      const { gracePeriodLimit, lateDeductionAmount, limitMinutes } = getBiometricSettings();
+      if (earliestTime > gracePeriodLimit) {
         const [h, m] = earliestTime.split(':').map(Number);
         const punchMinutes = h * 60 + m;
-        const limitMinutes = 9 * 60 + 30;
         const minutesLate = Math.round(punchMinutes - limitMinutes);
 
         biometricLateRecords.push({
@@ -884,7 +908,7 @@ app.post('/api/sync/biometric', async (req, res) => {
             date: date,
             minutes_late: minutesLate,
             lop_days: null,
-            deduction_amount: 250,
+            deduction_amount: lateDeductionAmount,
             reason: `Initial check-in punch at ${earliestTime} (biometric)`,
             created_at: `${date}T${earliestTime}.000000Z`,
             updated_at: `${date}T${earliestTime}.000000Z`,
@@ -951,9 +975,10 @@ app.post('/api/sync/biometric', async (req, res) => {
       times.sort();
       const earliestTime = times[0];
 
-      if (earliestTime > "09:30:00") {
+      const { gracePeriodLimit, lateDeductionAmount, limitMinutes } = getBiometricSettings();
+      if (earliestTime > gracePeriodLimit) {
         const [h, m] = earliestTime.split(':').map(Number);
-        const minutesLate = Math.round((h * 60 + m) - (9 * 60 + 30));
+        const minutesLate = Math.round((h * 60 + m) - limitMinutes);
 
         fallbackRecords.push({
           modalType: "Late",
@@ -964,7 +989,7 @@ app.post('/api/sync/biometric', async (req, res) => {
             date: date,
             minutes_late: minutesLate,
             lop_days: null,
-            deduction_amount: 250,
+            deduction_amount: lateDeductionAmount,
             reason: `Initial check-in punch at ${earliestTime} (biometric - offline fallback)`,
             created_at: `${date}T${earliestTime}.000000Z`,
             updated_at: `${date}T${earliestTime}.000000Z`,
@@ -1107,10 +1132,10 @@ app.post('/api/sync/biometric-push', (req, res) => {
         punchTime: earliestTime
       });
 
-      if (earliestTime > "09:30:00") {
+      const { gracePeriodLimit, lateDeductionAmount, limitMinutes } = getBiometricSettings();
+      if (earliestTime > gracePeriodLimit) {
         const [h, m] = earliestTime.split(':').map(Number);
         const punchMinutes = h * 60 + m;
-        const limitMinutes = 9 * 60 + 30;
         const minutesLate = Math.round(punchMinutes - limitMinutes);
 
         biometricLateRecords.push({
@@ -1122,7 +1147,7 @@ app.post('/api/sync/biometric-push', (req, res) => {
             date: date,
             minutes_late: minutesLate,
             lop_days: null,
-            deduction_amount: 250,
+            deduction_amount: lateDeductionAmount,
             reason: `Initial check-in punch at ${earliestTime} (biometric)`,
             created_at: `${date}T${earliestTime}.000000Z`,
             updated_at: `${date}T${earliestTime}.000000Z`,
@@ -1176,6 +1201,58 @@ app.post('/api/sync/biometric-push', (req, res) => {
     console.error('Biometric push sync error:', err);
     res.status(500).json({ success: false, error: err.message });
   }
+});
+
+
+// GET /api/settings - returns public settings (branding & contact info)
+app.get('/api/settings', (req, res) => {
+  const defaultSettings = {
+    companyName: "Variety Vintage",
+    supportPhone: "+91 94038 90373",
+    supportEmail: "hello@varietyvintage.com",
+    gracePeriod: "09:30:00",
+    lateDeduction: 250
+  };
+  const settings = readJSON(PATHS.settings, defaultSettings);
+  res.json(settings);
+});
+
+// POST /api/cms/login - validates admin login and returns session token
+app.post('/api/cms/login', (req, res) => {
+  const { username, password } = req.body;
+  if (username === 'admin' && password === 'admin123') {
+    res.json({ success: true, token: 'cms-secure-session-token-admin123' });
+  } else {
+    res.status(401).json({ success: false, error: 'Invalid username or password.' });
+  }
+});
+
+// POST /api/settings - updates settings, secured by the cms token
+app.post('/api/settings', (req, res) => {
+  const authHeader = req.headers['authorization'] || req.headers['x-cms-token'];
+  const token = authHeader && authHeader.replace('Bearer ', '');
+  
+  if (token !== 'cms-secure-session-token-admin123') {
+    return res.status(403).json({ success: false, error: 'Access denied: Invalid or missing authentication token.' });
+  }
+
+  const { companyName, supportPhone, supportEmail, gracePeriod, lateDeduction } = req.body;
+
+  if (!companyName || !supportPhone || !supportEmail || !gracePeriod || lateDeduction === undefined) {
+    return res.status(400).json({ success: false, error: 'All fields are required.' });
+  }
+
+  const updatedSettings = {
+    companyName,
+    supportPhone,
+    supportEmail,
+    gracePeriod,
+    lateDeduction: parseFloat(lateDeduction)
+  };
+
+  writeJSON(PATHS.settings, updatedSettings);
+  console.log('CMS Settings updated successfully:', updatedSettings);
+  res.json({ success: true, settings: updatedSettings });
 });
 
 

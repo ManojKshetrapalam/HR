@@ -7,7 +7,14 @@ const state = {
   checkins: [],
   holidays: [],
   uploadedSalaries: [], // Temporary storage for Excel uploads
-  syncStatus: {}
+  syncStatus: {},
+  settings: {
+    companyName: "Variety Vintage",
+    supportPhone: "+91 94038 90373",
+    supportEmail: "hello@varietyvintage.com",
+    gracePeriod: "09:30:00",
+    lateDeduction: 250
+  }
 };
 
 // Month Names Helper
@@ -33,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Refresh all data from server
 async function refreshAllData() {
+  await fetchSettings();
   await fetchStatus();
   await fetchData();
   await fetchSalaries();
@@ -49,6 +57,36 @@ async function refreshAllData() {
   renderSalariesTable();
   renderHolidays();
   populateEmployeeDropdown();
+}
+
+// Fetch CMS Settings and update branding
+async function fetchSettings() {
+  try {
+    const res = await fetch("/api/settings");
+    const data = await res.json();
+    state.settings = data;
+    
+    // Bind settings dynamically to DOM
+    const logoEl = document.getElementById("company-logo-text");
+    if (logoEl) logoEl.textContent = data.companyName || "Variety Vintage";
+    
+    const sidebarNameEl = document.getElementById("company-name-sidebar");
+    if (sidebarNameEl) sidebarNameEl.textContent = `${data.companyName} HR` || "Variety Vintage HR";
+    
+    const sidebarPhoneEl = document.getElementById("company-phone-sidebar");
+    if (sidebarPhoneEl) sidebarPhoneEl.textContent = data.supportPhone || "+91 94038 90373";
+    
+    const sidebarEmailEl = document.getElementById("company-email-sidebar");
+    if (sidebarEmailEl) sidebarEmailEl.textContent = data.supportEmail || "hello@varietyvintage.com";
+    
+    const payslipNameEl = document.getElementById("company-name-payslip");
+    if (payslipNameEl) payslipNameEl.textContent = data.companyName || "Variety Vintage";
+    
+    const payslipDiscEl = document.getElementById("company-email-payslip-discrepancy");
+    if (payslipDiscEl) payslipDiscEl.textContent = `For discrepancies, contact Finance at ${data.supportEmail || "hello@varietyvintage.com"}`;
+  } catch (err) {
+    console.error("Error fetching settings:", err);
+  }
 }
 
 // Fetch Sync Status
@@ -991,8 +1029,9 @@ function generatePayslipPreview() {
     rec.data.date.startsWith(selectedPeriod)
   );
   const lateCount = zeroLate ? 0 : lates.length;
-  // Flat ₹250 late deduction
-  const lateDeduction = zeroLate ? 0 : (lateCount * 250);
+  // Flat late deduction using CMS settings
+  const lateDeductionAmount = state.settings.lateDeduction !== undefined ? parseFloat(state.settings.lateDeduction) : 250;
+  const lateDeduction = zeroLate ? 0 : (lateCount * lateDeductionAmount);
   
   // 3. Count LOP days in target month
   const zeroLop = document.getElementById("zero-lop")?.checked || false;
@@ -1234,11 +1273,14 @@ function updateEmployeeReport() {
       }
     } else if (checkin) {
       punchTime = checkin.punchTime;
-      const isLate = punchTime > "09:30:00";
+      const graceLimit = state.settings.gracePeriod || "09:30:00";
+      const lateDeductionAmount = state.settings.lateDeduction !== undefined ? parseFloat(state.settings.lateDeduction) : 250;
+      const isLate = punchTime > graceLimit;
       if (isLate) {
         statusLabel = "Late Arrival";
         pillClass = "late";
-        details = "Deduction: ₹250 (Punch after 9:30 AM)";
+        const displayTime = graceLimit.split(':').slice(0, 2).join(':');
+        details = `Deduction: ₹${lateDeductionAmount} (Punch after ${displayTime})`;
         lateCount++;
         presentCount++;
       } else {
