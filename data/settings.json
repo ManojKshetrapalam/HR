@@ -3,5 +3,9 @@
   "supportPhone": "+91 94038 90373",
   "supportEmail": "hello@varietyvintage.com",
   "gracePeriod": "09:30:00",
-  "lateDeduction": 250
+  "lateDeduction": 250,
+  "navLayout": "sidebar",
+  "colorPreset": "purple",
+  "employeeLayout": "cards",
+  "themeMode": "light"
 }

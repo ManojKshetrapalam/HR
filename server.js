@@ -1211,7 +1211,11 @@ app.get('/api/settings', (req, res) => {
     supportPhone: "+91 94038 90373",
     supportEmail: "hello@varietyvintage.com",
     gracePeriod: "09:30:00",
-    lateDeduction: 250
+    lateDeduction: 250,
+    navLayout: "sidebar",
+    colorPreset: "purple",
+    employeeLayout: "cards",
+    themeMode: "light"
   };
   const settings = readJSON(PATHS.settings, defaultSettings);
   res.json(settings);
@@ -1236,10 +1240,20 @@ app.post('/api/settings', (req, res) => {
     return res.status(403).json({ success: false, error: 'Access denied: Invalid or missing authentication token.' });
   }
 
-  const { companyName, supportPhone, supportEmail, gracePeriod, lateDeduction } = req.body;
+  const { 
+    companyName, 
+    supportPhone, 
+    supportEmail, 
+    gracePeriod, 
+    lateDeduction,
+    navLayout,
+    colorPreset,
+    employeeLayout,
+    themeMode
+  } = req.body;
 
   if (!companyName || !supportPhone || !supportEmail || !gracePeriod || lateDeduction === undefined) {
-    return res.status(400).json({ success: false, error: 'All fields are required.' });
+    return res.status(400).json({ success: false, error: 'Core brand and attendance settings fields are required.' });
   }
 
   const updatedSettings = {
@@ -1247,7 +1261,11 @@ app.post('/api/settings', (req, res) => {
     supportPhone,
     supportEmail,
     gracePeriod,
-    lateDeduction: parseFloat(lateDeduction)
+    lateDeduction: parseFloat(lateDeduction),
+    navLayout: navLayout || "sidebar",
+    colorPreset: colorPreset || "purple",
+    employeeLayout: employeeLayout || "cards",
+    themeMode: themeMode || "light"
   };
 
   writeJSON(PATHS.settings, updatedSettings);

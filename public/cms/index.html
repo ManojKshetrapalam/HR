@@ -537,6 +537,58 @@
           </div>
         </div>
 
+        <!-- Section 3: Interface Customization -->
+        <div class="settings-section-title">
+          <i data-lucide="palette" style="width:16px; height:16px;"></i>
+          <span>Theme & Interface Settings</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="navLayout">Navigation Bar</label>
+            <div class="input-wrapper">
+              <select class="form-input" id="navLayout" style="padding-left:14px;">
+                <option value="sidebar">Left Sidebar</option>
+                <option value="topbar">Top Horizontal Bar</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="employeeLayout">Employee Directory</label>
+            <div class="input-wrapper">
+              <select class="form-input" id="employeeLayout" style="padding-left:14px;">
+                <option value="cards">Card Grid</option>
+                <option value="table">Data Table</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="colorPreset">Color Accent</label>
+            <div class="input-wrapper">
+              <select class="form-input" id="colorPreset" style="padding-left:14px;">
+                <option value="purple">Royal Purple</option>
+                <option value="blue">Ocean Blue</option>
+                <option value="green">Forest Emerald</option>
+                <option value="rose">Crimson Rose</option>
+                <option value="charcoal">Charcoal Dark</option>
+                <option value="amber">Sunset Amber</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="themeMode">Theme Mode</label>
+            <div class="input-wrapper">
+              <select class="form-input" id="themeMode" style="padding-left:14px;">
+                <option value="light">Light Glass</option>
+                <option value="dark">Dark Obsidian</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
         <button type="submit" class="btn" id="save-submit-btn">
           <i data-lucide="save" style="width:16px; height:16px;"></i>
           <span>Save Changes</span>
@@ -663,7 +715,11 @@
         supportPhone: document.getElementById('supportPhone').value.trim(),
         supportEmail: document.getElementById('supportEmail').value.trim(),
         gracePeriod: document.getElementById('gracePeriod').value.trim(),
-        lateDeduction: parseFloat(document.getElementById('lateDeduction').value)
+        lateDeduction: parseFloat(document.getElementById('lateDeduction').value),
+        navLayout: document.getElementById('navLayout').value,
+        colorPreset: document.getElementById('colorPreset').value,
+        employeeLayout: document.getElementById('employeeLayout').value,
+        themeMode: document.getElementById('themeMode').value
       };
 
       try {
@@ -694,19 +750,26 @@
     });
 
     // Add visual preview sync listeners
-    const inputs = ['companyName', 'supportPhone', 'supportEmail', 'gracePeriod', 'lateDeduction'];
+    const inputs = ['companyName', 'supportPhone', 'supportEmail', 'gracePeriod', 'lateDeduction', 'navLayout', 'colorPreset', 'employeeLayout', 'themeMode'];
     inputs.forEach(id => {
-      document.getElementById(id).addEventListener('input', () => {
-        const currentVals = {
-          companyName: document.getElementById('companyName').value,
-          supportPhone: document.getElementById('supportPhone').value,
-          supportEmail: document.getElementById('supportEmail').value,
-          gracePeriod: document.getElementById('gracePeriod').value,
-          lateDeduction: document.getElementById('lateDeduction').value
-        };
-        updatePreviews(currentVals);
-      });
+      document.getElementById(id).addEventListener('change', syncCurrentVals);
+      document.getElementById(id).addEventListener('input', syncCurrentVals);
     });
+
+    function syncCurrentVals() {
+      const currentVals = {
+        companyName: document.getElementById('companyName').value,
+        supportPhone: document.getElementById('supportPhone').value,
+        supportEmail: document.getElementById('supportEmail').value,
+        gracePeriod: document.getElementById('gracePeriod').value,
+        lateDeduction: document.getElementById('lateDeduction').value,
+        navLayout: document.getElementById('navLayout').value,
+        colorPreset: document.getElementById('colorPreset').value,
+        employeeLayout: document.getElementById('employeeLayout').value,
+        themeMode: document.getElementById('themeMode').value
+      };
+      updatePreviews(currentVals);
+    }
 
     // Helper functions
     function showError(msg) {
@@ -731,6 +794,11 @@
         document.getElementById('supportEmail').value = settings.supportEmail || '';
         document.getElementById('gracePeriod').value = settings.gracePeriod || '';
         document.getElementById('lateDeduction').value = settings.lateDeduction || '';
+        
+        document.getElementById('navLayout').value = settings.navLayout || 'sidebar';
+        document.getElementById('colorPreset').value = settings.colorPreset || 'purple';
+        document.getElementById('employeeLayout').value = settings.employeeLayout || 'cards';
+        document.getElementById('themeMode').value = settings.themeMode || 'light';
         
         updatePreviews(settings);
       } catch (err) {
@@ -765,6 +833,61 @@
       }
       document.getElementById('prev-rule-time').textContent = displayTime;
       document.getElementById('prev-rule-ded').textContent = `₹${settings.lateDeduction !== undefined ? settings.lateDeduction : '250'}`;
+
+      // Navigation Realignment Preview
+      const sidebarMockup = document.querySelector('.mockup-sidebar');
+      const navMockup = document.querySelector('.mockup-nav');
+      const footerMockup = document.querySelector('.mockup-footer');
+      const footerVals = document.querySelectorAll('.mockup-footer-val');
+      
+      if (settings.navLayout === 'topbar') {
+        sidebarMockup.style.flexDirection = 'row';
+        sidebarMockup.style.height = '60px';
+        sidebarMockup.style.minHeight = '60px';
+        sidebarMockup.style.padding = '10px 20px';
+        navMockup.style.flexDirection = 'row';
+        navMockup.style.marginTop = '0';
+        footerMockup.style.marginTop = '0';
+        footerMockup.style.borderTop = 'none';
+        footerMockup.style.paddingTop = '0';
+        footerVals.forEach(el => el.style.display = 'none');
+      } else {
+        sidebarMockup.style.flexDirection = 'column';
+        sidebarMockup.style.height = 'auto';
+        sidebarMockup.style.minHeight = 'auto';
+        sidebarMockup.style.padding = '20px';
+        navMockup.style.flexDirection = 'column';
+        navMockup.style.marginTop = '15px';
+        footerMockup.style.marginTop = '20px';
+        footerMockup.style.borderTop = '1px solid rgba(255,255,255,0.05)';
+        footerMockup.style.paddingTop = '12px';
+        footerVals.forEach(el => el.style.display = 'block');
+      }
+
+      // Color Preset Accent Preview
+      const MOCKUP_COLORS = {
+        purple: '#7913b0',
+        blue: '#0284c7',
+        green: '#059669',
+        rose: '#e11d48',
+        charcoal: '#4b5563',
+        amber: '#d97706'
+      };
+      const color = MOCKUP_COLORS[settings.colorPreset] || MOCKUP_COLORS.purple;
+      document.getElementById('prev-logo-letter').style.background = `linear-gradient(135deg, ${color}, #4f46e5)`;
+      document.getElementById('prev-rule-ded').style.color = color;
+      
+      // Theme Mode Preview
+      const previewPanel = document.querySelector('.preview-panel');
+      if (settings.themeMode === 'dark') {
+        previewPanel.style.background = '#090a0f';
+        previewPanel.style.color = '#e2e8f0';
+        document.getElementById('prev-rule-time').style.color = '#ffffff';
+      } else {
+        previewPanel.style.background = 'rgba(17, 19, 31, 0.4)';
+        previewPanel.style.color = '#cbd5e1';
+        document.getElementById('prev-rule-time').style.color = 'var(--color-text)';
+      }
     }
 
     function showToast() {

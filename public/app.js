@@ -84,6 +84,25 @@ async function fetchSettings() {
     
     const payslipDiscEl = document.getElementById("company-email-payslip-discrepancy");
     if (payslipDiscEl) payslipDiscEl.textContent = `For discrepancies, contact Finance at ${data.supportEmail || "hello@varietyvintage.com"}`;
+    
+    // Toggle Layout & Theme Mode classes
+    document.body.classList.toggle('layout-topbar', data.navLayout === 'topbar');
+    document.body.classList.toggle('dark-theme', data.themeMode === 'dark');
+    
+    // Apply accent color preset
+    const COLOR_PRESETS = {
+      purple: { primary: '#7913b0', hover: '#5d0c88', light: '#f5eefc', sidebar: '#140521' },
+      blue: { primary: '#0284c7', hover: '#0369a1', light: '#f0f9ff', sidebar: '#0c1d33' },
+      green: { primary: '#059669', hover: '#047857', light: '#ecfdf5', sidebar: '#061d15' },
+      rose: { primary: '#e11d48', hover: '#be123c', light: '#fff1f2', sidebar: '#1f050b' },
+      charcoal: { primary: '#4b5563', hover: '#374151', light: '#f3f4f6', sidebar: '#111827' },
+      amber: { primary: '#d97706', hover: '#b45309', light: '#fffbeb', sidebar: '#1c0f01' }
+    };
+    const preset = COLOR_PRESETS[data.colorPreset] || COLOR_PRESETS.purple;
+    document.documentElement.style.setProperty('--primary', preset.primary);
+    document.documentElement.style.setProperty('--primary-hover', preset.hover);
+    document.documentElement.style.setProperty('--primary-light', preset.light);
+    document.documentElement.style.setProperty('--sidebar-bg', preset.sidebar);
   } catch (err) {
     console.error("Error fetching settings:", err);
   }
@@ -228,7 +247,7 @@ function renderDashboard() {
   document.getElementById("stat-late-marks").textContent = lateMarks.length;
 }
 
-// Render Employee cards
+// Render Employee cards or table
 function renderEmployees() {
   const container = document.getElementById("employee-card-container");
   container.innerHTML = "";
@@ -237,56 +256,130 @@ function renderEmployees() {
     container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--slate-500); font-weight: 600;">No employees synced yet. Please sync portal.</div>`;
     return;
   }
-  
-  state.employees.forEach(emp => {
-    const card = document.createElement("div");
-    card.className = "employee-card";
-    card.setAttribute("onclick", `if(!event.target.closest('.eye-btn') && !event.target.closest('.emp-action-btn')) showEmployeeReport('${emp.username}')`);
-    
-    const initial = emp.name ? emp.name.charAt(0) : "E";
-    const typeLabel = emp.employee_type === "sales" ? "Sales Team" : emp.employee_type === "combined" ? "Combined" : "Operations/Non-Sales";
-    const kpiLabel = emp.employee_type === "sales" ? "Sales KPI" : emp.employee_type === "combined" ? "Combined KPI" : "Non-Sales KPI";
-    
-    card.innerHTML = `
-      <div class="employee-avatar">${initial}</div>
-      <h4 class="employee-name">${emp.name}</h4>
-      <p class="employee-designation">${emp.designation || 'Staff member'}</p>
-      
-      <div class="employee-details">
-        <div class="employee-detail-row">
-          <span class="employee-detail-lbl">Username</span>
-          <span class="employee-detail-val">${emp.username}</span>
-        </div>
-        <div class="employee-detail-row">
-          <span class="employee-detail-lbl">Portal Password</span>
-          <span class="employee-password-container">
-            <span class="employee-detail-val" id="pwd-text-${emp.id}" style="-webkit-text-security: disc;">${emp.plain_password || '—'}</span>
-            <button class="eye-btn" onclick="togglePasswordVisibility(${emp.id})">
-              <i data-lucide="eye" id="pwd-icon-${emp.id}" style="width: 14px; height: 14px;"></i>
-            </button>
-          </span>
-        </div>
-        <div class="employee-detail-row">
-          <span class="employee-detail-lbl">Role Class</span>
-          <span class="employee-detail-val badge">${emp.role}</span>
-        </div>
-        <div class="employee-detail-row">
-          <span class="employee-detail-lbl">KPI Type</span>
-          <span class="employee-detail-val">${kpiLabel}</span>
-        </div>
-      </div>
 
-      <div style="display:flex; gap:8px; margin-top:16px; border-top:1px solid var(--slate-100); padding-top:14px;">
-        <button class="emp-action-btn" onclick="openEditEmployeeModal('${emp.username}')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:9px 12px; border-radius:10px; border:1px solid var(--slate-200); background:white; font-size:12px; font-weight:600; color:var(--slate-700); cursor:pointer; transition:all .2s;" onmouseover="this.style.background='var(--primary-light)';this.style.color='var(--primary)';this.style.borderColor='rgba(121,19,176,.2)'" onmouseout="this.style.background='white';this.style.color='var(--slate-700)';this.style.borderColor='var(--slate-200)'">
-          <i data-lucide="edit-3" style="width:13px;height:13px;"></i> Edit
-        </button>
-        <button class="emp-action-btn" onclick="openPerfHistoryModal('${emp.username}', ${emp.id},'${emp.name}')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:9px 12px; border-radius:10px; border:1px solid var(--slate-200); background:white; font-size:12px; font-weight:600; color:var(--slate-700); cursor:pointer; transition:all .2s;" onmouseover="this.style.background='#ede9fe';this.style.color='#7c3aed';this.style.borderColor='#c4b5fd'" onmouseout="this.style.background='white';this.style.color='var(--slate-700)';this.style.borderColor='var(--slate-200)'">
-          <i data-lucide="bar-chart-2" style="width:13px;height:13px;"></i> Performance
-        </button>
-      </div>
+  const isTable = state.settings && state.settings.employeeLayout === 'table';
+
+  if (isTable) {
+    // Render as a beautiful glass data table
+    const tableWrapper = document.createElement("div");
+    tableWrapper.style.gridColumn = "1 / -1";
+    tableWrapper.style.width = "100%";
+    tableWrapper.style.overflowX = "auto";
+    tableWrapper.className = "glass-card";
+    tableWrapper.style.padding = "0";
+
+    let tableHtml = `
+      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--slate-200); background: rgba(0,0,0,0.02); height: 50px;">
+            <th style="padding: 12px 20px; font-weight: 700; color: var(--slate-600);">Employee</th>
+            <th style="padding: 12px 20px; font-weight: 700; color: var(--slate-600);">Username</th>
+            <th style="padding: 12px 20px; font-weight: 700; color: var(--slate-600);">Designation</th>
+            <th style="padding: 12px 20px; font-weight: 700; color: var(--slate-600);">Password</th>
+            <th style="padding: 12px 20px; font-weight: 700; color: var(--slate-600);">Role</th>
+            <th style="padding: 12px 20px; font-weight: 700; color: var(--slate-600);">KPI Type</th>
+            <th style="padding: 12px 20px; font-weight: 700; color: var(--slate-600); text-align: right;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
     `;
-    container.appendChild(card);
-  });
+
+    state.employees.forEach(emp => {
+      const initial = emp.name ? emp.name.charAt(0) : "E";
+      const typeLabel = emp.employee_type === "sales" ? "Sales" : emp.employee_type === "combined" ? "Combined" : "Ops / Non-Sales";
+      const kpiLabel = emp.employee_type === "sales" ? "Sales KPI" : emp.employee_type === "combined" ? "Combined KPI" : "Non-Sales KPI";
+      const rowId = `emp-row-${emp.id}`;
+
+      tableHtml += `
+        <tr id="${rowId}" style="border-bottom: 1px solid var(--slate-100); transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.01)'" onmouseout="this.style.background='transparent'">
+          <td style="padding: 12px 20px; font-weight: 600; display: flex; align-items: center; gap: 10px;" onclick="showEmployeeReport('${emp.username}')">
+            <div style="width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--primary) 0%, #b865f7 100%); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; box-shadow: 0 2px 6px rgba(121, 19, 176, 0.1);">${initial}</div>
+            <span style="cursor: pointer;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='inherit'">${emp.name}</span>
+          </td>
+          <td style="padding: 12px 20px; color: var(--slate-500); font-family: monospace;">${emp.username}</td>
+          <td style="padding: 12px 20px; color: var(--slate-600);">${emp.designation || 'Staff member'}</td>
+          <td style="padding: 12px 20px;">
+            <span class="employee-password-container" style="display: inline-flex; align-items: center; gap: 8px;">
+              <span id="pwd-text-${emp.id}" style="-webkit-text-security: disc; font-family: monospace;">${emp.plain_password || '—'}</span>
+              <button class="eye-btn" onclick="togglePasswordVisibility(${emp.id})" style="border:none; background:transparent; cursor:pointer; padding: 2px;">
+                <i data-lucide="eye" id="pwd-icon-${emp.id}" style="width: 13px; height: 13px; color: var(--slate-400);"></i>
+              </button>
+            </span>
+          </td>
+          <td style="padding: 12px 20px;"><span class="badge" style="background: var(--primary-light); color: var(--primary); padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 700;">${emp.role}</span></td>
+          <td style="padding: 12px 20px; color: var(--slate-500); font-size: 13px;">${typeLabel}</td>
+          <td style="padding: 12px 20px; text-align: right;">
+            <div style="display: inline-flex; gap: 6px;">
+              <button class="emp-action-btn" onclick="openEditEmployeeModal('${emp.username}')" style="display:inline-flex; align-items:center; gap:4px; padding:6px 12px; border-radius:8px; border:1px solid var(--slate-200); background:white; font-size:12px; font-weight:600; color:var(--slate-700); cursor:pointer; transition:all .2s; height: 32px;" onmouseover="this.style.background='var(--primary-light)';this.style.color='var(--primary)';this.style.borderColor='rgba(121,19,176,.2)'" onmouseout="this.style.background='white';this.style.color='var(--slate-700)';this.style.borderColor='var(--slate-200)'">
+                <i data-lucide="edit-3" style="width:12px;height:12px;"></i> Edit
+              </button>
+              <button class="emp-action-btn" onclick="openPerfHistoryModal('${emp.username}', ${emp.id},'${emp.name}')" style="display:inline-flex; align-items:center; gap:4px; padding:6px 12px; border-radius:8px; border:1px solid var(--slate-200); background:white; font-size:12px; font-weight:600; color:var(--slate-700); cursor:pointer; transition:all .2s; height: 32px;" onmouseover="this.style.background='#ede9fe';this.style.color='#7c3aed';this.style.borderColor='#c4b5fd'" onmouseout="this.style.background='white';this.style.color='var(--slate-700)';this.style.borderColor='var(--slate-200)'">
+                <i data-lucide="bar-chart-2" style="width:12px;height:12px;"></i> Perf
+              </button>
+            </div>
+          </td>
+        </tr>
+      `;
+    });
+
+    tableHtml += `
+        </tbody>
+      </table>
+    `;
+    tableWrapper.innerHTML = tableHtml;
+    container.appendChild(tableWrapper);
+  } else {
+    // Render as Cards (original behavior)
+    state.employees.forEach(emp => {
+      const card = document.createElement("div");
+      card.className = "employee-card";
+      card.setAttribute("onclick", `if(!event.target.closest('.eye-btn') && !event.target.closest('.emp-action-btn')) showEmployeeReport('${emp.username}')`);
+      
+      const initial = emp.name ? emp.name.charAt(0) : "E";
+      const typeLabel = emp.employee_type === "sales" ? "Sales Team" : emp.employee_type === "combined" ? "Combined" : "Operations/Non-Sales";
+      const kpiLabel = emp.employee_type === "sales" ? "Sales KPI" : emp.employee_type === "combined" ? "Combined KPI" : "Non-Sales KPI";
+      
+      card.innerHTML = `
+        <div class="employee-avatar">${initial}</div>
+        <h4 class="employee-name">${emp.name}</h4>
+        <p class="employee-designation">${emp.designation || 'Staff member'}</p>
+        
+        <div class="employee-details">
+          <div class="employee-detail-row">
+            <span class="employee-detail-lbl">Username</span>
+            <span class="employee-detail-val">${emp.username}</span>
+          </div>
+          <div class="employee-detail-row">
+            <span class="employee-detail-lbl">Portal Password</span>
+            <span class="employee-password-container">
+              <span class="employee-detail-val" id="pwd-text-${emp.id}" style="-webkit-text-security: disc;">${emp.plain_password || '—'}</span>
+              <button class="eye-btn" onclick="togglePasswordVisibility(${emp.id})">
+                <i data-lucide="eye" id="pwd-icon-${emp.id}" style="width: 14px; height: 14px;"></i>
+              </button>
+            </span>
+          </div>
+          <div class="employee-detail-row">
+            <span class="employee-detail-lbl">Role Class</span>
+            <span class="employee-detail-val badge">${emp.role}</span>
+          </div>
+          <div class="employee-detail-row">
+            <span class="employee-detail-lbl">KPI Type</span>
+            <span class="employee-detail-val">${kpiLabel}</span>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:8px; margin-top:16px; border-top:1px solid var(--slate-100); padding-top:14px;">
+          <button class="emp-action-btn" onclick="openEditEmployeeModal('${emp.username}')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:9px 12px; border-radius:10px; border:1px solid var(--slate-200); background:white; font-size:12px; font-weight:600; color:var(--slate-700); cursor:pointer; transition:all .2s;" onmouseover="this.style.background='var(--primary-light)';this.style.color='var(--primary)';this.style.borderColor='rgba(121,19,176,.2)'" onmouseout="this.style.background='white';this.style.color='var(--slate-700)';this.style.borderColor='var(--slate-200)'">
+            <i data-lucide="edit-3" style="width:13px;height:13px;"></i> Edit
+          </button>
+          <button class="emp-action-btn" onclick="openPerfHistoryModal('${emp.username}', ${emp.id},'${emp.name}')" style="flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:9px 12px; border-radius:10px; border:1px solid var(--slate-200); background:white; font-size:12px; font-weight:600; color:var(--slate-700); cursor:pointer; transition:all .2s;" onmouseover="this.style.background='#ede9fe';this.style.color='#7c3aed';this.style.borderColor='#c4b5fd'" onmouseout="this.style.background='white';this.style.color='var(--slate-700)';this.style.borderColor='var(--slate-200)'">
+            <i data-lucide="bar-chart-2" style="width:13px;height:13px;"></i> Performance
+          </button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
   
   lucide.createIcons();
 }

@@ -1006,3 +1006,234 @@ body {
 
 .kpi-card.selected .kpi-card-label { color: var(--primary); }
 .kpi-card.selected .kpi-card-sub   { color: var(--primary-hover); }
+
+/* ==========================================================================
+   VISUAL CMS OVERRIDES (TOPBAR LAYOUT & DARK MODE)
+   ========================================================================== */
+
+/* 1. Topbar Navigation Layout Overrides */
+body.layout-topbar {
+  flex-direction: column;
+}
+
+body.layout-topbar .sidebar {
+  width: 100%;
+  height: 80px;
+  min-height: 80px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  border-right: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.layout-topbar .brand-section {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+body.layout-topbar .nav-menu {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 0;
+}
+
+body.layout-topbar .nav-item a {
+  padding: 10px 16px;
+  border-radius: 12px;
+}
+
+body.layout-topbar .nav-footer {
+  margin-top: 0;
+  padding: 0;
+  border-top: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+body.layout-topbar .nav-footer p {
+  display: none; /* Hide static contacts in topbar to keep it clean */
+}
+
+body.layout-topbar .nav-footer #biometric-status-container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+
+body.layout-topbar .main-content {
+  height: calc(100vh - 80px);
+}
+
+/* 2. Glassmorphic Dark Mode Theme */
+body.dark-theme {
+  background: radial-gradient(circle at 10% 20%, #0c0817 0%, #161126 90%) !important;
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme .top-header {
+  background: rgba(22, 17, 38, 0.65) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px);
+}
+
+body.dark-theme .page-title,
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme .stat-val,
+body.dark-theme .kpi-card-label {
+  color: #ffffff !important;
+}
+
+body.dark-theme .glass-card,
+body.dark-theme .employee-card {
+  background: rgba(33, 26, 54, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme .card-bg {
+  background: rgba(33, 26, 54, 0.6) !important;
+}
+
+body.dark-theme .employee-details {
+  border-top-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+body.dark-theme .employee-detail-lbl {
+  color: #94a3b8 !important;
+}
+
+body.dark-theme .employee-detail-val {
+  color: #f1f5f9 !important;
+}
+
+body.dark-theme .employee-card::before {
+  opacity: 0.9;
+}
+
+body.dark-theme .employee-card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea {
+  background-color: rgba(18, 14, 30, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-theme input:focus,
+body.dark-theme select:focus {
+  border-color: var(--primary) !important;
+}
+
+body.dark-theme .btn-secondary {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme tr[id^="emp-row-"] {
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+body.dark-theme tr[id^="emp-row-"]:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+body.dark-theme .modal-content {
+  background: #191428 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.dark-theme .modal-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .modal-footer {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .payslip-container {
+  background: #130f20 !important;
+  color: #cbd5e1 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .payslip-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .payslip-logo-section {
+  color: #ffffff !important;
+}
+
+body.dark-theme .payslip-meta-grid {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .payslip-table th {
+  background: rgba(255, 255, 255, 0.02) !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .payslip-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+body.dark-theme .payslip-net-card {
+  background: rgba(99, 102, 241, 0.1) !important;
+  border-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+body.dark-theme .payslip-net-val {
+  color: #818cf8 !important;
+}
+
+body.dark-theme .kpi-card {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+body.dark-theme .kpi-card:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .kpi-card.selected {
+  background: rgba(99, 102, 241, 0.08) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+body.dark-theme .calendar-grid {
+  background: rgba(255, 255, 255, 0.01) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-theme .calendar-cell {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-theme .calendar-cell.today {
+  background: rgba(99, 102, 241, 0.15) !important;
+}
+
+body.dark-theme .calendar-cell.has-checkin {
+  background: rgba(16, 185, 129, 0.08) !important;
+}
