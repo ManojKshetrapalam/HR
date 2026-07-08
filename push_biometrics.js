@@ -146,10 +146,17 @@ async function run() {
     console.log(`Fetched ${etEmployees.length} employee records from biometric device.`);
 
     // 4. Fetch Punch Transactions
+    const year = parseInt(MONTH.split('-')[0]);
+    const month = parseInt(MONTH.split('-')[1]);
+    const nextMonthDate = new Date(year, month, 1);
+    const nextYear = nextMonthDate.getFullYear();
+    const nextMonthVal = nextMonthDate.getMonth() + 1;
     const startDateStr = `${MONTH}-01`;
-    console.log(`\nStep 4: Fetching biometric punches starting from ${startDateStr}...`);
+    const endDateStr = `${nextYear}-${String(nextMonthVal).padStart(2, '0')}-01`;
+
+    console.log(`\nStep 4: Fetching biometric punches from ${startDateStr} to ${endDateStr}...`);
     const punchesRes = await fetch(
-      `${normalizedBiometricUrl}iclock/transaction/table/?page=1&limit=5000&_p_upload_time__gte=${startDateStr}`,
+      `${normalizedBiometricUrl}iclock/transaction/table/?page=1&limit=5000&_p_upload_time__gte=${startDateStr}&_p_upload_time__lt=${endDateStr}`,
       { headers: { 'Cookie': sessionCookies } }
     );
     if (!punchesRes.ok) {

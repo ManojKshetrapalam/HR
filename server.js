@@ -502,11 +502,17 @@ app.post('/api/sync', async (req, res) => {
         }
       });
       
-      // Fetch punch logs starting from the first of the selected month
+      // Fetch punch logs for the selected month (between start of month and start of next month)
+      const year = parseInt(selectedMonth.split('-')[0]);
+      const month = parseInt(selectedMonth.split('-')[1]);
+      const nextMonthDate = new Date(year, month, 1);
+      const nextYear = nextMonthDate.getFullYear();
+      const nextMonthVal = nextMonthDate.getMonth() + 1;
       const startDateStr = `${selectedMonth}-01`;
+      const endDateStr = `${nextYear}-${String(nextMonthVal).padStart(2, '0')}-01`;
       
-      console.log(`Sync: Fetching easy TimePro punches starting from ${startDateStr}...`);
-      const etPunchesRes = await fetch(`http://192.168.0.233/iclock/transaction/table/?page=1&limit=5000&_p_upload_time__gte=${startDateStr}`, {
+      console.log(`Sync: Fetching easy TimePro punches from ${startDateStr} to ${endDateStr}...`);
+      const etPunchesRes = await fetch(`http://192.168.0.233/iclock/transaction/table/?page=1&limit=5000&_p_upload_time__gte=${startDateStr}&_p_upload_time__lt=${endDateStr}`, {
         headers: { 'Cookie': etCombinedCookies }
       });
       const etPunchesData = await etPunchesRes.json();
@@ -814,11 +820,18 @@ app.post('/api/sync/biometric', async (req, res) => {
       }
     });
 
-    // Fetch punch logs for the selected month
+    // Fetch punch logs for the selected month (between start of month and start of next month)
+    const year = parseInt(selectedMonth.split('-')[0]);
+    const month = parseInt(selectedMonth.split('-')[1]);
+    const nextMonthDate = new Date(year, month, 1);
+    const nextYear = nextMonthDate.getFullYear();
+    const nextMonthVal = nextMonthDate.getMonth() + 1;
     const startDateStr = `${selectedMonth}-01`;
-    console.log(`Biometric Sync: Fetching punches from ${startDateStr}...`);
+    const endDateStr = `${nextYear}-${String(nextMonthVal).padStart(2, '0')}-01`;
+
+    console.log(`Biometric Sync: Fetching punches from ${startDateStr} to ${endDateStr}...`);
     const etPunchesRes = await fetch(
-      `http://192.168.0.233/iclock/transaction/table/?page=1&limit=5000&_p_upload_time__gte=${startDateStr}`,
+      `http://192.168.0.233/iclock/transaction/table/?page=1&limit=5000&_p_upload_time__gte=${startDateStr}&_p_upload_time__lt=${endDateStr}`,
       { headers: { 'Cookie': etCombinedCookies } }
     );
     const etPunchesData = await etPunchesRes.json();

@@ -12428,5 +12428,2255 @@
         "designation_id": 6
       }
     }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1000,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-31",
+      "minutes_late": 31,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:01:45 (biometric)",
+      "created_at": "2026-03-31T10:01:45.000000Z",
+      "updated_at": "2026-03-31T10:01:45.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1001,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-31",
+      "minutes_late": 3,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:33:22 (biometric)",
+      "created_at": "2026-03-31T09:33:22.000000Z",
+      "updated_at": "2026-03-31T09:33:22.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1002,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-31",
+      "minutes_late": 10,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:40:10 (biometric)",
+      "created_at": "2026-03-31T09:40:10.000000Z",
+      "updated_at": "2026-03-31T09:40:10.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1003,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-31",
+      "minutes_late": 12,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:42:35 (biometric)",
+      "created_at": "2026-03-31T09:42:35.000000Z",
+      "updated_at": "2026-03-31T09:42:35.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1004,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-30",
+      "minutes_late": 9,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:39:12 (biometric)",
+      "created_at": "2026-03-30T09:39:12.000000Z",
+      "updated_at": "2026-03-30T09:39:12.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1005,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-30",
+      "minutes_late": 18,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:48:42 (biometric)",
+      "created_at": "2026-03-30T09:48:42.000000Z",
+      "updated_at": "2026-03-30T09:48:42.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1006,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-30",
+      "minutes_late": 3,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:33:10 (biometric)",
+      "created_at": "2026-03-30T09:33:10.000000Z",
+      "updated_at": "2026-03-30T09:33:10.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1007,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-28",
+      "minutes_late": 12,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:42:17 (biometric)",
+      "created_at": "2026-03-28T09:42:17.000000Z",
+      "updated_at": "2026-03-28T09:42:17.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1008,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-28",
+      "minutes_late": 35,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:05:15 (biometric)",
+      "created_at": "2026-03-28T10:05:15.000000Z",
+      "updated_at": "2026-03-28T10:05:15.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1009,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-28",
+      "minutes_late": 14,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:44:42 (biometric)",
+      "created_at": "2026-03-28T09:44:42.000000Z",
+      "updated_at": "2026-03-28T09:44:42.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1010,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-27",
+      "minutes_late": 29,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:59:18 (biometric)",
+      "created_at": "2026-03-27T09:59:18.000000Z",
+      "updated_at": "2026-03-27T09:59:18.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1011,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-27",
+      "minutes_late": 4,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:34:40 (biometric)",
+      "created_at": "2026-03-27T09:34:40.000000Z",
+      "updated_at": "2026-03-27T09:34:40.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1012,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-27",
+      "minutes_late": 8,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:38:37 (biometric)",
+      "created_at": "2026-03-27T09:38:37.000000Z",
+      "updated_at": "2026-03-27T09:38:37.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1013,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-27",
+      "minutes_late": 11,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:41:09 (biometric)",
+      "created_at": "2026-03-27T09:41:09.000000Z",
+      "updated_at": "2026-03-27T09:41:09.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1014,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-27",
+      "minutes_late": 1,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:31:11 (biometric)",
+      "created_at": "2026-03-27T09:31:11.000000Z",
+      "updated_at": "2026-03-27T09:31:11.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1015,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-26",
+      "minutes_late": 4,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:34:16 (biometric)",
+      "created_at": "2026-03-26T09:34:16.000000Z",
+      "updated_at": "2026-03-26T09:34:16.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1016,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-26",
+      "minutes_late": 14,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:44:53 (biometric)",
+      "created_at": "2026-03-26T09:44:53.000000Z",
+      "updated_at": "2026-03-26T09:44:53.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1017,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-26",
+      "minutes_late": 3,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:33:57 (biometric)",
+      "created_at": "2026-03-26T09:33:57.000000Z",
+      "updated_at": "2026-03-26T09:33:57.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1018,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-26",
+      "minutes_late": 42,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:12:28 (biometric)",
+      "created_at": "2026-03-26T10:12:28.000000Z",
+      "updated_at": "2026-03-26T10:12:28.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1019,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-26",
+      "minutes_late": 0,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:30:07 (biometric)",
+      "created_at": "2026-03-26T09:30:07.000000Z",
+      "updated_at": "2026-03-26T09:30:07.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1020,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-25",
+      "minutes_late": 219,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 13:09:59 (biometric)",
+      "created_at": "2026-03-25T13:09:59.000000Z",
+      "updated_at": "2026-03-25T13:09:59.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1021,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-25",
+      "minutes_late": 13,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:43:41 (biometric)",
+      "created_at": "2026-03-25T09:43:41.000000Z",
+      "updated_at": "2026-03-25T09:43:41.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1022,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-25",
+      "minutes_late": 16,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:46:03 (biometric)",
+      "created_at": "2026-03-25T09:46:03.000000Z",
+      "updated_at": "2026-03-25T09:46:03.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1023,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-25",
+      "minutes_late": 3,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:33:12 (biometric)",
+      "created_at": "2026-03-25T09:33:12.000000Z",
+      "updated_at": "2026-03-25T09:33:12.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1024,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-24",
+      "minutes_late": 16,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:46:30 (biometric)",
+      "created_at": "2026-03-24T09:46:30.000000Z",
+      "updated_at": "2026-03-24T09:46:30.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1025,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-24",
+      "minutes_late": 5,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:35:11 (biometric)",
+      "created_at": "2026-03-24T09:35:11.000000Z",
+      "updated_at": "2026-03-24T09:35:11.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1026,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-24",
+      "minutes_late": 16,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:46:40 (biometric)",
+      "created_at": "2026-03-24T09:46:40.000000Z",
+      "updated_at": "2026-03-24T09:46:40.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1027,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-24",
+      "minutes_late": 24,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:54:52 (biometric)",
+      "created_at": "2026-03-24T09:54:52.000000Z",
+      "updated_at": "2026-03-24T09:54:52.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1028,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-23",
+      "minutes_late": 0,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:30:17 (biometric)",
+      "created_at": "2026-03-23T09:30:17.000000Z",
+      "updated_at": "2026-03-23T09:30:17.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1029,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-23",
+      "minutes_late": 48,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:18:55 (biometric)",
+      "created_at": "2026-03-23T10:18:55.000000Z",
+      "updated_at": "2026-03-23T10:18:55.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1030,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-23",
+      "minutes_late": 177,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 12:27:41 (biometric)",
+      "created_at": "2026-03-23T12:27:41.000000Z",
+      "updated_at": "2026-03-23T12:27:41.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1031,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-23",
+      "minutes_late": 7,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:37:23 (biometric)",
+      "created_at": "2026-03-23T09:37:23.000000Z",
+      "updated_at": "2026-03-23T09:37:23.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1032,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-20",
+      "minutes_late": 17,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:47:17 (biometric)",
+      "created_at": "2026-03-20T09:47:17.000000Z",
+      "updated_at": "2026-03-20T09:47:17.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1033,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-20",
+      "minutes_late": 60,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:30:26 (biometric)",
+      "created_at": "2026-03-20T10:30:26.000000Z",
+      "updated_at": "2026-03-20T10:30:26.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1034,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-20",
+      "minutes_late": 15,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:45:02 (biometric)",
+      "created_at": "2026-03-20T09:45:02.000000Z",
+      "updated_at": "2026-03-20T09:45:02.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1035,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-18",
+      "minutes_late": 120,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 11:30:47 (biometric)",
+      "created_at": "2026-03-18T11:30:47.000000Z",
+      "updated_at": "2026-03-18T11:30:47.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1036,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-18",
+      "minutes_late": 11,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:41:20 (biometric)",
+      "created_at": "2026-03-18T09:41:20.000000Z",
+      "updated_at": "2026-03-18T09:41:20.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1037,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-17",
+      "minutes_late": 10,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:40:16 (biometric)",
+      "created_at": "2026-03-17T09:40:16.000000Z",
+      "updated_at": "2026-03-17T09:40:16.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1038,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-17",
+      "minutes_late": 20,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:50:10 (biometric)",
+      "created_at": "2026-03-17T09:50:10.000000Z",
+      "updated_at": "2026-03-17T09:50:10.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1039,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-17",
+      "minutes_late": 2,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:32:09 (biometric)",
+      "created_at": "2026-03-17T09:32:09.000000Z",
+      "updated_at": "2026-03-17T09:32:09.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1040,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-17",
+      "minutes_late": 1,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:31:07 (biometric)",
+      "created_at": "2026-03-17T09:31:07.000000Z",
+      "updated_at": "2026-03-17T09:31:07.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1041,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-17",
+      "minutes_late": 1,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:31:12 (biometric)",
+      "created_at": "2026-03-17T09:31:12.000000Z",
+      "updated_at": "2026-03-17T09:31:12.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1042,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-16",
+      "minutes_late": 4,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:34:13 (biometric)",
+      "created_at": "2026-03-16T09:34:13.000000Z",
+      "updated_at": "2026-03-16T09:34:13.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1043,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-16",
+      "minutes_late": 13,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:43:55 (biometric)",
+      "created_at": "2026-03-16T09:43:55.000000Z",
+      "updated_at": "2026-03-16T09:43:55.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1044,
+      "user_id": 19,
+      "type": "late",
+      "date": "2026-03-16",
+      "minutes_late": 1,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:31:04 (biometric)",
+      "created_at": "2026-03-16T09:31:04.000000Z",
+      "updated_at": "2026-03-16T09:31:04.000000Z",
+      "user": {
+        "id": 19,
+        "name": "Esha",
+        "username": "esha",
+        "plain_password": "esha123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1045,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-14",
+      "minutes_late": 18,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:48:34 (biometric)",
+      "created_at": "2026-03-14T09:48:34.000000Z",
+      "updated_at": "2026-03-14T09:48:34.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1046,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-13",
+      "minutes_late": 23,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:53:16 (biometric)",
+      "created_at": "2026-03-13T09:53:16.000000Z",
+      "updated_at": "2026-03-13T09:53:16.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1047,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-13",
+      "minutes_late": 9,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:39:44 (biometric)",
+      "created_at": "2026-03-13T09:39:44.000000Z",
+      "updated_at": "2026-03-13T09:39:44.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1048,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-13",
+      "minutes_late": 23,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:53:22 (biometric)",
+      "created_at": "2026-03-13T09:53:22.000000Z",
+      "updated_at": "2026-03-13T09:53:22.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1049,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-12",
+      "minutes_late": 281,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 14:11:37 (biometric)",
+      "created_at": "2026-03-12T14:11:37.000000Z",
+      "updated_at": "2026-03-12T14:11:37.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1050,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-12",
+      "minutes_late": 12,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:42:17 (biometric)",
+      "created_at": "2026-03-12T09:42:17.000000Z",
+      "updated_at": "2026-03-12T09:42:17.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1051,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-12",
+      "minutes_late": 19,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:49:09 (biometric)",
+      "created_at": "2026-03-12T09:49:09.000000Z",
+      "updated_at": "2026-03-12T09:49:09.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1052,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-12",
+      "minutes_late": 16,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:46:18 (biometric)",
+      "created_at": "2026-03-12T09:46:18.000000Z",
+      "updated_at": "2026-03-12T09:46:18.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1053,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-12",
+      "minutes_late": 16,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:46:22 (biometric)",
+      "created_at": "2026-03-12T09:46:22.000000Z",
+      "updated_at": "2026-03-12T09:46:22.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1054,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-11",
+      "minutes_late": 37,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:07:19 (biometric)",
+      "created_at": "2026-03-11T10:07:19.000000Z",
+      "updated_at": "2026-03-11T10:07:19.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1055,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-11",
+      "minutes_late": 10,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:40:38 (biometric)",
+      "created_at": "2026-03-11T09:40:38.000000Z",
+      "updated_at": "2026-03-11T09:40:38.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1056,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-11",
+      "minutes_late": 10,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:40:50 (biometric)",
+      "created_at": "2026-03-11T09:40:50.000000Z",
+      "updated_at": "2026-03-11T09:40:50.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1057,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-10",
+      "minutes_late": 14,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:44:09 (biometric)",
+      "created_at": "2026-03-10T09:44:09.000000Z",
+      "updated_at": "2026-03-10T09:44:09.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1058,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-10",
+      "minutes_late": 58,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:28:19 (biometric)",
+      "created_at": "2026-03-10T10:28:19.000000Z",
+      "updated_at": "2026-03-10T10:28:19.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1059,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-10",
+      "minutes_late": 7,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:37:18 (biometric)",
+      "created_at": "2026-03-10T09:37:18.000000Z",
+      "updated_at": "2026-03-10T09:37:18.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1060,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-10",
+      "minutes_late": 14,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:44:14 (biometric)",
+      "created_at": "2026-03-10T09:44:14.000000Z",
+      "updated_at": "2026-03-10T09:44:14.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1061,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-09",
+      "minutes_late": 30,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:00:45 (biometric)",
+      "created_at": "2026-03-09T10:00:45.000000Z",
+      "updated_at": "2026-03-09T10:00:45.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1062,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-09",
+      "minutes_late": 8,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:38:16 (biometric)",
+      "created_at": "2026-03-09T09:38:16.000000Z",
+      "updated_at": "2026-03-09T09:38:16.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1063,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-09",
+      "minutes_late": 61,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:31:09 (biometric)",
+      "created_at": "2026-03-09T10:31:09.000000Z",
+      "updated_at": "2026-03-09T10:31:09.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1064,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-09",
+      "minutes_late": 12,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:42:11 (biometric)",
+      "created_at": "2026-03-09T09:42:11.000000Z",
+      "updated_at": "2026-03-09T09:42:11.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1065,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-09",
+      "minutes_late": 3,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:33:11 (biometric)",
+      "created_at": "2026-03-09T09:33:11.000000Z",
+      "updated_at": "2026-03-09T09:33:11.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1066,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-07",
+      "minutes_late": 68,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:38:17 (biometric)",
+      "created_at": "2026-03-07T10:38:17.000000Z",
+      "updated_at": "2026-03-07T10:38:17.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1067,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-07",
+      "minutes_late": 42,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:12:15 (biometric)",
+      "created_at": "2026-03-07T10:12:15.000000Z",
+      "updated_at": "2026-03-07T10:12:15.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1068,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-06",
+      "minutes_late": 25,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:55:44 (biometric)",
+      "created_at": "2026-03-06T09:55:44.000000Z",
+      "updated_at": "2026-03-06T09:55:44.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1069,
+      "user_id": 14,
+      "type": "late",
+      "date": "2026-03-06",
+      "minutes_late": 393,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 16:03:36 (biometric)",
+      "created_at": "2026-03-06T16:03:36.000000Z",
+      "updated_at": "2026-03-06T16:03:36.000000Z",
+      "user": {
+        "id": 14,
+        "name": "Srinivas Ganesh",
+        "username": "gani",
+        "plain_password": "Gani55668888",
+        "role": "team_lead",
+        "employee_type": "sales",
+        "designation": "Manager",
+        "designation_id": 7
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1070,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-06",
+      "minutes_late": 12,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:42:01 (biometric)",
+      "created_at": "2026-03-06T09:42:01.000000Z",
+      "updated_at": "2026-03-06T09:42:01.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1071,
+      "user_id": 18,
+      "type": "late",
+      "date": "2026-03-06",
+      "minutes_late": 4,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:34:36 (biometric)",
+      "created_at": "2026-03-06T09:34:36.000000Z",
+      "updated_at": "2026-03-06T09:34:36.000000Z",
+      "user": {
+        "id": 18,
+        "name": "Kavitha",
+        "username": "kavitha",
+        "plain_password": "kavitha123",
+        "role": "employee",
+        "employee_type": "sales",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1072,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-06",
+      "minutes_late": 1,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:31:00 (biometric)",
+      "created_at": "2026-03-06T09:31:00.000000Z",
+      "updated_at": "2026-03-06T09:31:00.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1073,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-05",
+      "minutes_late": 39,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:09:26 (biometric)",
+      "created_at": "2026-03-05T10:09:26.000000Z",
+      "updated_at": "2026-03-05T10:09:26.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1074,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-05",
+      "minutes_late": 69,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:39:15 (biometric)",
+      "created_at": "2026-03-05T10:39:15.000000Z",
+      "updated_at": "2026-03-05T10:39:15.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1075,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-05",
+      "minutes_late": 9,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:39:45 (biometric)",
+      "created_at": "2026-03-05T09:39:45.000000Z",
+      "updated_at": "2026-03-05T09:39:45.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1076,
+      "user_id": 20,
+      "type": "late",
+      "date": "2026-03-05",
+      "minutes_late": 64,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 10:34:01 (biometric)",
+      "created_at": "2026-03-05T10:34:01.000000Z",
+      "updated_at": "2026-03-05T10:34:01.000000Z",
+      "user": {
+        "id": 20,
+        "name": "Arpitha",
+        "username": "arpitha",
+        "plain_password": "arpitha123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1077,
+      "user_id": 18,
+      "type": "late",
+      "date": "2026-03-05",
+      "minutes_late": 0,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:30:43 (biometric)",
+      "created_at": "2026-03-05T09:30:43.000000Z",
+      "updated_at": "2026-03-05T09:30:43.000000Z",
+      "user": {
+        "id": 18,
+        "name": "Kavitha",
+        "username": "kavitha",
+        "plain_password": "kavitha123",
+        "role": "employee",
+        "employee_type": "sales",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1078,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-04",
+      "minutes_late": 111,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 11:21:36 (biometric)",
+      "created_at": "2026-03-04T11:21:36.000000Z",
+      "updated_at": "2026-03-04T11:21:36.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1079,
+      "user_id": 34,
+      "type": "late",
+      "date": "2026-03-04",
+      "minutes_late": 0,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:30:50 (biometric)",
+      "created_at": "2026-03-04T09:30:50.000000Z",
+      "updated_at": "2026-03-04T09:30:50.000000Z",
+      "user": {
+        "id": 34,
+        "name": "Santhosh B",
+        "username": "santhosh",
+        "plain_password": "santhu123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1080,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-04",
+      "minutes_late": 8,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:38:38 (biometric)",
+      "created_at": "2026-03-04T09:38:38.000000Z",
+      "updated_at": "2026-03-04T09:38:38.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1081,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-03",
+      "minutes_late": 24,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:54:43 (biometric)",
+      "created_at": "2026-03-03T09:54:43.000000Z",
+      "updated_at": "2026-03-03T09:54:43.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1082,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-03",
+      "minutes_late": 10,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:40:51 (biometric)",
+      "created_at": "2026-03-03T09:40:51.000000Z",
+      "updated_at": "2026-03-03T09:40:51.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1083,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-03",
+      "minutes_late": 8,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:38:29 (biometric)",
+      "created_at": "2026-03-03T09:38:29.000000Z",
+      "updated_at": "2026-03-03T09:38:29.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1084,
+      "user_id": 18,
+      "type": "late",
+      "date": "2026-03-03",
+      "minutes_late": 4,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:34:12 (biometric)",
+      "created_at": "2026-03-03T09:34:12.000000Z",
+      "updated_at": "2026-03-03T09:34:12.000000Z",
+      "user": {
+        "id": 18,
+        "name": "Kavitha",
+        "username": "kavitha",
+        "plain_password": "kavitha123",
+        "role": "employee",
+        "employee_type": "sales",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1085,
+      "user_id": 17,
+      "type": "late",
+      "date": "2026-03-03",
+      "minutes_late": 1,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:31:36 (biometric)",
+      "created_at": "2026-03-03T09:31:36.000000Z",
+      "updated_at": "2026-03-03T09:31:36.000000Z",
+      "user": {
+        "id": 17,
+        "name": "Afsana",
+        "username": "afsana",
+        "plain_password": "AFSANAPPU2625@PAW",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1086,
+      "user_id": 31,
+      "type": "late",
+      "date": "2026-03-02",
+      "minutes_late": 3,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:33:37 (biometric)",
+      "created_at": "2026-03-02T09:33:37.000000Z",
+      "updated_at": "2026-03-02T09:33:37.000000Z",
+      "user": {
+        "id": 31,
+        "name": "Arun Mahadev",
+        "username": "arun",
+        "plain_password": "arun123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1087,
+      "user_id": 32,
+      "type": "late",
+      "date": "2026-03-02",
+      "minutes_late": 12,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:42:50 (biometric)",
+      "created_at": "2026-03-02T09:42:50.000000Z",
+      "updated_at": "2026-03-02T09:42:50.000000Z",
+      "user": {
+        "id": 32,
+        "name": "Govinda",
+        "username": "govinda",
+        "plain_password": "govinda123",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "Production Specialist",
+        "designation_id": 5
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1088,
+      "user_id": 33,
+      "type": "late",
+      "date": "2026-03-02",
+      "minutes_late": 27,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:57:04 (biometric)",
+      "created_at": "2026-03-02T09:57:04.000000Z",
+      "updated_at": "2026-03-02T09:57:04.000000Z",
+      "user": {
+        "id": 33,
+        "name": "Yashas Pawar",
+        "username": "yash",
+        "plain_password": "yash123",
+        "role": "employee",
+        "employee_type": "combined",
+        "designation": "Sales Executive",
+        "designation_id": 6
+      }
+    }
+  },
+  {
+    "modalType": "Late",
+    "data": {
+      "id": 1089,
+      "user_id": 29,
+      "type": "late",
+      "date": "2026-03-02",
+      "minutes_late": 7,
+      "lop_days": null,
+      "deduction_amount": 250,
+      "reason": "Initial check-in punch at 09:37:29 (biometric)",
+      "created_at": "2026-03-02T09:37:29.000000Z",
+      "updated_at": "2026-03-02T09:37:29.000000Z",
+      "user": {
+        "id": 29,
+        "name": "Azim Shaikh",
+        "username": "azim",
+        "plain_password": "Azim@4_5_6",
+        "role": "employee",
+        "employee_type": "non_sales",
+        "designation": "APP Developer",
+        "designation_id": 2
+      }
+    }
   }
 ]
