@@ -1215,7 +1215,8 @@ app.get('/api/settings', (req, res) => {
     navLayout: "sidebar",
     colorPreset: "purple",
     employeeLayout: "cards",
-    themeMode: "light"
+    themeMode: "light",
+    designDirection: "glass"
   };
   const settings = readJSON(PATHS.settings, defaultSettings);
   res.json(settings);
@@ -1249,7 +1250,8 @@ app.post('/api/settings', (req, res) => {
     navLayout,
     colorPreset,
     employeeLayout,
-    themeMode
+    themeMode,
+    designDirection
   } = req.body;
 
   if (!companyName || !supportPhone || !supportEmail || !gracePeriod || lateDeduction === undefined) {
@@ -1265,7 +1267,8 @@ app.post('/api/settings', (req, res) => {
     navLayout: navLayout || "sidebar",
     colorPreset: colorPreset || "purple",
     employeeLayout: employeeLayout || "cards",
-    themeMode: themeMode || "light"
+    themeMode: themeMode || "light",
+    designDirection: designDirection || "glass"
   };
 
   writeJSON(PATHS.settings, updatedSettings);

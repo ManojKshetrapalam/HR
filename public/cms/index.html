@@ -423,6 +423,12 @@
       to { transform: rotate(360deg); }
     }
 
+    .trend-card.active {
+      background: rgba(99, 102, 241, 0.15) !important;
+      border-color: var(--color-primary) !important;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+    }
+
     @media (max-width: 768px) {
       .workspace-layout {
         grid-template-columns: 1fr;
@@ -589,6 +595,61 @@
           </div>
         </div>
 
+        <!-- Section 4: 2026 Interactive Design Style Selector -->
+        <div class="settings-section-title">
+          <i data-lucide="compass" style="width:16px; height:16px;"></i>
+          <span>2026 Design Style & Trend Explorer</span>
+        </div>
+        <p style="font-size: 11px; color: var(--color-muted); margin-bottom: 15px; line-height: 1.4;">
+          Select a 2026 visual trend profile to align your organization layout and interface styles instantly:
+        </p>
+        
+        <input type="hidden" id="designDirection" value="glass">
+        
+        <div class="trends-grid" style="display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 30px;">
+          
+          <div class="trend-card" id="trend-glass" onclick="selectTrend('glass')" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(99,102,241,0.1); color: #6366f1; display: flex; align-items: center; justify-content: center;"><i data-lucide="layers" style="width:16px; height:16px;"></i></div>
+            <div style="flex-grow: 1;">
+              <h4 style="font-size:13px; font-weight:600; margin-bottom:2px; color: #ffffff;">Soft Depth & Layers (Glass)</h4>
+              <p style="font-size:10px; color:var(--color-muted);">Translucency, blur, and soft layered surfaces.</p>
+            </div>
+          </div>
+
+          <div class="trend-card" id="trend-minimal" onclick="selectTrend('minimal')" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.05); color: #f3f4f6; display: flex; align-items: center; justify-content: center;"><i data-lucide="smartphone" style="width:16px; height:16px;"></i></div>
+            <div style="flex-grow: 1;">
+              <h4 style="font-size:13px; font-weight:600; margin-bottom:2px; color: #ffffff;">Minimal but Expressive</h4>
+              <p style="font-size:10px; color:var(--color-muted);">Clean layout structure with strong typography contrast.</p>
+            </div>
+          </div>
+
+          <div class="trend-card" id="trend-brutalist" onclick="selectTrend('brutalist')" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(245,158,11,0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center;"><i data-lucide="layout" style="width:16px; height:16px;"></i></div>
+            <div style="flex-grow: 1;">
+              <h4 style="font-size:13px; font-weight:600; margin-bottom:2px; color: #ffffff;">Retro / Brutalist</h4>
+              <p style="font-size:10px; color:var(--color-muted);">Rough edges, asymmetry, and thick solid borders.</p>
+            </div>
+          </div>
+
+          <div class="trend-card" id="trend-gradient" onclick="selectTrend('gradient')" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(236,72,153,0.1); color: #ec4899; display: flex; align-items: center; justify-content: center;"><i data-lucide="sparkles" style="width:16px; height:16px;"></i></div>
+            <div style="flex-grow: 1;">
+              <h4 style="font-size:13px; font-weight:600; margin-bottom:2px; color: #ffffff;">Bold Gradients</h4>
+              <p style="font-size:10px; color:var(--color-muted);">Vibrant multi-color shifts and saturated accents.</p>
+            </div>
+          </div>
+
+          <div class="trend-card" id="trend-nostalgic" onclick="selectTrend('nostalgic')" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16,185,129,0.1); color: #10b981; display: flex; align-items: center; justify-content: center;"><i data-lucide="monitor" style="width:16px; height:16px;"></i></div>
+            <div style="flex-grow: 1;">
+              <h4 style="font-size:13px; font-weight:600; margin-bottom:2px; color: #ffffff;">Nostalgic Vintage Bevel</h4>
+              <p style="font-size:10px; color:var(--color-muted);">Tactile textures and classic gray 90s OS aesthetics.</p>
+            </div>
+          </div>
+
+        </div>
+
         <button type="submit" class="btn" id="save-submit-btn">
           <i data-lucide="save" style="width:16px; height:16px;"></i>
           <span>Save Changes</span>
@@ -719,7 +780,8 @@
         navLayout: document.getElementById('navLayout').value,
         colorPreset: document.getElementById('colorPreset').value,
         employeeLayout: document.getElementById('employeeLayout').value,
-        themeMode: document.getElementById('themeMode').value
+        themeMode: document.getElementById('themeMode').value,
+        designDirection: document.getElementById('designDirection').value
       };
 
       try {
@@ -750,10 +812,13 @@
     });
 
     // Add visual preview sync listeners
-    const inputs = ['companyName', 'supportPhone', 'supportEmail', 'gracePeriod', 'lateDeduction', 'navLayout', 'colorPreset', 'employeeLayout', 'themeMode'];
+    const inputs = ['companyName', 'supportPhone', 'supportEmail', 'gracePeriod', 'lateDeduction', 'navLayout', 'colorPreset', 'employeeLayout', 'themeMode', 'designDirection'];
     inputs.forEach(id => {
-      document.getElementById(id).addEventListener('change', syncCurrentVals);
-      document.getElementById(id).addEventListener('input', syncCurrentVals);
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('change', syncCurrentVals);
+        el.addEventListener('input', syncCurrentVals);
+      }
     });
 
     function syncCurrentVals() {
@@ -766,9 +831,22 @@
         navLayout: document.getElementById('navLayout').value,
         colorPreset: document.getElementById('colorPreset').value,
         employeeLayout: document.getElementById('employeeLayout').value,
-        themeMode: document.getElementById('themeMode').value
+        themeMode: document.getElementById('themeMode').value,
+        designDirection: document.getElementById('designDirection').value
       };
       updatePreviews(currentVals);
+    }
+
+    function selectTrend(dir) {
+      document.getElementById('designDirection').value = dir;
+      document.querySelectorAll('.trend-card').forEach(card => {
+        card.classList.remove('active');
+      });
+      const selectedCard = document.getElementById(`trend-${dir}`);
+      if (selectedCard) {
+        selectedCard.classList.add('active');
+      }
+      syncCurrentVals();
     }
 
     // Helper functions
@@ -799,6 +877,12 @@
         document.getElementById('colorPreset').value = settings.colorPreset || 'purple';
         document.getElementById('employeeLayout').value = settings.employeeLayout || 'cards';
         document.getElementById('themeMode').value = settings.themeMode || 'light';
+        
+        const activeDir = settings.designDirection || 'glass';
+        document.getElementById('designDirection').value = activeDir;
+        document.querySelectorAll('.trend-card').forEach(c => c.classList.remove('active'));
+        const activeCard = document.getElementById(`trend-${activeDir}`);
+        if (activeCard) activeCard.classList.add('active');
         
         updatePreviews(settings);
       } catch (err) {
@@ -887,6 +971,71 @@
         previewPanel.style.background = 'rgba(17, 19, 31, 0.4)';
         previewPanel.style.color = '#cbd5e1';
         document.getElementById('prev-rule-time').style.color = 'var(--color-text)';
+      }
+
+      // 2026 Design Style Mockup Transformations
+      const activeDir = settings.designDirection || 'glass';
+      const ruleCardMockup = document.querySelector('.mockup-rule-card');
+      
+      // Clear style overrides first
+      sidebarMockup.style.border = '';
+      sidebarMockup.style.borderRadius = '';
+      sidebarMockup.style.boxShadow = '';
+      sidebarMockup.style.fontFamily = '';
+      sidebarMockup.style.background = '';
+      
+      ruleCardMockup.style.border = '';
+      ruleCardMockup.style.borderRadius = '';
+      ruleCardMockup.style.boxShadow = '';
+      ruleCardMockup.style.background = '';
+      ruleCardMockup.style.fontFamily = '';
+
+      if (activeDir === 'minimal') {
+        sidebarMockup.style.background = '#ffffff';
+        sidebarMockup.style.border = '1px solid #e2e8f0';
+        sidebarMockup.style.boxShadow = 'none';
+        sidebarMockup.style.borderRadius = '12px';
+        
+        ruleCardMockup.style.background = '#ffffff';
+        ruleCardMockup.style.border = '1px solid #e2e8f0';
+        ruleCardMockup.style.boxShadow = 'none';
+        ruleCardMockup.style.borderRadius = '12px';
+      } else if (activeDir === 'brutalist') {
+        sidebarMockup.style.background = '#fef08a'; // Flat Brutalist Yellow
+        sidebarMockup.style.border = '3px solid #000000';
+        sidebarMockup.style.boxShadow = 'none';
+        sidebarMockup.style.borderRadius = '0px';
+        sidebarMockup.style.fontFamily = 'Courier New, monospace';
+        
+        ruleCardMockup.style.background = '#ffffff';
+        ruleCardMockup.style.border = '3px solid #000000';
+        ruleCardMockup.style.boxShadow = '5px 5px 0px #000000';
+        ruleCardMockup.style.borderRadius = '0px';
+        ruleCardMockup.style.fontFamily = 'Courier New, monospace';
+      } else if (activeDir === 'gradient') {
+        sidebarMockup.style.background = 'linear-gradient(180deg, #1e1b4b 0%, #311042 100%)';
+        sidebarMockup.style.borderRadius = '12px';
+        
+        ruleCardMockup.style.background = 'rgba(255,255,255,0.06)';
+        ruleCardMockup.style.borderRadius = '12px';
+      } else if (activeDir === 'nostalgic') {
+        sidebarMockup.style.background = '#d4d0c8';
+        sidebarMockup.style.borderTop = '2px solid #ffffff';
+        sidebarMockup.style.borderLeft = '2px solid #ffffff';
+        sidebarMockup.style.borderRight = '2px solid #808080';
+        sidebarMockup.style.borderBottom = '2px solid #808080';
+        sidebarMockup.style.boxShadow = 'inset 1px 1px 0px #ffffff, inset -1px -1px 0px #808080';
+        sidebarMockup.style.borderRadius = '0px';
+        sidebarMockup.style.fontFamily = 'Tahoma, sans-serif';
+        
+        ruleCardMockup.style.background = '#d4d0c8';
+        ruleCardMockup.style.borderTop = '2px solid #ffffff';
+        ruleCardMockup.style.borderLeft = '2px solid #ffffff';
+        ruleCardMockup.style.borderRight = '2px solid #808080';
+        ruleCardMockup.style.borderBottom = '2px solid #808080';
+        ruleCardMockup.style.boxShadow = 'inset 1px 1px 0px #ffffff, inset -1px -1px 0px #808080';
+        ruleCardMockup.style.borderRadius = '0px';
+        ruleCardMockup.style.fontFamily = 'Tahoma, sans-serif';
       }
     }
 

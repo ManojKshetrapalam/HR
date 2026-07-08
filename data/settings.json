@@ -7,5 +7,6 @@
   "navLayout": "sidebar",
   "colorPreset": "purple",
   "employeeLayout": "cards",
-  "themeMode": "light"
+  "themeMode": "light",
+  "designDirection": "glass"
 }

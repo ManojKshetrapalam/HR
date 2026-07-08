@@ -88,6 +88,12 @@ async function fetchSettings() {
     // Toggle Layout & Theme Mode classes
     document.body.classList.toggle('layout-topbar', data.navLayout === 'topbar');
     document.body.classList.toggle('dark-theme', data.themeMode === 'dark');
+
+    // Apply Design Direction Theme Class
+    const designDirections = ['minimal', 'brutalist', 'glass', 'gradient', 'nostalgic'];
+    designDirections.forEach(dir => {
+      document.body.classList.toggle(`${dir}-theme`, data.designDirection === dir);
+    });
     
     // Apply accent color preset
     const COLOR_PRESETS = {
