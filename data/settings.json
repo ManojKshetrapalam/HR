@@ -4,9 +4,28 @@
   "supportEmail": "hello@varietyvintage.com",
   "gracePeriod": "09:30:00",
   "lateDeduction": 250,
-  "navLayout": "topbar",
+  "navLayout": "sidebar",
   "colorPreset": "green",
-  "employeeLayout": "table",
-  "themeMode": "dark",
-  "designDirection": "gradient"
+  "employeeLayout": "cards",
+  "themeMode": "light",
+  "designDirection": "glass",
+  "cardOrder": [
+    "stat-card-lop",
+    "stat-card-employees",
+    "stat-card-leaves",
+    "stat-card-late",
+    "card-salary-instructions",
+    "card-sync-overview"
+  ],
+  "hiddenCards": [
+    "stat-card-late"
+  ],
+  "cardTexts": {
+    "stat-card-employees": {
+      "0": "Headcount Active"
+    },
+    "stat-card-leaves": {
+      "0": "Vacations Approved"
+    }
+  }
 }

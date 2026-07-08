@@ -647,7 +647,77 @@
               <p style="font-size:10px; color:var(--color-muted);">Tactile textures and classic gray 90s OS aesthetics.</p>
             </div>
           </div>
+        <!-- Section 5: Interactive Layout Customizer -->
+        <div class="settings-section-title">
+          <i data-lucide="layout-template" style="width:16px; height:16px;"></i>
+          <span>Interactive Layout Customizer</span>
+        </div>
+        <p style="font-size: 11px; color: var(--color-muted); margin-bottom: 15px; line-height: 1.4;">
+          Enable/disable specific dashboard cards, arrange their order, and customize card labels.
+        </p>
 
+        <!-- Visibility settings -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="form-label" style="margin-bottom: 8px; display:block;">Active Dashboard Panels</label>
+          <div style="display: flex; flex-direction: column; gap: 8px;" id="panel-visibility-checks">
+            <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:var(--color-text-muted); cursor:pointer;">
+              <input type="checkbox" id="vis-stat-card-employees" checked> <span>KPI: Total Employees</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:var(--color-text-muted); cursor:pointer;">
+              <input type="checkbox" id="vis-stat-card-leaves" checked> <span>KPI: Approved Leaves</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:var(--color-text-muted); cursor:pointer;">
+              <input type="checkbox" id="vis-stat-card-lop" checked> <span>KPI: Total LOP Days</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:var(--color-text-muted); cursor:pointer;">
+              <input type="checkbox" id="vis-stat-card-late" checked> <span>KPI: Late Marks</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:var(--color-text-muted); cursor:pointer;">
+              <input type="checkbox" id="vis-card-sync-overview" checked> <span>Panel: System Sync Overview</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:var(--color-text-muted); cursor:pointer;">
+              <input type="checkbox" id="vis-card-salary-instructions" checked> <span>Panel: Salary Spreadsheet Instructions</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Reordering settings -->
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="form-label" style="margin-bottom: 8px; display:block;">Panel Layout Order</label>
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 6px;" id="panel-order-container">
+            <!-- Populated via Javascript -->
+          </div>
+        </div>
+
+        <!-- Custom text overrides -->
+        <div class="form-group" style="margin-bottom: 30px;">
+          <label class="form-label" style="margin-bottom: 8px; display:block;">Customize Card Titles</label>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <span style="font-size:10px; color:var(--color-muted);">KPI 1: Employees Label</span>
+              <input class="form-input" type="text" id="text-stat-card-employees" style="padding: 6px 12px; font-size: 12px; height: 32px;" placeholder="Total Employees">
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <span style="font-size:10px; color:var(--color-muted);">KPI 2: Leaves Label</span>
+              <input class="form-input" type="text" id="text-stat-card-leaves" style="padding: 6px 12px; font-size: 12px; height: 32px;" placeholder="Approved Leaves">
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <span style="font-size:10px; color:var(--color-muted);">KPI 3: LOP Label</span>
+              <input class="form-input" type="text" id="text-stat-card-lop" style="padding: 6px 12px; font-size: 12px; height: 32px;" placeholder="Total LOP Days">
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <span style="font-size:10px; color:var(--color-muted);">KPI 4: Late Label</span>
+              <input class="form-input" type="text" id="text-stat-card-late" style="padding: 6px 12px; font-size: 12px; height: 32px;" placeholder="Late Marks">
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <span style="font-size:10px; color:var(--color-muted);">Panel 1: Sync Overview Title</span>
+              <input class="form-input" type="text" id="text-card-sync-overview" style="padding: 6px 12px; font-size: 12px; height: 32px;" placeholder="System Synchronization Overview">
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <span style="font-size:10px; color:var(--color-muted);">Panel 2: Instructions Title</span>
+              <input class="form-input" type="text" id="text-card-salary-instructions" style="padding: 6px 12px; font-size: 12px; height: 32px;" placeholder="Salary Spreadsheet Instructions">
+            </div>
+          </div>
         </div>
 
         <button type="submit" class="btn" id="save-submit-btn">
@@ -713,6 +783,7 @@
   <script>
     // State variables
     let sessionToken = localStorage.getItem('cms_session_token') || '';
+    let currentCardOrder = [];
 
     // Initialize Lucide icons
     lucide.createIcons();
@@ -771,6 +842,24 @@
       saveBtn.disabled = true;
       saveBtn.innerHTML = '<span class="spinner"></span> <span>Saving Settings...</span>';
 
+      const defaultCards = ["stat-card-employees", "stat-card-leaves", "stat-card-lop", "stat-card-late", "card-sync-overview", "card-salary-instructions"];
+      
+      const hiddenCards = [];
+      defaultCards.forEach(id => {
+        const chk = document.getElementById(`vis-${id}`);
+        if (chk && !chk.checked) {
+          hiddenCards.push(id);
+        }
+      });
+
+      const cardTexts = {};
+      defaultCards.forEach(id => {
+        const val = document.getElementById(`text-${id}`).value.trim();
+        if (val) {
+          cardTexts[id] = { "0": val };
+        }
+      });
+
       const payload = {
         companyName: document.getElementById('companyName').value.trim(),
         supportPhone: document.getElementById('supportPhone').value.trim(),
@@ -781,7 +870,10 @@
         colorPreset: document.getElementById('colorPreset').value,
         employeeLayout: document.getElementById('employeeLayout').value,
         themeMode: document.getElementById('themeMode').value,
-        designDirection: document.getElementById('designDirection').value
+        designDirection: document.getElementById('designDirection').value,
+        cardOrder: currentCardOrder,
+        hiddenCards: hiddenCards,
+        cardTexts: cardTexts
       };
 
       try {
@@ -849,6 +941,49 @@
       syncCurrentVals();
     }
 
+    function renderOrderList(cardOrderArray) {
+      const orderContainer = document.getElementById('panel-order-container');
+      if (!orderContainer) return;
+      orderContainer.innerHTML = '';
+      
+      const NAMES = {
+        "stat-card-employees": "KPI: Total Employees",
+        "stat-card-leaves": "KPI: Approved Leaves",
+        "stat-card-lop": "KPI: Total LOP Days",
+        "stat-card-late": "KPI: Late Marks",
+        "card-sync-overview": "Panel: System Sync Overview",
+        "card-salary-instructions": "Panel: Salary Spreadsheet Instructions"
+      };
+      
+      cardOrderArray.forEach((id, index) => {
+        const row = document.createElement('div');
+        row.style = 'display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; font-size: 11px;';
+        
+        const name = NAMES[id] || id;
+        
+        row.innerHTML = `
+          <span style="color: #ffffff; font-weight: 500;">${name}</span>
+          <div style="display:flex; gap:4px;">
+            <button type="button" class="btn" style="padding: 4px 8px; font-size: 9px; height: auto; margin: 0; min-width: auto;" onclick="moveCardOrder(${index}, -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
+            <button type="button" class="btn" style="padding: 4px 8px; font-size: 9px; height: auto; margin: 0; min-width: auto;" onclick="moveCardOrder(${index}, 1)" ${index === cardOrderArray.length - 1 ? 'disabled' : ''}>▼</button>
+          </div>
+        `;
+        orderContainer.appendChild(row);
+      });
+    }
+
+    function moveCardOrder(index, direction) {
+      const targetIndex = index + direction;
+      if (targetIndex < 0 || targetIndex >= currentCardOrder.length) return;
+      
+      // Swap elements
+      const temp = currentCardOrder[index];
+      currentCardOrder[index] = currentCardOrder[targetIndex];
+      currentCardOrder[targetIndex] = temp;
+      
+      renderOrderList(currentCardOrder);
+    }
+
     // Helper functions
     function showError(msg) {
       const errorBanner = document.getElementById('login-error');
@@ -884,6 +1019,41 @@
         const activeCard = document.getElementById(`trend-${activeDir}`);
         if (activeCard) activeCard.classList.add('active');
         
+        // Populate Panel Visibility Checkboxes
+        const defaultCards = ["stat-card-employees", "stat-card-leaves", "stat-card-lop", "stat-card-late", "card-sync-overview", "card-salary-instructions"];
+        const cardOrder = settings.cardOrder || defaultCards;
+        currentCardOrder = [...cardOrder];
+        
+        const hiddenCards = settings.hiddenCards || [];
+        defaultCards.forEach(id => {
+          const chk = document.getElementById(`vis-${id}`);
+          if (chk) {
+            chk.checked = !hiddenCards.includes(id);
+          }
+        });
+        
+        // Render current order list
+        renderOrderList(currentCardOrder);
+        
+        // Populate Card Text Overrides
+        const cardTexts = settings.cardTexts || {};
+        defaultCards.forEach(id => {
+          const inp = document.getElementById(`text-${id}`);
+          if (inp) {
+            let overrideVal = '';
+            if (cardTexts[id]) {
+              if (typeof cardTexts[id] === 'string') {
+                overrideVal = cardTexts[id];
+              } else if (cardTexts[id]["0"] !== undefined) {
+                overrideVal = cardTexts[id]["0"];
+              } else if (cardTexts[id]["title"] !== undefined) {
+                overrideVal = cardTexts[id]["title"];
+              }
+            }
+            inp.value = overrideVal;
+          }
+        });
+
         updatePreviews(settings);
       } catch (err) {
         console.error('Failed to fetch settings details.');

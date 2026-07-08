@@ -109,12 +109,7 @@
     <!-- 1. DASHBOARD TAB -->
     <section class="tab-content active" id="dashboard">
       <div class="stats-grid">
-        <div class="stat-card" id="stat-card-employees" draggable="true">
-          <div class="card-controls">
-            <button class="control-btn drag-btn" title="Drag to reorder"><i data-lucide="grip-vertical"></i></button>
-            <button class="control-btn edit-btn" title="Edit text content" onclick="toggleEditCard(this)"><i data-lucide="edit-3"></i></button>
-            <button class="control-btn hide-btn" title="Hide this panel" onclick="hideCard(this)"><i data-lucide="eye-off"></i></button>
-          </div>
+        <div class="stat-card" id="stat-card-employees">
           <div class="stat-icon purple">
             <i data-lucide="users"></i>
           </div>
@@ -123,12 +118,7 @@
             <p class="stat-value" id="stat-total-employees">0</p>
           </div>
         </div>
-        <div class="stat-card" id="stat-card-leaves" draggable="true">
-          <div class="card-controls">
-            <button class="control-btn drag-btn" title="Drag to reorder"><i data-lucide="grip-vertical"></i></button>
-            <button class="control-btn edit-btn" title="Edit text content" onclick="toggleEditCard(this)"><i data-lucide="edit-3"></i></button>
-            <button class="control-btn hide-btn" title="Hide this panel" onclick="hideCard(this)"><i data-lucide="eye-off"></i></button>
-          </div>
+        <div class="stat-card" id="stat-card-leaves">
           <div class="stat-icon orange">
             <i data-lucide="calendar"></i>
           </div>
@@ -137,12 +127,7 @@
             <p class="stat-value" id="stat-approved-leaves">0</p>
           </div>
         </div>
-        <div class="stat-card" id="stat-card-lop" draggable="true">
-          <div class="card-controls">
-            <button class="control-btn drag-btn" title="Drag to reorder"><i data-lucide="grip-vertical"></i></button>
-            <button class="control-btn edit-btn" title="Edit text content" onclick="toggleEditCard(this)"><i data-lucide="edit-3"></i></button>
-            <button class="control-btn hide-btn" title="Hide this panel" onclick="hideCard(this)"><i data-lucide="eye-off"></i></button>
-          </div>
+        <div class="stat-card" id="stat-card-lop">
           <div class="stat-icon rose">
             <i data-lucide="alert-triangle"></i>
           </div>
@@ -151,12 +136,7 @@
             <p class="stat-value" id="stat-lop-days">0</p>
           </div>
         </div>
-        <div class="stat-card" id="stat-card-late" draggable="true">
-          <div class="card-controls">
-            <button class="control-btn drag-btn" title="Drag to reorder"><i data-lucide="grip-vertical"></i></button>
-            <button class="control-btn edit-btn" title="Edit text content" onclick="toggleEditCard(this)"><i data-lucide="edit-3"></i></button>
-            <button class="control-btn hide-btn" title="Hide this panel" onclick="hideCard(this)"><i data-lucide="eye-off"></i></button>
-          </div>
+        <div class="stat-card" id="stat-card-late">
           <div class="stat-icon emerald">
             <i data-lucide="clock"></i>
           </div>
@@ -168,12 +148,7 @@
       </div>
 
       <div id="dashboard-main-content">
-        <div class="glass-card" id="card-sync-overview" draggable="true">
-          <div class="card-controls">
-            <button class="control-btn drag-btn" title="Drag to reorder"><i data-lucide="grip-vertical"></i></button>
-            <button class="control-btn edit-btn" title="Edit text content" onclick="toggleEditCard(this)"><i data-lucide="edit-3"></i></button>
-            <button class="control-btn hide-btn" title="Hide this panel" onclick="hideCard(this)"><i data-lucide="eye-off"></i></button>
-          </div>
+        <div class="glass-card" id="card-sync-overview">
           <h3 class="glass-card-title">
             <i data-lucide="activity"></i>
             <span>System Synchronization Overview</span>
@@ -191,12 +166,7 @@
           </div>
         </div>
 
-        <div class="glass-card" id="card-salary-instructions" draggable="true">
-          <div class="card-controls">
-            <button class="control-btn drag-btn" title="Drag to reorder"><i data-lucide="grip-vertical"></i></button>
-            <button class="control-btn edit-btn" title="Edit text content" onclick="toggleEditCard(this)"><i data-lucide="edit-3"></i></button>
-            <button class="control-btn hide-btn" title="Hide this panel" onclick="hideCard(this)"><i data-lucide="eye-off"></i></button>
-          </div>
+        <div class="glass-card" id="card-salary-instructions">
           <h3 class="glass-card-title">
             <i data-lucide="shield-check"></i>
             <span>Salary Spreadsheet Instructions</span>
@@ -1281,25 +1251,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Layout Manager Toggle Widget -->
-  <button id="layout-manager-toggle" onclick="toggleLayoutManager()" title="Customize Dashboard Layout">
-    <i data-lucide="layout-template"></i>
-    <span>Customize Layout</span>
-  </button>
-  
-  <div id="layout-manager-modal" class="layout-modal">
-    <div class="layout-modal-header">
-      <h4>Dashboard Panels</h4>
-      <button onclick="toggleLayoutManager()">&times;</button>
-    </div>
-    <div class="layout-modal-body" id="layout-manager-list">
-      <!-- Checked rows dynamically populated on init -->
-    </div>
-    <div class="layout-modal-footer">
-      <button class="btn btn-secondary" onclick="resetLayout()" style="font-size:11px; padding:6px 12px;">Reset Default</button>
-    </div>
-  </div>
 
   <!-- Toast Container -->
   <div id="toast-container"></div>

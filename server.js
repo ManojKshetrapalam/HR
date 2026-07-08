@@ -1309,7 +1309,10 @@ app.get('/api/settings', (req, res) => {
     colorPreset: "purple",
     employeeLayout: "cards",
     themeMode: "light",
-    designDirection: "glass"
+    designDirection: "glass",
+    cardOrder: ["stat-card-employees", "stat-card-leaves", "stat-card-lop", "stat-card-late", "card-sync-overview", "card-salary-instructions"],
+    hiddenCards: [],
+    cardTexts: {}
   };
   const settings = readJSON(PATHS.settings, defaultSettings);
   res.json(settings);
@@ -1344,7 +1347,10 @@ app.post('/api/settings', (req, res) => {
     colorPreset,
     employeeLayout,
     themeMode,
-    designDirection
+    designDirection,
+    cardOrder,
+    hiddenCards,
+    cardTexts
   } = req.body;
 
   if (!companyName || !supportPhone || !supportEmail || !gracePeriod || lateDeduction === undefined) {
@@ -1361,7 +1367,10 @@ app.post('/api/settings', (req, res) => {
     colorPreset: colorPreset || "purple",
     employeeLayout: employeeLayout || "cards",
     themeMode: themeMode || "light",
-    designDirection: designDirection || "glass"
+    designDirection: designDirection || "glass",
+    cardOrder: cardOrder || ["stat-card-employees", "stat-card-leaves", "stat-card-lop", "stat-card-late", "card-sync-overview", "card-salary-instructions"],
+    hiddenCards: hiddenCards || [],
+    cardTexts: cardTexts || {}
   };
 
   writeJSON(PATHS.settings, updatedSettings);

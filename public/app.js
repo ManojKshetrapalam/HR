@@ -31,12 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Setup drag-and-drop listeners for the salary upload zone
   setupDragAndDrop();
   
-  // Restore customized layout text edits, card order, and visibility
-  restoreLayoutOrder();
-  restorePanelVisibilities();
-  restoreCardTexts();
-  initDragAndDrop();
-  
   // Fetch initial status and data
   refreshAllData();
 
@@ -115,6 +109,9 @@ async function fetchSettings() {
     document.documentElement.style.setProperty('--primary-hover', preset.hover);
     document.documentElement.style.setProperty('--primary-light', preset.light);
     document.documentElement.style.setProperty('--sidebar-bg', preset.sidebar);
+
+    // Apply layout reordering, visibility, and title configurations from CMS
+    applySettingsLayout(data);
   } catch (err) {
     console.error("Error fetching settings:", err);
   }
@@ -2494,246 +2491,66 @@ function clearLogFilters() {
   renderLogsTable(_cachedLogs);
 }
 
-// DASHBOARD INTERACTIVE CUSTOMIZATION FUNCTIONS
 
-// 1. Drag & Drop Reordering Controller
-function initDragAndDrop() {
-  const containers = [
-    document.querySelector('.stats-grid'),
-    document.querySelector('#dashboard-main-content')
-  ];
+
+// APPLY SERVER-CONFIGURED DASHBOARD LAYOUT & TEXT CONFIGURATIONS
+function applySettingsLayout(settings) {
+  if (!settings) return;
   
-  containers.forEach(container => {
-    if (!container) return;
-    
-    let draggedItem = null;
-    
-    container.addEventListener('dragstart', (e) => {
-      const card = e.target.closest('.glass-card') || e.target.closest('.stat-card');
-      if (card) {
-        draggedItem = card;
-        setTimeout(() => { card.style.opacity = '0.5'; }, 0);
-      }
-    });
-    
-    container.addEventListener('dragend', (e) => {
-      if (draggedItem) {
-        draggedItem.style.opacity = '';
-        draggedItem = null;
-        saveLayoutOrder();
-      }
-    });
-    
-    container.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      const draggable = draggedItem;
-      if (draggable && draggable.parentElement === container) {
-        const afterElement = getDragAfterElement(container, e.clientY);
-        if (afterElement == null) {
-          container.appendChild(draggable);
-        } else {
-          container.insertBefore(draggable, afterElement);
-        }
-      }
-    });
-  });
-}
+  const defaultCards = ["stat-card-employees", "stat-card-leaves", "stat-card-lop", "stat-card-late", "card-sync-overview", "card-salary-instructions"];
+  const cardOrder = settings.cardOrder || defaultCards;
+  const hiddenCards = settings.hiddenCards || [];
+  const cardTexts = settings.cardTexts || {};
 
-function getDragAfterElement(container, y) {
-  const draggableElements = [...container.querySelectorAll('.glass-card:not([style*="opacity: 0.5"]), .stat-card:not([style*="opacity: 0.5"])')];
-  
-  return draggableElements.reduce((closest, child) => {
-    const box = child.getBoundingClientRect();
-    const offset = y - box.top - box.height / 2;
-    if (offset < 0 && offset > closest.offset) {
-      return { offset: offset, element: child };
-    } else {
-      return closest;
-    }
-  }, { offset: Number.NEGATIVE_INFINITY }).element;
-}
-
-function saveLayoutOrder() {
-  const statCardsOrder = [...document.querySelectorAll('.stats-grid .stat-card')].map(el => el.id);
-  const mainCardsOrder = [...document.querySelectorAll('#dashboard-main-content .glass-card')].map(el => el.id);
-  localStorage.setItem('statCardsOrder', JSON.stringify(statCardsOrder));
-  localStorage.setItem('mainCardsOrder', JSON.stringify(mainCardsOrder));
-}
-
-function restoreLayoutOrder() {
+  // 1. Reorder stat cards in .stats-grid & glass cards in #dashboard-main-content
   const statsContainer = document.querySelector('.stats-grid');
   const mainContainer = document.getElementById('dashboard-main-content');
   
-  const statOrder = JSON.parse(localStorage.getItem('statCardsOrder'));
-  const mainOrder = JSON.parse(localStorage.getItem('mainCardsOrder'));
-  
-  if (statOrder && statsContainer) {
-    statOrder.forEach(id => {
+  if (statsContainer && mainContainer) {
+    cardOrder.forEach(id => {
       const el = document.getElementById(id);
-      if (el) statsContainer.appendChild(el);
-    });
-  }
-  
-  if (mainOrder && mainContainer) {
-    mainOrder.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) mainContainer.appendChild(el);
-    });
-  }
-}
-
-// 2. Inline Text Editing
-function toggleEditCard(btn) {
-  const card = btn.closest('.glass-card') || btn.closest('.stat-card');
-  if (!card) return;
-  
-  const editableElements = card.querySelectorAll('h3 span, p, li, .stat-label');
-  const isEditing = btn.classList.contains('editing');
-  
-  if (!isEditing) {
-    btn.classList.add('editing');
-    btn.innerHTML = `<i data-lucide="check" style="width:14px; height:14px;"></i>`;
-    btn.style.color = 'var(--success)';
-    editableElements.forEach(el => {
-      el.contentEditable = 'true';
-      el.style.outline = '2px dashed var(--primary)';
-      el.style.outlineOffset = '2px';
-      el.style.borderRadius = '4px';
-    });
-  } else {
-    btn.classList.remove('editing');
-    btn.innerHTML = `<i data-lucide="edit-3" style="width:14px; height:14px;"></i>`;
-    btn.style.color = '';
-    editableElements.forEach(el => {
-      el.contentEditable = 'false';
-      el.style.outline = 'none';
-    });
-    saveCardTexts(card);
-    showToast('Card text content saved successfully!', 'success');
-  }
-  lucide.createIcons();
-}
-
-function saveCardTexts(card) {
-  const cardId = card.id;
-  if (!cardId) return;
-  
-  const textData = {};
-  card.querySelectorAll('h3 span, p, li, .stat-label').forEach((el, index) => {
-    textData[index] = el.innerHTML;
-  });
-  
-  const savedTexts = JSON.parse(localStorage.getItem('cardTexts') || '{}');
-  savedTexts[cardId] = textData;
-  localStorage.setItem('cardTexts', JSON.stringify(savedTexts));
-}
-
-function restoreCardTexts() {
-  const savedTexts = JSON.parse(localStorage.getItem('cardTexts') || '{}');
-  Object.entries(savedTexts).forEach(([cardId, textData]) => {
-    const card = document.getElementById(cardId);
-    if (card) {
-      card.querySelectorAll('h3 span, p, li, .stat-label').forEach((el, index) => {
-        if (textData[index] !== undefined) {
-          el.innerHTML = textData[index];
+      if (el) {
+        if (id.startsWith('stat-card-')) {
+          statsContainer.appendChild(el);
+        } else {
+          mainContainer.appendChild(el);
         }
-      });
+      }
+    });
+  }
+
+  // 2. Set visibility (display show/hide)
+  defaultCards.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (hiddenCards.includes(id)) {
+        el.style.display = 'none';
+      } else {
+        el.style.display = '';
+      }
+    }
+  });
+
+  // 3. Set text overrides
+  defaultCards.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (cardTexts[id]) {
+        let titleVal = '';
+        if (typeof cardTexts[id] === 'string') {
+          titleVal = cardTexts[id];
+        } else if (cardTexts[id]["0"] !== undefined) {
+          titleVal = cardTexts[id]["0"];
+        }
+        
+        if (titleVal) {
+          const labelEl = el.querySelector('.stat-label') || el.querySelector('.glass-card-title span');
+          if (labelEl) {
+            labelEl.textContent = titleVal;
+          }
+        }
+      }
     }
   });
 }
 
-// 3. Card Show / Hide & Visibility Manager
-function hideCard(btn) {
-  const card = btn.closest('.glass-card') || btn.closest('.stat-card');
-  if (!card || !card.id) return;
-  
-  card.style.display = 'none';
-  
-  const hiddenCards = JSON.parse(localStorage.getItem('hiddenCards') || '[]');
-  if (!hiddenCards.includes(card.id)) {
-    hiddenCards.push(card.id);
-  }
-  localStorage.setItem('hiddenCards', JSON.stringify(hiddenCards));
-  
-  populateLayoutManagerList();
-  showToast(`Panel "${getCardName(card)}" hidden. Customize Layout to restore.`, 'info');
-}
-
-function getCardName(card) {
-  const titleEl = card.querySelector('h3 span') || card.querySelector('.stat-label');
-  return titleEl ? titleEl.innerText : card.id;
-}
-
-function toggleLayoutManager() {
-  const modal = document.getElementById('layout-manager-modal');
-  if (modal) {
-    modal.classList.toggle('active');
-    populateLayoutManagerList();
-  }
-}
-
-function populateLayoutManagerList() {
-  const listContainer = document.getElementById('layout-manager-list');
-  if (!listContainer) return;
-  
-  const allCards = [
-    { id: 'stat-card-employees', name: 'KPI: Total Employees' },
-    { id: 'stat-card-leaves', name: 'KPI: Approved Leaves' },
-    { id: 'stat-card-lop', name: 'KPI: Total LOP Days' },
-    { id: 'stat-card-late', name: 'KPI: Late Marks' },
-    { id: 'card-sync-overview', name: 'Panel: System Sync Overview' },
-    { id: 'card-salary-instructions', name: 'Panel: Salary Spreadsheet Instructions' }
-  ];
-  
-  const hiddenCards = JSON.parse(localStorage.getItem('hiddenCards') || '[]');
-  
-  listContainer.innerHTML = '';
-  
-  allCards.forEach(card => {
-    const isVisible = !hiddenCards.includes(card.id);
-    const row = document.createElement('div');
-    row.className = 'layout-item-row';
-    row.innerHTML = `
-      <label for="chk-vis-${card.id}">${card.name}</label>
-      <input type="checkbox" id="chk-vis-${card.id}" ${isVisible ? 'checked' : ''} onchange="togglePanelVisibility(this, '${card.id}')">
-    `;
-    listContainer.appendChild(row);
-  });
-}
-
-function togglePanelVisibility(checkbox, panelId) {
-  const card = document.getElementById(panelId);
-  const hiddenCards = JSON.parse(localStorage.getItem('hiddenCards') || '[]');
-  
-  if (checkbox.checked) {
-    if (card) card.style.display = '';
-    const index = hiddenCards.indexOf(panelId);
-    if (index > -1) hiddenCards.splice(index, 1);
-  } else {
-    if (card) card.style.display = 'none';
-    if (!hiddenCards.includes(panelId)) hiddenCards.push(panelId);
-  }
-  
-  localStorage.setItem('hiddenCards', JSON.stringify(hiddenCards));
-  populateLayoutManagerList();
-}
-
-function restorePanelVisibilities() {
-  const hiddenCards = JSON.parse(localStorage.getItem('hiddenCards') || '[]');
-  hiddenCards.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.style.display = 'none';
-  });
-}
-
-function resetLayout() {
-  localStorage.removeItem('statCardsOrder');
-  localStorage.removeItem('mainCardsOrder');
-  localStorage.removeItem('hiddenCards');
-  localStorage.removeItem('cardTexts');
-  
-  showToast('Resetting layout settings. Reloading page...', 'info');
-  setTimeout(() => {
-    window.location.reload();
-  }, 1000);
-}
