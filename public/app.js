@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Fetch initial status and data
   refreshAllData();
+
+  // Refresh status periodically every 60 seconds (for live biometric status updates)
+  setInterval(fetchStatus, 60000);
 });
 
 // Refresh all data from server
@@ -62,6 +65,24 @@ async function fetchStatus() {
       statusText.innerHTML = `Last Synced: <b>${date.toLocaleDateString()} ${date.toLocaleTimeString()}</b>`;
     } else {
       statusText.innerHTML = "<b>Not Synced Yet</b>";
+    }
+
+    // Update Biometric Status in sidebar
+    const bioDot = document.getElementById("biometric-status-dot");
+    const bioText = document.getElementById("biometric-status-text");
+    if (bioDot && bioText && data.biometric) {
+      const isOnline = data.biometric.status === 'online';
+      bioDot.style.backgroundColor = isOnline ? '#10b981' : '#ef4444';
+      bioDot.style.boxShadow = isOnline ? '0 0 8px #10b981' : '0 0 8px #ef4444';
+      
+      let label = isOnline ? 'Biometric: Online' : 'Biometric: Offline';
+      if (data.biometric.lastSyncTime) {
+        const lastSyncDate = new Date(data.biometric.lastSyncTime);
+        const timeStr = lastSyncDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        label += ` (${timeStr})`;
+      }
+      bioText.textContent = label;
+      bioText.title = data.biometric.lastSyncTime ? `Last Sync: ${new Date(data.biometric.lastSyncTime).toLocaleString()}` : 'No successful sync yet';
     }
   } catch (err) {
     showToast("Failed to fetch system status.", "error");

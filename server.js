@@ -286,6 +286,32 @@ app.get('/api/status', (req, res) => {
       status[key] = { exists: false };
     }
   }
+
+  // Load biometric status
+  const bioStatusFile = path.join(DATA_DIR, 'biometric_status.json');
+  let bioStatus = { status: 'offline', lastSyncTime: null, mode: process.env.BIOMETRIC_SYNC_MODE || 'direct' };
+  if (fs.existsSync(bioStatusFile)) {
+    try {
+      const saved = readJSON(bioStatusFile);
+      bioStatus = { ...bioStatus, ...saved };
+      
+      // If in push mode, check if the last sync was within the threshold (75 minutes)
+      if (bioStatus.mode === 'push' && bioStatus.lastSyncTime) {
+        const lastSync = new Date(bioStatus.lastSyncTime);
+        const diffMs = new Date() - lastSync;
+        const diffMins = diffMs / 1000 / 60;
+        if (diffMins > 75) {
+          bioStatus.status = 'offline';
+        } else {
+          bioStatus.status = 'online';
+        }
+      }
+    } catch (e) {
+      // Ignored
+    }
+  }
+  status.biometric = bioStatus;
+
   res.json(status);
 });
 
@@ -571,6 +597,12 @@ app.post('/api/sync', async (req, res) => {
       const combinedAttendance = [...lopAttendance, ...existingBiometricOtherMonths, ...biometricLateRecords];
       writeJSON(PATHS.attendance, combinedAttendance);
       
+      writeJSON(path.join(DATA_DIR, 'biometric_status.json'), {
+        lastSyncTime: new Date().toISOString(),
+        status: "online",
+        mode: "direct"
+      });
+      
     } catch (etErr) {
       console.error('Biometric sync failed, falling back to local checkins and portal attendance:', etErr);
       
@@ -647,6 +679,18 @@ app.post('/api/sync', async (req, res) => {
       
       const combinedAttendance = [...lopAttendance, ...existingBiometricOtherMonths, ...fallbackBiometricRecords];
       writeJSON(PATHS.attendance, combinedAttendance);
+      
+      try {
+        const bioStatusFile = path.join(DATA_DIR, 'biometric_status.json');
+        const currentStatus = fs.existsSync(bioStatusFile) ? readJSON(bioStatusFile) : {};
+        writeJSON(bioStatusFile, {
+          lastSyncTime: currentStatus.lastSyncTime || null,
+          status: "offline",
+          mode: "direct"
+        });
+      } catch (e) {
+        // Ignored
+      }
       
       biometricLateCount = fallbackBiometricRecords.length;
     }
@@ -862,6 +906,12 @@ app.post('/api/sync/biometric', async (req, res) => {
     );
     writeJSON(PATHS.attendance, [...lopAttendance, ...existingBiometricOtherMonths, ...biometricLateRecords]);
 
+    writeJSON(path.join(DATA_DIR, 'biometric_status.json'), {
+      lastSyncTime: new Date().toISOString(),
+      status: "online",
+      mode: "direct"
+    });
+
   } catch (etErr) {
     // ZKTeco unreachable — reconstruct from local checkins for the selected month
     console.error('Biometric Sync: ZKTeco unreachable, rebuilding from local checkins:', etErr.message);
@@ -929,6 +979,18 @@ app.post('/api/sync/biometric', async (req, res) => {
       !r.data.date.startsWith(selectedMonth)
     );
     writeJSON(PATHS.attendance, [...lopAttendance, ...existingBiometricOtherMonths, ...fallbackRecords]);
+
+    try {
+      const bioStatusFile = path.join(DATA_DIR, 'biometric_status.json');
+      const currentStatus = fs.existsSync(bioStatusFile) ? readJSON(bioStatusFile) : {};
+      writeJSON(bioStatusFile, {
+        lastSyncTime: currentStatus.lastSyncTime || null,
+        status: "offline",
+        mode: "direct"
+      });
+    } catch (e) {
+      // Ignored
+    }
   }
 
   res.json({
@@ -1081,6 +1143,12 @@ app.post('/api/sync/biometric-push', (req, res) => {
       !r.data.date.startsWith(selectedMonth)
     );
     writeJSON(PATHS.attendance, [...lopAttendance, ...existingBiometricOtherMonths, ...biometricLateRecords]);
+
+    writeJSON(path.join(DATA_DIR, 'biometric_status.json'), {
+      lastSyncTime: new Date().toISOString(),
+      status: "online",
+      mode: "push"
+    });
 
     res.json({
       success: true,
