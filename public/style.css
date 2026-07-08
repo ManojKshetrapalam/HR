@@ -1340,7 +1340,31 @@ body.brutalist-theme .btn:hover {
 
 /* 3. Soft Depth / Glassmorphic Theme */
 body.glass-theme {
-  /* Retains default styles */
+  background: radial-gradient(circle at 10% 20%, rgba(243, 232, 255, 0.45) 0%, rgba(224, 231, 255, 0.25) 50%, rgba(255, 255, 255, 1) 90%) !important;
+}
+body.glass-theme.dark-theme {
+  background: radial-gradient(circle at 0% 0%, rgba(121, 19, 176, 0.15) 0%, transparent 40%),
+              radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+              radial-gradient(circle at 50% 100%, rgba(217, 70, 239, 0.08) 0%, transparent 50%),
+              #0d091a !important;
+}
+body.glass-theme .glass-card,
+body.glass-theme .employee-card,
+body.glass-theme .sidebar {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(25px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 10px 40px -10px rgba(121, 19, 176, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+body.glass-theme.dark-theme .glass-card,
+body.glass-theme.dark-theme .employee-card,
+body.glass-theme.dark-theme .sidebar {
+  background: rgba(20, 16, 36, 0.45) !important;
+  backdrop-filter: blur(25px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.08) !important;
 }
 
 /* 4. Bold Gradients Theme */

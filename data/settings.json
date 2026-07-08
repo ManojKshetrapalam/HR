@@ -5,7 +5,7 @@
   "gracePeriod": "09:30:00",
   "lateDeduction": 250,
   "navLayout": "sidebar",
-  "colorPreset": "purple",
+  "colorPreset": "rose",
   "employeeLayout": "cards",
   "themeMode": "light",
   "designDirection": "glass"
