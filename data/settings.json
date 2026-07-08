@@ -4,9 +4,9 @@
   "supportEmail": "hello@varietyvintage.com",
   "gracePeriod": "09:30:00",
   "lateDeduction": 250,
-  "navLayout": "sidebar",
-  "colorPreset": "rose",
-  "employeeLayout": "cards",
-  "themeMode": "light",
-  "designDirection": "glass"
+  "navLayout": "topbar",
+  "colorPreset": "green",
+  "employeeLayout": "table",
+  "themeMode": "dark",
+  "designDirection": "gradient"
 }

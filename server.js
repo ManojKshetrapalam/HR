@@ -725,6 +725,99 @@ app.post('/api/sync', async (req, res) => {
       biometricLateCount = fallbackBiometricRecords.length;
     }
 
+    // Extract and save performance KPI history from the already-parsed employees
+    // The portal embeds KPI data inside each employee's `kpis` array on the employees page
+    console.log('Sync: Extracting performance KPI history from employee data...');
+    try {
+      const MONTH_MAP = { Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06', Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12' };
+      const parsedReports = [];
+      
+      employees.forEach(emp => {
+        const kpis = emp.kpis || [];
+        kpis.forEach(kpi => {
+          const monthNum = MONTH_MAP[kpi.month] || '01';
+          const period = `${kpi.year}-${monthNum}`;
+          
+          // Parse the tasks JSON to extract Buy Lead and IPM targets
+          let buyLeadTarget = 0, buyLeadAchieved = 0, buyLeadWeight = 0;
+          let ipmTarget = 0, ipmAchieved = 0, ipmWeight = 0;
+          let tasksList = [];
+          try {
+            tasksList = typeof kpi.tasks === 'string' ? JSON.parse(kpi.tasks) : (kpi.tasks || []);
+            if (Array.isArray(tasksList)) {
+              tasksList.forEach(t => {
+                const label = (t.label || '').toLowerCase();
+                if (label.includes('buy lead') || label.includes('buylead')) {
+                  buyLeadTarget = t.target || 0;
+                  buyLeadAchieved = t.achieved || 0;
+                  buyLeadWeight = t.weight || 0;
+                } else if (label.includes('ipm')) {
+                  ipmTarget = t.target || 0;
+                  ipmAchieved = t.achieved || 0;
+                  ipmWeight = t.weight || 0;
+                }
+              });
+            }
+          } catch (_) {}
+          
+          parsedReports.push({
+            id: kpi.id,
+            user_id: kpi.user_id || emp.id,
+            employeeId: kpi.user_id || emp.id,
+            period: period,
+            overall_score: kpi.total_score || 0,
+            attendance_score: kpi.attendance || 0,
+            teamwork_score: kpi.teamwork || 0,
+            initiative_score: kpi.initiative || 0,
+            quality_score: kpi.quality || 0,
+            buy_lead_target: buyLeadTarget,
+            buy_lead_achieved: buyLeadAchieved,
+            buy_lead_weight: buyLeadWeight,
+            ipm_target: ipmTarget,
+            ipm_achieved: ipmAchieved,
+            ipm_weight: ipmWeight,
+            tasks: typeof kpi.tasks === 'string' ? kpi.tasks : JSON.stringify(tasksList),
+            tasks_completed: kpi.tasks_completed || 0,
+            revenue_target: kpi.revenue_target,
+            revenue_achieved: kpi.revenue_achieved,
+            notes: kpi.notes,
+            audit_date: kpi.created_at,
+            created_at: kpi.created_at,
+            updated_at: kpi.updated_at,
+            is_verified: true,
+            source: 'portal_sync'
+          });
+        });
+      });
+      
+      if (parsedReports.length > 0) {
+        // Merge with existing local reports (manual entries), portal data takes priority
+        const localReports = readJSON(PATHS.performance, []);
+        const mergedMap = new Map();
+        
+        // Add local (manually-added) reports first
+        localReports.forEach(r => {
+          if (r.source !== 'portal_sync') {
+            const key = `${r.user_id}_${r.period}`;
+            mergedMap.set(key, r);
+          }
+        });
+        
+        // Overwrite with portal-synced reports
+        parsedReports.forEach(r => {
+          const key = `${r.user_id}_${r.period}`;
+          mergedMap.set(key, r);
+        });
+        
+        writeJSON(PATHS.performance, Array.from(mergedMap.values()));
+        console.log(`Sync: Extracted and saved ${parsedReports.length} performance KPI reports from ${employees.length} employees.`);
+      } else {
+        console.log('Sync: No performance KPI data found in employee records.');
+      }
+    } catch (err) {
+      console.error('Sync: Failed to extract performance history:', err.message);
+    }
+
     res.json({
       success: true,
       summary: {
@@ -1552,90 +1645,24 @@ app.post('/api/logs', (req, res) => {
   res.json({ success: true });
 });
 
-// 13. Proxy: fetch employee performance history from varietyvintage portal
+// 13. Fetch employee performance history from local synced data
 app.post('/api/performance-history', async (req, res) => {
-  const { username, password, employeeId } = req.body;
-  const u = username || 'admin';
-  const p = password || 'admin';
+  const { employeeId } = req.body;
 
-  let portalReports = [];
-  try {
-    const mainUrl = 'https://varietyvintage.com/employee';
-    const loginUrl = 'https://varietyvintage.com/employee/login';
-
-    const initRes = await fetch(mainUrl);
-    const initHtml = await initRes.text();
-    const cookieHdrs = initRes.headers.getSetCookie();
-    const cookies = cookieHdrs.map(c => c.split(';')[0]).join('; ');
-    const tokenMatch = initHtml.match(/name="_token"\s+value="([^"]+)"/);
-    if (!tokenMatch) throw new Error('CSRF token not found');
-
-    const loginRes = await fetch(loginUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Cookie': cookies, 'Referer': mainUrl },
-      body: new URLSearchParams({ _token: tokenMatch[1], username: u, password: p }),
-      redirect: 'manual'
-    });
-    if (loginRes.status !== 302) throw new Error('Portal authentication failed');
-
-    const loginCookies = loginRes.headers.getSetCookie();
-    const cookieMap = new Map();
-    cookies.split('; ').forEach(c => { const [k, v] = c.split('='); if (k && v) cookieMap.set(k, v); });
-    loginCookies.forEach(c => { const [k, v] = c.split(';')[0].split('='); if (k && v) cookieMap.set(k, v); });
-    const authCookies = [...cookieMap.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
-
-    // Fetch logs page that has performance history
-    const logsRes = await fetch(`https://varietyvintage.com/employee/admin/logs?user_id=${employeeId || ''}`, {
-      headers: { 'Cookie': authCookies }
-    });
-    const logsHtml = await logsRes.text();
-
-    // Extract performance report cards from the HTML
-    const reportRegex = /openPerformanceReportModal\((\{[\s\S]*?\})\)/g;
-    let m;
-    const seen = new Set();
-    while ((m = reportRegex.exec(logsHtml)) !== null) {
-      try {
-        const obj = JSON.parse(decodeEntities(m[1]));
-        if (obj && obj.id && !seen.has(obj.id)) {
-          seen.add(obj.id);
-          portalReports.push(obj);
-        }
-      } catch (_) {}
-    }
-  } catch (err) {
-    console.error('Portal performance history fetch failed, using local fallback:', err.message);
-  }
-
-  // Load and merge local reports
   try {
     const localReports = readJSON(PATHS.performance, []);
-    const filteredLocal = localReports.filter(r => r.user_id == employeeId);
+    const filteredReports = localReports.filter(r => r.user_id == employeeId);
     
-    // Merge: We prioritize local reports over portal ones if they are for the same period.
-    const mergedMap = new Map();
-    // 1. Add portal reports first
-    portalReports.forEach(r => {
-      const period = r.period || r.month || '';
-      if (period) mergedMap.set(period, r);
-    });
-    // 2. Add local reports (will overwrite portal reports for the same period)
-    filteredLocal.forEach(r => {
-      const period = r.period;
-      if (period) mergedMap.set(period, r);
-    });
-
-    const mergedReports = Array.from(mergedMap.values());
     // Sort reports by period descending (newest first)
-    mergedReports.sort((a, b) => {
-      const ap = a.period || a.month || '';
-      const bp = b.period || b.month || '';
+    filteredReports.sort((a, b) => {
+      const ap = a.period || '';
+      const bp = b.period || '';
       return bp.localeCompare(ap);
     });
 
-    res.json({ success: true, reports: mergedReports });
+    res.json({ success: true, reports: filteredReports });
   } catch (err) {
-    console.error('Error merging performance history:', err.message);
+    console.error('Error reading performance history:', err.message);
     res.status(500).json({ success: false, error: err.message });
   }
 });
