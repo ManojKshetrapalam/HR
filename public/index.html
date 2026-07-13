@@ -396,6 +396,11 @@
             </select>
           </div>
 
+          <div class="input-group" style="margin-bottom: 20px;">
+            <span class="input-label">Incentives (₹)</span>
+            <input type="number" id="payslip-incentive" class="form-control" placeholder="Enter incentive amount..." min="0" value="0" oninput="generatePayslipPreview()">
+          </div>
+
           <!-- Zero out options -->
           <div style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px; background: rgba(121, 19, 176, 0.04); padding: 12px; border-radius: 8px; border: 1px dashed rgba(121, 19, 176, 0.15);">
             <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--slate-700); cursor: pointer; user-select: none;">
@@ -450,6 +455,10 @@
                 <div class="payslip-line-item">
                   <span class="payslip-line-lbl">Other Allow</span>
                   <span class="payslip-line-val" id="ps-earn-allowance">₹0</span>
+                </div>
+                <div class="payslip-line-item">
+                  <span class="payslip-line-lbl">Incentives</span>
+                  <span class="payslip-line-val" id="ps-earn-incentive">₹0</span>
                 </div>
                 <div class="payslip-total-row">
                   <span>Gross Earnings</span>

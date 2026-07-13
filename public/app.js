@@ -1118,10 +1118,12 @@ function generatePayslipPreview() {
   const pt = salaryConfig.pt || 0;
   const it = salaryConfig.it || 0;
   
-  const grossEarnings = basicDA + hra + otherAllow;
+  const grossBase = basicDA + hra + otherAllow;
+  const incentive = parseFloat(document.getElementById("payslip-incentive")?.value) || 0;
+  const grossEarnings = grossBase + incentive;
   
-  // Daily rate for LOP deduction (Gross / calendar days in selected month)
-  const dailyRate = grossEarnings > 0 ? (grossEarnings / daysInMonth) : 0;
+  // Daily rate for LOP deduction (Base Gross / calendar days in selected month)
+  const dailyRate = grossBase > 0 ? (grossBase / daysInMonth) : 0;
   
   // 2. Count late marks for employee in target month
   const zeroLate = document.getElementById("zero-late")?.checked || false;
@@ -1170,6 +1172,7 @@ function generatePayslipPreview() {
   document.getElementById("ps-earn-basic").textContent = `₹${basicDA.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
   document.getElementById("ps-earn-hra").textContent = `₹${hra.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
   document.getElementById("ps-earn-allowance").textContent = `₹${otherAllow.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+  document.getElementById("ps-earn-incentive").textContent = `₹${incentive.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
   document.getElementById("ps-earn-gross").textContent = `₹${grossEarnings.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
   
   // Deductions
@@ -1198,6 +1201,7 @@ function clearPayslipPreview() {
   document.getElementById("ps-earn-basic").textContent = "₹0.00";
   document.getElementById("ps-earn-hra").textContent = "₹0.00";
   document.getElementById("ps-earn-allowance").textContent = "₹0.00";
+  document.getElementById("ps-earn-incentive").textContent = "₹0.00";
   document.getElementById("ps-earn-gross").textContent = "₹0.00";
   
   document.getElementById("ps-ded-pf").textContent = "₹0.00";
@@ -1215,6 +1219,9 @@ function clearPayslipPreview() {
   if (zeroLopInput) zeroLopInput.checked = false;
   const zeroLateInput = document.getElementById("zero-late");
   if (zeroLateInput) zeroLateInput.checked = false;
+  
+  const incentiveInput = document.getElementById("payslip-incentive");
+  if (incentiveInput) incentiveInput.value = 0;
 }
 
 // Toast System Notification popup
